@@ -1,0 +1,3214 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LAB301 — Технологии роста для бизнеса</title>
+  <meta name="description" content="LAB301 — разрабатываем сайты, автоматизируем процессы и помогаем бизнесу расти. Михалыч ответит за 5 минут." />
+  <meta name="theme-color" content="#050505" />
+  <link rel="canonical" href="https://lab301.ru" />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="LAB301 — Технологии роста для бизнеса" />
+  <meta property="og:description" content="Разрабатываем сайты, автоматизируем процессы и помогаем бизнесу расти." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://lab301.ru" />
+  <meta property="og:image" content="https://lab301.ru/og.webp" />
+  <meta property="og:locale" content="ru_RU" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700;900&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="preload" as="image" href="ai_assistant_main.webp" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": ["Organization","LocalBusiness"],
+    "name": "LAB301",
+    "url": "https://lab301.ru",
+    "telephone": "+79996708772",
+    "email": "lab.301@ya.ru",
+    "description": "Разработка сайтов, AI-автоматизация, digital-продвижение и дизайн для бизнеса",
+    "areaServed": "Russia",
+    "priceRange": "₽₽",
+    "sameAs": ["https://t.me/yuriybyg"],
+    "contactPoint": { "@type": "ContactPoint", "contactType": "sales", "availableLanguage": "Russian" }
+  }
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #050505;
+      --surface: #0e0e10;
+      --surface2: #16161a;
+      --accent: #6366f1;
+      --accent2: #a855f7;
+      --cyan: #06b6d4;
+      --cyan2: #22d3ee;
+      --grad: linear-gradient(135deg, #06b6d4, #a855f7);
+      --grad-cyan: linear-gradient(135deg, #06b6d4, #22d3ee);
+      --grad-purple: linear-gradient(135deg, #a855f7, #6366f1);
+      --grad-brand: linear-gradient(90deg, #a855f7 0%, #c084fc 40%, #22d3ee 60%, #06b6d4 100%);
+      --grad-title: linear-gradient(90deg, #c084fc 0%, #a855f7 30%, #6366f1 55%, #22d3ee 100%);
+      --text: #ffffff;
+      --muted: #8a8a92;
+      --border: rgba(255,255,255,0.08);
+      --font-display: 'Unbounded', sans-serif;
+      --font-body: 'Manrope', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* CLEAN BACKGROUND GLOW (no noise) */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 50% at 20% 0%, rgba(168,85,247,0.10), transparent 60%),
+        radial-gradient(ellipse 70% 50% at 80% 100%, rgba(6,182,212,0.10), transparent 60%),
+        radial-gradient(ellipse 60% 40% at 50% 50%, rgba(99,102,241,0.05), transparent 60%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 0 2rem;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: background 0.3s, backdrop-filter 0.3s, border-bottom 0.3s;
+    }
+    nav.scrolled {
+      background: rgba(8,8,8,0.7);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: 1.5rem;
+      letter-spacing: -0.04em;
+      text-decoration: none;
+      color: #fff;
+      background: none;
+      display: inline-flex;
+      align-items: center;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--text); }
+    .btn-nav {
+      background: var(--grad);
+      color: #fff;
+      border: none;
+      padding: 0.5rem 1.25rem;
+      border-radius: 8px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      font-family: var(--font-body);
+      cursor: pointer;
+      text-decoration: none;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    .btn-nav:hover { opacity: 0.85; transform: translateY(-1px); }
+
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; border: none; background: none; padding: 4px; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--text); border-radius: 2px; transition: 0.3s; }
+
+    .mobile-contacts { display: none; }
+    .mobile-menu-cta { display: none; }
+
+    @media (max-width: 768px) {
+      .nav-links, .btn-nav { display: none; }
+      .hamburger { display: flex; }
+      nav.menu-open .nav-links {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 64px; left: 0; right: 0;
+        background: rgba(8,8,8,0.97);
+        backdrop-filter: blur(20px);
+        padding: 1.5rem 2rem 2rem;
+        gap: 1.25rem;
+        border-bottom: 1px solid var(--border);
+        max-height: calc(100vh - 64px);
+        overflow-y: auto;
+      }
+      nav.menu-open .btn-nav { display: none; }
+      .mobile-menu-cta { display: none; }
+      nav.menu-open .mobile-menu-cta { display: flex; align-self: stretch; justify-content: center; }
+      nav.menu-open .mobile-contacts {
+        display: flex;
+        flex-direction: column;
+        gap: 0.6rem;
+        margin-top: 0.5rem;
+        padding-top: 1.25rem;
+        border-top: 1px solid var(--border);
+      }
+    }
+    .mobile-contact-row { display: flex; align-items: center; gap: 0.5rem; }
+    .mobile-contact-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      color: var(--text);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+      padding: 0.5rem 0.75rem;
+      border-radius: 10px;
+      background: rgba(6,182,212,0.06);
+      border: 1px solid rgba(6,182,212,0.18);
+      transition: background 0.2s, border-color 0.2s, color 0.2s;
+      width: 100%;
+    }
+    .mobile-contact-link svg { color: var(--cyan2); flex-shrink: 0; }
+    .mobile-contact-link:hover {
+      background: rgba(6,182,212,0.12);
+      border-color: rgba(6,182,212,0.4);
+      color: var(--cyan2);
+    }
+    .mobile-contact-actions { display: flex; gap: 0.5rem; flex-direction: row !important; }
+    .mobile-contact-pill {
+      flex: 1;
+      text-align: center;
+      padding: 0.55rem 0.75rem;
+      border-radius: 10px;
+      background: var(--grad);
+      color: #fff !important;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      box-shadow: 0 0 20px rgba(168,85,247,0.25), 0 0 35px rgba(6,182,212,0.18);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .mobile-contact-pill:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 0 30px rgba(168,85,247,0.4), 0 0 50px rgba(6,182,212,0.3);
+    }
+
+    /* ─── HERO ─── */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px 2rem 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-glow {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -60%);
+      width: 800px; height: 600px;
+      background: radial-gradient(ellipse at center, rgba(99,102,241,0.18) 0%, rgba(168,85,247,0.08) 50%, transparent 80%);
+      pointer-events: none;
+    }
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+      mask-image: radial-gradient(ellipse at center, black 30%, transparent 80%);
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(99,102,241,0.12);
+      border: 1px solid rgba(99,102,241,0.3);
+      border-radius: 100px;
+      padding: 0.35rem 1rem;
+      font-size: 0.8rem;
+      color: #a5b4fc;
+      margin-bottom: 2rem;
+      font-weight: 500;
+    }
+    .hero-badge::before {
+      content: '';
+      width: 6px; height: 6px;
+      background: #6366f1;
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(0.8)} }
+
+    h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 6vw, 5.5rem);
+      font-weight: 900;
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+      margin-bottom: 1.5rem;
+      position: relative;
+    }
+    h1 .accent {
+      background: var(--grad-brand);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: gradShift 8s linear infinite;
+      filter: drop-shadow(0 0 30px rgba(168,85,247,0.25));
+    }
+    @keyframes gradShift {
+      0% { background-position: 0% center; }
+      50% { background-position: 100% center; }
+      100% { background-position: 0% center; }
+    }
+    .hero-sub {
+      color: var(--muted);
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      max-width: 520px;
+      margin: 0 auto 2.5rem;
+    }
+    .hero-cta {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      background: var(--grad);
+      color: #fff;
+      border: none;
+      padding: 0.875rem 2rem;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-weight: 600;
+      font-family: var(--font-body);
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: opacity 0.2s, transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 0 30px rgba(99,102,241,0.3);
+    }
+    .btn-primary:hover { opacity: 0.9; transform: translateY(-2px); box-shadow: 0 0 40px rgba(99,102,241,0.5); }
+    .btn-outline {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--border);
+      padding: 0.875rem 2rem;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-weight: 600;
+      font-family: var(--font-body);
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: border-color 0.2s, background 0.2s, transform 0.2s;
+    }
+    .btn-outline:hover { border-color: rgba(255,255,255,0.25); background: rgba(255,255,255,0.04); transform: translateY(-2px); }
+
+    .tech-strip {
+      margin-top: 4rem;
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      opacity: 0.4;
+    }
+    .tech-strip span {
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    /* ─── SECTION SHARED ─── */
+    section { padding: 100px 2rem; position: relative; z-index: 1; }
+    .container { max-width: 1100px; margin: 0 auto; }
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+    h2 {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+      background: var(--grad-title);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: gradShift 10s linear infinite;
+      filter: drop-shadow(0 0 24px rgba(168,85,247,0.18));
+    }
+    .cta-title {
+      color: #fff;
+    }
+    .section-desc { color: var(--muted); font-size: 1.1rem; max-width: 540px; margin-bottom: 3rem; }
+
+    /* ─── MIKHALYCH ─── */
+    #mikhalych { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .mik-inner {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 4rem;
+      align-items: center;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .mik-avatar {
+      width: 180px; height: 180px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #1a1a2e, #16213e);
+      border: 2px solid rgba(99,102,241,0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      flex-shrink: 0;
+      box-shadow: 0 0 60px rgba(99,102,241,0.2);
+    }
+    .mik-avatar::before {
+      content: '✦';
+      position: absolute;
+      top: 8px; right: 12px;
+      color: #a855f7;
+      font-size: 1.2rem;
+      animation: sparkle 3s ease-in-out infinite;
+    }
+    @keyframes sparkle { 0%,100%{transform:scale(1) rotate(0deg);opacity:1} 50%{transform:scale(1.3) rotate(20deg);opacity:0.6} }
+
+    .mik-quote {
+      font-size: 1.25rem;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+      color: #e0e0e0;
+    }
+    .mik-quote strong { color: #fff; }
+    .mik-name {
+      font-family: var(--font-display);
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 0.05em;
+      margin-bottom: 1.5rem;
+    }
+    @media(max-width:640px){
+      .mik-inner{grid-template-columns:1fr;text-align:center;gap:2rem;}
+      .mik-avatar{margin:0 auto;}
+    }
+
+    /* ─── SERVICES ─── */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+    }
+    .service-card.primary { grid-column: span 2; }
+    @media(max-width:1024px){.services-grid{grid-template-columns:repeat(2,1fr);} .service-card.primary{grid-column:span 2;}}
+    @media(max-width:560px){.services-grid{grid-template-columns:1fr;} .service-card.primary{grid-column:span 1;}}
+
+    .service-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .service-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 16px;
+      padding: 1px;
+      background: linear-gradient(135deg, rgba(99,102,241,0.4), rgba(168,85,247,0.2), transparent 60%);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: destination-out;
+      mask-composite: exclude;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .service-card:hover::before { opacity: 1; }
+    .service-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 60px rgba(99,102,241,0.15);
+    }
+    .service-icon { font-size: 2rem; margin-bottom: 1rem; display: block; }
+    .service-title {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
+    }
+    .service-desc { color: var(--muted); font-size: 0.9rem; line-height: 1.5; margin-bottom: 1.25rem; }
+    .service-price {
+      display: inline-block;
+      background: rgba(99,102,241,0.1);
+      border: 1px solid rgba(99,102,241,0.25);
+      color: #a5b4fc;
+      border-radius: 100px;
+      padding: 0.25rem 0.75rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    /* ─── HOW WE WORK ─── */
+    #how { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+    @media(max-width:1100px){.steps{grid-template-columns:repeat(3,1fr);gap:2rem;}}
+    @media(max-width:640px){.steps{grid-template-columns:1fr;}}
+    .step {
+      position: relative;
+    }
+    .step-num {
+      font-family: var(--font-display);
+      font-size: 3.5rem;
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      background: var(--grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1;
+      margin-bottom: 0.75rem;
+    }
+    .step-icon { font-size: 1.5rem; margin-bottom: 0.5rem; }
+    .step-title {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
+    }
+    .step-desc { color: var(--muted); font-size: 0.875rem; line-height: 1.5; }
+    .step-connector {
+      position: absolute;
+      top: 28px; right: -1rem;
+      width: 2rem;
+      border-top: 1px dashed rgba(99,102,241,0.4);
+    }
+    @media(max-width:768px){ .step-connector { display: none; } }
+
+    /* ─── CASES ─── */
+    .cases-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.25rem;
+    }
+    @media(max-width:1100px){.cases-grid{grid-template-columns:repeat(2,1fr);}}
+    @media(max-width:560px){.cases-grid{grid-template-columns:1fr;}}
+    .case-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2rem;
+      transition: transform 0.25s, border-color 0.25s;
+    }
+    .case-card:hover { transform: translateY(-4px); border-color: rgba(99,102,241,0.3); }
+    .case-tag {
+      display: inline-block;
+      background: rgba(168,85,247,0.1);
+      border: 1px solid rgba(168,85,247,0.25);
+      color: #c084fc;
+      border-radius: 100px;
+      padding: 0.2rem 0.75rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+    .case-title {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      margin-bottom: 0.75rem;
+    }
+    .case-result {
+      background: rgba(99,102,241,0.08);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 8px 8px 0;
+      padding: 0.75rem 1rem;
+      font-size: 0.875rem;
+      color: #c7d2fe;
+      margin-bottom: 1.5rem;
+      font-weight: 500;
+    }
+    .btn-ghost {
+      background: transparent;
+      color: var(--muted);
+      border: 1px solid var(--border);
+      padding: 0.5rem 1.25rem;
+      border-radius: 8px;
+      font-size: 0.875rem;
+      font-weight: 500;
+      font-family: var(--font-body);
+      cursor: pointer;
+      text-decoration: none;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .btn-ghost:hover { color: var(--text); border-color: rgba(255,255,255,0.2); }
+
+    /* ─── PRICING ─── */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    @media(max-width:768px){.pricing-grid{grid-template-columns:1fr;}}
+
+    /* PRICING TABS */
+    .pricing-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin: 2rem 0 2.5rem;
+      justify-content: center;
+    }
+    .pricing-tab {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      padding: 0.6rem 1.1rem;
+      border-radius: 100px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: color 0.25s, border-color 0.25s, background 0.25s, box-shadow 0.25s, transform 0.2s;
+      font-family: var(--font-body);
+    }
+    .pricing-tab:hover {
+      color: var(--text);
+      border-color: rgba(6,182,212,0.4);
+      transform: translateY(-1px);
+      box-shadow: 0 0 18px rgba(6,182,212,0.18);
+    }
+    .pricing-tab.active {
+      background: var(--grad);
+      color: #fff;
+      border-color: transparent;
+      box-shadow: 0 0 25px rgba(6,182,212,0.4), 0 0 50px rgba(168,85,247,0.25);
+    }
+    .pricing-panel {
+      display: none;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+    }
+    .pricing-panel.active {
+      display: grid;
+      animation: panelIn 0.45s ease;
+    }
+    @keyframes panelIn {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: none; }
+    }
+
+    /* PLAN CARD enhancements */
+    .plan-card { display: flex; flex-direction: column; padding: 2rem 1.75rem; }
+    .plan-features-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--cyan2);
+      margin-top: 0.5rem;
+      margin-bottom: 0.6rem;
+    }
+    .plan-features { flex: 1; margin-bottom: 1rem; }
+    .plan-duration {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: rgba(6,182,212,0.08);
+      border: 1px solid rgba(6,182,212,0.28);
+      color: #67e8f9;
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 0.35rem 0.8rem;
+      border-radius: 100px;
+      margin-bottom: 1.25rem;
+      align-self: flex-start;
+    }
+    .plan-period {
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--muted);
+      margin-left: 0.25rem;
+      letter-spacing: 0;
+    }
+    .plan-card .btn-outline,
+    .plan-card .btn-primary { margin-top: auto; }
+    @media (max-width: 560px) {
+      .pricing-panel { grid-template-columns: 1fr; }
+    }
+    .plan-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2.5rem 2rem;
+      position: relative;
+    }
+    .plan-card.featured {
+      border-color: rgba(99,102,241,0.5);
+      background: linear-gradient(160deg, rgba(99,102,241,0.1), rgba(6,182,212,0.04), var(--surface));
+      transform: scale(1.04);
+      position: relative;
+      z-index: 2;
+    }
+    .plan-card.featured:hover { transform: scale(1.04) translateY(-6px) !important; }
+    .pricing-panel { position: relative; }
+    .pricing-panel::before {
+      content: '';
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 320px; height: 320px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(99,102,241,0.12) 0%, transparent 70%);
+      pointer-events: none;
+      animation: orbPulse 5s ease-in-out infinite;
+    }
+    .plan-badge {
+      position: absolute;
+      top: -12px; left: 50%;
+      transform: translateX(-50%);
+      background: var(--grad);
+      color: #fff;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.25rem 1rem;
+      border-radius: 100px;
+    }
+    .plan-name {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
+    }
+    .plan-price {
+      font-family: var(--font-display);
+      font-size: 2.5rem;
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      margin-bottom: 0.25rem;
+    }
+    .plan-price sup { font-size: 1rem; vertical-align: super; }
+    .plan-sub { color: var(--muted); font-size: 0.85rem; margin-bottom: 2rem; }
+    .plan-features { list-style: none; margin-bottom: 2rem; }
+    .plan-features li {
+      color: var(--muted);
+      font-size: 0.9rem;
+      padding: 0.4rem 0;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .plan-features li::before { content: '✓'; color: var(--accent); font-weight: 700; flex-shrink: 0; }
+
+    /* ─── FAQ ─── */
+    #faq { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .faq-list { max-width: 720px; margin: 0 auto; }
+    .faq-item { border-bottom: 1px solid var(--border); }
+    .faq-q {
+      width: 100%;
+      background: none;
+      border: none;
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 1rem;
+      font-weight: 600;
+      text-align: left;
+      padding: 1.5rem 0;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+    .faq-q .faq-icon {
+      flex-shrink: 0;
+      width: 24px; height: 24px;
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      transition: transform 0.3s, background 0.3s;
+    }
+    .faq-item.open .faq-icon { transform: rotate(45deg); background: rgba(99,102,241,0.2); border-color: rgba(99,102,241,0.4); }
+    .faq-a {
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.7;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.3s;
+    }
+    .faq-item.open .faq-a { max-height: 300px; padding-bottom: 1.5rem; }
+
+    /* ─── CTA ─── */
+    #cta {
+      background: linear-gradient(135deg, rgba(99,102,241,0.15), rgba(168,85,247,0.1));
+      border-top: 1px solid rgba(99,102,241,0.2);
+      border-bottom: 1px solid rgba(99,102,241,0.2);
+      text-align: center;
+    }
+    .cta-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 5vw, 4rem);
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      margin-bottom: 1rem;
+    }
+    .cta-sub { color: var(--muted); margin-bottom: 2.5rem; font-size: 1.05rem; }
+    .cta-sub strong { color: #a5b4fc; }
+
+    /* ─── FOOTER ─── */
+    footer {
+      padding: 4rem 2rem 2rem;
+      border-top: 1px solid var(--border);
+    }
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+    @media(max-width:640px){.footer-inner{grid-template-columns:1fr;gap:2rem;}}
+    .footer-desc { color: var(--muted); font-size: 0.9rem; line-height: 1.6; margin-top: 0.75rem; max-width: 280px; }
+    .footer-col h4 {
+      font-family: var(--font-display);
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 0.5rem; }
+    .footer-col a { color: var(--muted); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+    .footer-col a:hover { color: var(--text); }
+    .footer-bottom {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .footer-bottom p { color: var(--muted); font-size: 0.85rem; }
+
+    /* SOCIAL LINKS */
+    .social-links { display: flex; gap: 0.75rem; }
+    .social-link {
+      width: 46px; height: 46px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 1.25rem;
+      transition: color 0.25s, border-color 0.25s, background 0.25s, box-shadow 0.25s, transform 0.2s;
+    }
+    .social-link[title="Telegram"]:hover {
+      color: #29b6f6;
+      border-color: rgba(41,182,246,0.5);
+      background: rgba(41,182,246,0.08);
+      box-shadow: 0 0 20px rgba(41,182,246,0.3);
+      transform: translateY(-2px);
+    }
+    .social-link[title="WhatsApp"]:hover {
+      color: #4ade80;
+      border-color: rgba(74,222,128,0.5);
+      background: rgba(74,222,128,0.08);
+      box-shadow: 0 0 20px rgba(74,222,128,0.3);
+      transform: translateY(-2px);
+    }
+
+    /* PARTICLES (global, flying upward across whole site) */
+    #particles {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 50;
+    }
+    .particle {
+      position: absolute;
+      width: 2px; height: 2px;
+      background: rgba(168,85,247,0.7);
+      border-radius: 50%;
+      animation: float linear infinite;
+      box-shadow: 0 0 6px currentColor;
+    }
+    .particle.cyan { background: rgba(34,211,238,0.8); color: rgba(34,211,238,0.6); }
+    .particle.purple { background: rgba(192,132,252,0.8); color: rgba(192,132,252,0.6); }
+    .particle.indigo { background: rgba(129,140,248,0.7); color: rgba(129,140,248,0.5); }
+    .particle.big { width: 4px; height: 4px; box-shadow: 0 0 12px currentColor; }
+    @keyframes float {
+      from { transform: translateY(100vh) translateX(0); opacity: 0; }
+      10% { opacity: 1; }
+      90% { opacity: 1; }
+      to { transform: translateY(-100px) translateX(var(--drift)); opacity: 0; }
+    }
+
+    /* SCROLL REVEAL */
+    .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    /* OPENCLAW WORDMARK */
+    .oc-mark {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      text-decoration: none;
+      padding: 0.15rem 0.5rem;
+      border-radius: 6px;
+      transition: background 0.25s, transform 0.2s;
+    }
+    .oc-mark:hover {
+      background: rgba(168,85,247,0.08);
+      transform: translateY(-1px);
+    }
+    .oc-mark svg {
+      filter: drop-shadow(0 0 6px rgba(168,85,247,0.5));
+    }
+    .oc-mark-text {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.78rem;
+      letter-spacing: -0.01em;
+      background: linear-gradient(90deg, #c084fc, #22d3ee);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* DIVIDER */
+    .divider { width: 48px; height: 3px; background: var(--grad); border-radius: 2px; margin-bottom: 2rem; }
+
+    /* ─── HERO TWO-COLUMN ─── */
+    #hero {
+      text-align: left;
+      align-items: flex-start;
+    }
+    .hero-content {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 3rem;
+      align-items: center;
+      max-width: 1100px;
+      width: 100%;
+      position: relative;
+      z-index: 2;
+    }
+    .hero-text { display: flex; flex-direction: column; }
+    .hero-text .hero-badge { align-self: flex-start; }
+    .hero-text .hero-cta { justify-content: flex-start; }
+    .hero-text .tech-strip { justify-content: flex-start; margin-top: 3rem; }
+    .hero-robot {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .hero-robot img {
+      width: 360px;
+      max-width: 100%;
+      filter: drop-shadow(0 0 60px rgba(99,102,241,0.45)) drop-shadow(0 0 120px rgba(168,85,247,0.2));
+      animation: robotFloat 4s ease-in-out infinite;
+    }
+    @keyframes robotFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-14px); }
+    }
+    @media(max-width: 900px) {
+      .hero-robot img { width: 260px; }
+    }
+    @media(max-width: 768px) {
+      #hero { align-items: center; text-align: center; }
+      .hero-content { grid-template-columns: 1fr; }
+      .hero-robot { display: none; }
+      .hero-text .hero-badge { align-self: center; }
+      .hero-text .hero-cta { justify-content: center; }
+      .hero-text .tech-strip { justify-content: center; }
+    }
+
+    /* ─── MIKHALY IMAGE ─── */
+    .mik-avatar-img {
+      width: 220px;
+      height: auto;
+      flex-shrink: 0;
+      filter: drop-shadow(0 0 40px rgba(99,102,241,0.35));
+      animation: robotFloat 4s ease-in-out infinite;
+    }
+    @media(max-width: 640px) { .mik-avatar-img { width: 160px; } }
+
+    /* ─── MIKHALY STATS ─── */
+    .mik-stats {
+      display: flex;
+      gap: 1.5rem;
+      margin-top: 2rem;
+      flex-wrap: wrap;
+    }
+    .mik-stat {
+      display: flex;
+      flex-direction: column;
+      gap: 0.15rem;
+    }
+    .mik-stat-val {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      background: var(--grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .mik-stat-label {
+      font-size: 0.78rem;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    /* ─── BRAND (LAB301 — smooth purple → cyan) ─── */
+    .brand-name {
+      background: var(--grad-brand);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: gradShift 7s linear infinite;
+      letter-spacing: -0.02em;
+    }
+    /* legacy aliases — keep both halves on the SAME continuous gradient */
+    .brand-lab, .brand-301 {
+      background: var(--grad-brand);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: gradShift 7s linear infinite;
+    }
+
+    /* ─── HERO WATERMARK "301" ─── */
+    .hero-watermark {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: clamp(20rem, 38vw, 44rem);
+      letter-spacing: -0.06em;
+      line-height: 0.85;
+      color: transparent;
+      -webkit-text-stroke: 2px rgba(255,255,255,0.045);
+      pointer-events: none;
+      z-index: 0;
+      user-select: none;
+      white-space: nowrap;
+    }
+
+    /* ─── HERO STRONGER GLOW ─── */
+    .hero-glow {
+      background: radial-gradient(ellipse at 30% 50%, rgba(6,182,212,0.16) 0%, transparent 55%),
+                  radial-gradient(ellipse at 70% 60%, rgba(168,85,247,0.18) 0%, transparent 55%) !important;
+    }
+
+    /* ─── HERO SUB stronger ─── */
+    .hero-sub {
+      color: #e8e8ee !important;
+      font-size: clamp(1.1rem, 1.6vw, 1.45rem) !important;
+      font-weight: 600 !important;
+      max-width: 560px !important;
+      line-height: 1.5 !important;
+      letter-spacing: -0.01em;
+      text-shadow: 0 2px 30px rgba(168,85,247,0.18);
+    }
+
+    /* ─── MARQUEE (running brands) ─── */
+    .marquee-section {
+      padding: 60px 0;
+      background: linear-gradient(180deg, transparent, rgba(168,85,247,0.04), transparent);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      overflow: hidden;
+      position: relative;
+      z-index: 1;
+    }
+    .marquee {
+      display: flex;
+      overflow: hidden;
+      mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+      -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+    }
+    .marquee-track {
+      display: flex;
+      gap: 3.5rem;
+      animation: marqueeScroll 40s linear infinite;
+      flex-shrink: 0;
+      padding-right: 3.5rem;
+      align-items: center;
+    }
+    .marquee:hover .marquee-track { animation-play-state: paused; }
+    .marquee-item {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.6rem;
+      letter-spacing: -0.03em;
+      color: rgba(255,255,255,0.45);
+      white-space: nowrap;
+      transition: color 0.25s, text-shadow 0.25s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .marquee-item:hover {
+      color: #fff;
+      text-shadow: 0 0 20px rgba(34,211,238,0.7), 0 0 40px rgba(168,85,247,0.4);
+    }
+    .marquee-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--grad);
+      flex-shrink: 0;
+    }
+    @keyframes marqueeScroll {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    /* ─── ENHANCED INTERACTIONS / GLOW ─── */
+    .btn-primary {
+      background: var(--grad) !important;
+      box-shadow: 0 0 30px rgba(6,182,212,0.35), 0 0 60px rgba(168,85,247,0.25) !important;
+    }
+    .btn-primary:hover {
+      box-shadow: 0 0 50px rgba(6,182,212,0.55), 0 0 100px rgba(168,85,247,0.45) !important;
+      transform: translateY(-3px) !important;
+    }
+    .btn-nav {
+      background: var(--grad) !important;
+      box-shadow: 0 0 20px rgba(6,182,212,0.3);
+    }
+    .nav-logo {
+      background: none !important;
+      filter: drop-shadow(0 0 12px rgba(6,182,212,0.25));
+    }
+    .nav-logo .brand-name {
+      display: inline-block;
+      padding: 0;
+      background: var(--grad-brand);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: gradShift 7s linear infinite;
+    }
+    .service-card {
+      transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s !important;
+    }
+    .service-card:hover {
+      transform: translateY(-6px) !important;
+      box-shadow:
+        0 0 0 1px rgba(6,182,212,0.3),
+        0 20px 70px rgba(168,85,247,0.18),
+        0 0 80px rgba(6,182,212,0.12) !important;
+    }
+    .service-icon {
+      filter: drop-shadow(0 0 16px rgba(6,182,212,0.4));
+    }
+    .case-card { transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s; }
+    .case-card:hover {
+      box-shadow: 0 20px 60px rgba(168,85,247,0.2), 0 0 60px rgba(6,182,212,0.12);
+    }
+    .plan-card.featured {
+      box-shadow: 0 0 50px rgba(168,85,247,0.18), 0 0 80px rgba(6,182,212,0.1);
+    }
+
+    /* hero badge cyan accent */
+    .hero-badge {
+      background: rgba(6,182,212,0.12) !important;
+      border: 1px solid rgba(6,182,212,0.35) !important;
+      color: #67e8f9 !important;
+    }
+    .hero-badge::before { background: var(--cyan2) !important; box-shadow: 0 0 10px var(--cyan2); }
+
+    /* divider with brand gradient */
+    .divider { background: var(--grad-brand) !important; box-shadow: 0 0 12px rgba(34,211,238,0.5); }
+
+    /* section labels turquoise */
+    .section-label { color: var(--cyan2) !important; }
+
+    /* contact footer block */
+    .contact-line { color: var(--muted); font-size: 0.9rem; margin-bottom: 0.4rem; display: flex; align-items: center; gap: 0.5rem; }
+    .contact-line a { color: var(--muted); text-decoration: none; transition: color 0.2s, text-shadow 0.2s; }
+    .contact-line a:hover { color: var(--cyan2); text-shadow: 0 0 12px rgba(34,211,238,0.6); }
+    .contact-icon {
+      width: 28px; height: 28px;
+      border-radius: 8px;
+      background: rgba(6,182,212,0.1);
+      border: 1px solid rgba(6,182,212,0.25);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--cyan2);
+      flex-shrink: 0;
+    }
+
+    /* CASE COVER (project mockup banner) */
+    .case-card { padding: 0 !important; overflow: hidden; }
+    .case-card-body { padding: 1.5rem 1.75rem 1.75rem; }
+    .case-cover-link {
+      display: block;
+      overflow: hidden;
+      position: relative;
+      line-height: 0;
+    }
+    .case-cover-img {
+      width: 100%;
+      height: 170px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease, filter 0.3s;
+    }
+    .case-cover-link:hover .case-cover-img {
+      transform: scale(1.04);
+      filter: brightness(1.08) saturate(1.1);
+    }
+    .case-cover {
+      position: relative;
+      height: 170px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      isolation: isolate;
+    }
+    .case-cover::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(255,255,255,0.2), transparent 45%),
+        radial-gradient(circle at 80% 80%, rgba(0,0,0,0.25), transparent 50%);
+      z-index: 1;
+    }
+    .case-cover-bar {
+      position: relative;
+      z-index: 2;
+      background: rgba(0,0,0,0.28);
+      padding: 0.5rem 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+    }
+    .case-cover-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.55);
+      flex-shrink: 0;
+    }
+    .case-cover-dot:nth-child(1) { background: #ff5f57; }
+    .case-cover-dot:nth-child(2) { background: #ffbd2e; }
+    .case-cover-dot:nth-child(3) { background: #28c93f; }
+    .case-cover-url {
+      margin-left: auto;
+      background: rgba(255,255,255,0.18);
+      border-radius: 6px;
+      padding: 0.2rem 0.7rem;
+      font-size: 0.7rem;
+      color: #fff;
+      font-family: 'JetBrains Mono', monospace, var(--font-body);
+      letter-spacing: 0.02em;
+      backdrop-filter: blur(6px);
+    }
+    .case-cover-content {
+      position: relative;
+      z-index: 2;
+      flex: 1;
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      padding: 0.75rem 1.1rem;
+    }
+    .case-cover-logo {
+      width: 50px; height: 50px;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.95);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: 0.85rem;
+      letter-spacing: -0.04em;
+      flex-shrink: 0;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+    }
+    .case-cover-text { display: flex; flex-direction: column; gap: 0.15rem; min-width: 0; }
+    .case-cover-title {
+      color: #fff;
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 1.1rem;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      text-shadow: 0 2px 12px rgba(0,0,0,0.35);
+    }
+    .case-cover-sub {
+      color: rgba(255,255,255,0.92);
+      font-size: 0.75rem;
+      font-weight: 500;
+      text-shadow: 0 1px 6px rgba(0,0,0,0.3);
+    }
+    /* Ремсити36 палитра — оранжевый-красный (ремонт) */
+    .case-cover.remcity {
+      background: linear-gradient(135deg, #ff8c42 0%, #ef4444 50%, #b91c1c 100%);
+    }
+    .case-cover.remcity .case-cover-logo { color: #b91c1c; }
+    .case-cover-glow {
+      position: absolute;
+      bottom: -40px; right: -40px;
+      width: 160px; height: 160px;
+      background: radial-gradient(circle, rgba(255,255,255,0.35), transparent 60%);
+      border-radius: 50%;
+      z-index: 1;
+      filter: blur(20px);
+    }
+
+    /* placeholder case card */
+    .case-card.placeholder {
+      background: var(--surface);
+      border-style: dashed;
+      border-color: rgba(6,182,212,0.25);
+      text-align: center;
+    }
+    .case-card.placeholder .case-title { color: rgba(255,255,255,0.7); }
+    .case-card.placeholder .case-result {
+      background: rgba(6,182,212,0.06);
+      border-left-color: var(--cyan2);
+      color: #67e8f9;
+    }
+    .placeholder-cover {
+      background:
+        repeating-linear-gradient(135deg, rgba(255,255,255,0.025), rgba(255,255,255,0.025) 10px, transparent 10px, transparent 22px),
+        linear-gradient(135deg, rgba(168,85,247,0.18), rgba(6,182,212,0.18));
+    }
+    .placeholder-cover-content {
+      justify-content: center !important;
+      padding: 0 !important;
+    }
+    .placeholder-cover-icon {
+      font-size: 3.2rem;
+      color: rgba(255,255,255,0.85);
+      filter: drop-shadow(0 0 20px rgba(34,211,238,0.7)) drop-shadow(0 0 40px rgba(168,85,247,0.5));
+      animation: gradShift 4s linear infinite, sparkle 3s ease-in-out infinite;
+    }
+
+    /* ─── SERVICE LIST (new style) ─── */
+    .service-list {
+      list-style: none;
+      margin: 0.75rem 0 1.5rem;
+      flex: 1;
+    }
+    .service-list li {
+      font-size: 0.83rem;
+      color: var(--muted);
+      padding: 0.32rem 0;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: color 0.2s;
+    }
+    .service-list li:last-child { border-bottom: none; }
+    .service-list li::before {
+      content: '→';
+      color: var(--accent);
+      font-size: 0.7rem;
+      flex-shrink: 0;
+    }
+    .service-card:hover .service-list li { color: #bbb; }
+    .service-card { display: flex; flex-direction: column; }
+
+    /* ─── SERVICES: glassmorphism upgrade ─── */
+    .service-card {
+      background: rgba(14,14,16,0.7) !important;
+      backdrop-filter: blur(24px) !important;
+      -webkit-backdrop-filter: blur(24px) !important;
+    }
+    .service-card:nth-child(1) { --sc: rgba(6,182,212,0.55); }
+    .service-card:nth-child(2) { --sc: rgba(168,85,247,0.55); }
+    .service-card:nth-child(3) { --sc: rgba(34,211,238,0.55); }
+    .service-card:nth-child(4) { --sc: rgba(99,102,241,0.55); }
+    .service-card:nth-child(5) { --sc: rgba(192,132,252,0.55); }
+    .service-card:nth-child(6) { --sc: rgba(6,182,212,0.55); }
+    .service-card:hover {
+      border-color: var(--sc) !important;
+      box-shadow: 0 0 0 1px var(--sc), 0 30px 80px rgba(6,182,212,0.12), 0 0 80px rgba(168,85,247,0.1) !important;
+    }
+    .service-icon {
+      font-size: 2.2rem !important;
+      margin-bottom: 1rem !important;
+      filter: drop-shadow(0 0 20px rgba(6,182,212,0.6)) !important;
+      transition: transform 0.3s, filter 0.3s !important;
+    }
+    .service-card:hover .service-icon {
+      transform: scale(1.1) translateY(-3px) !important;
+      filter: drop-shadow(0 0 30px rgba(6,182,212,0.9)) !important;
+    }
+    .service-title {
+      font-size: 1.1rem !important;
+      margin-bottom: 0.75rem !important;
+      background: var(--grad-brand);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      background-size: 200% auto;
+      animation: gradShift 7s linear infinite;
+    }
+    .service-list li:hover { color: #fff; }
+
+    /* ─── CASES: premium upgrade ─── */
+    .cases-grid {
+      grid-template-columns: repeat(3,1fr) !important;
+    }
+    .case-card {
+      backdrop-filter: blur(16px) !important;
+      -webkit-backdrop-filter: blur(16px) !important;
+    }
+    .case-card.featured-case {
+      grid-column: 1 / -1;
+    }
+    .case-card.featured-case .case-cover-img {
+      height: 260px !important;
+    }
+    @media(max-width:900px){
+      .cases-grid { grid-template-columns: repeat(2,1fr) !important; }
+      .case-card.featured-case { grid-column: 1 / -1; }
+    }
+    @media(max-width:560px){
+      .cases-grid { grid-template-columns: 1fr !important; }
+      .case-card.featured-case { grid-column: 1 / -1; }
+    }
+    .case-card:hover {
+      border-color: rgba(99,102,241,0.4) !important;
+      box-shadow: 0 0 0 1px rgba(99,102,241,0.25), 0 30px 80px rgba(99,102,241,0.18), 0 0 60px rgba(6,182,212,0.1) !important;
+    }
+    .case-card-body .btn-ghost {
+      margin-top: 0.75rem;
+      font-size: 0.82rem;
+      padding: 0.5rem 1rem;
+      border-color: rgba(99,102,241,0.35);
+    }
+    .case-card-body .btn-ghost:hover {
+      border-color: rgba(6,182,212,0.6);
+      color: #22d3ee;
+      background: rgba(6,182,212,0.08);
+    }
+    /* Metrics strip on featured case */
+    .case-metrics {
+      display: flex;
+      gap: 1rem;
+      margin: 0.75rem 0;
+      flex-wrap: wrap;
+    }
+    .case-metric {
+      display: flex;
+      flex-direction: column;
+      gap: 0.1rem;
+      background: rgba(99,102,241,0.08);
+      border: 1px solid rgba(99,102,241,0.2);
+      border-radius: 10px;
+      padding: 0.5rem 0.85rem;
+    }
+    .case-metric-val {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      background: var(--grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .case-metric-label { font-size: 0.7rem; color: var(--muted); }
+
+    /* ─── PROCESS: timeline upgrade ─── */
+    .process-timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin-top: 3rem;
+      position: relative;
+    }
+    .process-timeline::before {
+      content: '';
+      position: absolute;
+      left: 32px;
+      top: 24px;
+      bottom: 24px;
+      width: 2px;
+      background: linear-gradient(180deg, rgba(6,182,212,0.6), rgba(168,85,247,0.6), rgba(6,182,212,0.2));
+      border-radius: 2px;
+      box-shadow: 0 0 16px rgba(6,182,212,0.4), 0 0 32px rgba(168,85,247,0.2);
+    }
+    .process-step {
+      display: grid;
+      grid-template-columns: 64px 1fr;
+      gap: 2rem;
+      align-items: flex-start;
+      padding: 2rem 0;
+      position: relative;
+    }
+    .process-step:not(:last-child) { border-bottom: 1px solid rgba(255,255,255,0.04); }
+    .process-step-left {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      padding-top: 0.25rem;
+    }
+    .process-dot {
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(6,182,212,0.15), rgba(168,85,247,0.15));
+      border: 2px solid rgba(6,182,212,0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: 0.85rem;
+      color: #22d3ee;
+      position: relative;
+      z-index: 1;
+      flex-shrink: 0;
+      box-shadow: 0 0 20px rgba(6,182,212,0.35), inset 0 0 20px rgba(6,182,212,0.05);
+      transition: box-shadow 0.3s, transform 0.3s;
+    }
+    .process-step:hover .process-dot {
+      box-shadow: 0 0 40px rgba(6,182,212,0.6), 0 0 80px rgba(168,85,247,0.3), inset 0 0 20px rgba(6,182,212,0.1);
+      transform: scale(1.1);
+    }
+    .process-body {
+      background: rgba(14,14,16,0.6);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.75rem 2rem;
+      transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+    }
+    .process-step:hover .process-body {
+      border-color: rgba(6,182,212,0.25);
+      box-shadow: 0 12px 40px rgba(6,182,212,0.1), 0 0 40px rgba(168,85,247,0.06);
+      transform: translateX(4px);
+    }
+    .process-icon { font-size: 1.8rem; margin-bottom: 0.75rem; display: block; }
+    .process-title {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
+      color: #fff;
+    }
+    .process-desc { color: var(--muted); font-size: 0.9rem; line-height: 1.6; }
+    @media(max-width: 640px) {
+      .process-timeline::before { left: 20px; }
+      .process-step { grid-template-columns: 44px 1fr; gap: 1rem; }
+      .process-dot { width: 36px; height: 36px; font-size: 0.75rem; }
+      .process-body { padding: 1.25rem 1.5rem; }
+    }
+
+    /* ─── PRICING: premium upgrade ─── */
+    .plan-card {
+      backdrop-filter: blur(20px) !important;
+      -webkit-backdrop-filter: blur(20px) !important;
+      transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s !important;
+    }
+    .plan-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 60px rgba(99,102,241,0.15), 0 0 60px rgba(6,182,212,0.08);
+    }
+    .plan-card.featured {
+      box-shadow: 0 0 0 1px rgba(99,102,241,0.5), 0 30px 80px rgba(99,102,241,0.25), 0 0 80px rgba(168,85,247,0.15) !important;
+      animation: featuredPulse 4s ease-in-out infinite;
+    }
+    @keyframes featuredPulse {
+      0%,100%{ box-shadow: 0 0 0 1px rgba(99,102,241,0.5), 0 30px 80px rgba(99,102,241,0.25), 0 0 80px rgba(168,85,247,0.15); }
+      50%{ box-shadow: 0 0 0 1px rgba(6,182,212,0.6), 0 30px 80px rgba(6,182,212,0.3), 0 0 100px rgba(168,85,247,0.2); }
+    }
+    .pricing-trust {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 2.5rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+    }
+    .pricing-trust-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+    .pricing-trust-item span:first-child {
+      font-size: 1.1rem;
+    }
+    .pricing-tab {
+      backdrop-filter: blur(10px) !important;
+      -webkit-backdrop-filter: blur(10px) !important;
+    }
+
+    /* ─── FAQ: glassmorphism accordion ─── */
+    #faq { background: var(--bg) !important; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .faq-layout {
+      display: grid;
+      grid-template-columns: 1fr 320px;
+      gap: 3rem;
+      align-items: center;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    @media(max-width: 900px) { .faq-layout { grid-template-columns: 1fr; } .faq-side { display: none; } }
+    .faq-list { max-width: none; margin: 0; }
+    .faq-item {
+      background: rgba(14,14,16,0.6) !important;
+      backdrop-filter: blur(16px) !important;
+      -webkit-backdrop-filter: blur(16px) !important;
+      border-radius: 14px !important;
+      border: 1px solid var(--border) !important;
+      margin-bottom: 0.75rem !important;
+      overflow: hidden !important;
+      transition: border-color 0.3s, box-shadow 0.3s !important;
+    }
+    .faq-item:last-child { border-bottom: 1px solid var(--border) !important; }
+    .faq-item.open {
+      border-color: rgba(99,102,241,0.35) !important;
+      box-shadow: 0 0 30px rgba(99,102,241,0.12), 0 0 60px rgba(6,182,212,0.06) !important;
+      background: rgba(99,102,241,0.04) !important;
+    }
+    .faq-q {
+      font-size: 1.05rem !important;
+      padding: 1.5rem 1.75rem !important;
+    }
+    .faq-q .faq-icon {
+      width: 28px; height: 28px;
+      border-color: rgba(99,102,241,0.3) !important;
+      background: rgba(99,102,241,0.08) !important;
+      font-size: 1.1rem !important;
+      transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1), background 0.3s, border-color 0.3s !important;
+    }
+    .faq-item.open .faq-icon {
+      transform: rotate(45deg) scale(1.1) !important;
+      background: rgba(99,102,241,0.25) !important;
+      border-color: rgba(99,102,241,0.6) !important;
+      box-shadow: 0 0 16px rgba(99,102,241,0.4) !important;
+    }
+    .faq-a {
+      font-size: 0.95rem !important;
+      padding: 0 1.75rem !important;
+      color: #a0a0b0 !important;
+    }
+    .faq-item.open .faq-a { padding: 0 1.75rem 1.75rem !important; }
+    .faq-side {
+      background: rgba(14,14,16,0.6);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 2rem;
+    }
+    .faq-side-title {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      background: var(--grad-brand);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .faq-trust-list { list-style: none; display: flex; flex-direction: column; gap: 1rem; margin-bottom: 1.75rem; }
+    .faq-trust-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.88rem;
+      color: var(--muted);
+    }
+    .faq-trust-icon {
+      width: 36px; height: 36px;
+      border-radius: 10px;
+      background: rgba(6,182,212,0.1);
+      border: 1px solid rgba(6,182,212,0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+
+    /* ─── CTA: full premium block ─── */
+    #cta {
+      background: radial-gradient(ellipse at 50% 0%, rgba(99,102,241,0.22) 0%, transparent 65%),
+                  radial-gradient(ellipse at 20% 100%, rgba(6,182,212,0.14) 0%, transparent 55%),
+                  var(--bg) !important;
+      border-top: 1px solid rgba(99,102,241,0.2) !important;
+      border-bottom: 1px solid rgba(99,102,241,0.2) !important;
+      padding: 8rem 2rem !important;
+    }
+    .cta-inner {
+      max-width: 700px;
+      margin: 0 auto;
+      text-align: center;
+      position: relative;
+    }
+    .cta-orb {
+      position: absolute;
+      width: 400px; height: 400px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(99,102,241,0.12) 0%, transparent 70%);
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      animation: orbPulse 5s ease-in-out infinite;
+    }
+    @keyframes orbPulse {
+      0%,100%{ transform: translate(-50%,-50%) scale(1); opacity: 0.8; }
+      50%{ transform: translate(-50%,-50%) scale(1.15); opacity: 1; }
+    }
+    .cta-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--cyan2);
+      margin-bottom: 1.25rem;
+      opacity: 0.9;
+    }
+    .cta-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 2.5rem;
+    }
+    .btn-whatsapp {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.9rem 2rem;
+      border-radius: 100px;
+      font-weight: 700;
+      font-family: var(--font-display);
+      font-size: 0.9rem;
+      cursor: pointer;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+      background: rgba(37,211,102,0.12);
+      border: 1px solid rgba(37,211,102,0.4);
+      color: #4ade80;
+      box-shadow: 0 0 20px rgba(37,211,102,0.2);
+    }
+    .btn-whatsapp:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 0 40px rgba(37,211,102,0.45), 0 0 80px rgba(37,211,102,0.2);
+      background: rgba(37,211,102,0.18);
+    }
+    .cta-note {
+      margin-top: 2rem;
+      font-size: 0.82rem;
+      color: var(--muted);
+      opacity: 0.7;
+    }
+
+    /* ─── FOOTER: micro-stats ─── */
+    .footer-stats {
+      max-width: 1100px;
+      margin: 0 auto 3rem;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+    @media(max-width: 640px){ .footer-stats { grid-template-columns: 1fr; } }
+    .footer-stat {
+      background: var(--surface);
+      padding: 1.75rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+      transition: background 0.2s;
+    }
+    .footer-stat:hover { background: var(--surface2); }
+    .footer-stat-val {
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      background: var(--grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .footer-stat-label { font-size: 0.82rem; color: var(--muted); }
+    .footer-col a {
+      transition: color 0.2s, padding-left 0.2s !important;
+    }
+    .footer-col a:hover {
+      color: var(--text) !important;
+      padding-left: 4px !important;
+    }
+
+    /* ─── HERO: stats strip ─── */
+    .hero-stats {
+      display: flex;
+      gap: 2rem;
+      margin-top: 2.5rem;
+      flex-wrap: wrap;
+    }
+    .hero-stat-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.15rem;
+    }
+    .hero-stat-val {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      background: var(--grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-stat-label {
+      font-size: 0.75rem;
+      color: var(--muted);
+      font-weight: 500;
+    }
+    @media(max-width:768px){
+      .hero-stats { justify-content: center; }
+    }
+
+    /* ─── MIKHAILYCH: glassmorphism upgrade ─── */
+    #mikhalych {
+      position: relative;
+      overflow: hidden;
+    }
+    #mikhalych::before {
+      content: '';
+      position: absolute;
+      top: -100px; right: -100px;
+      width: 500px; height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(99,102,241,0.12) 0%, transparent 70%);
+      pointer-events: none;
+      animation: orbPulse 6s ease-in-out infinite;
+    }
+    #mikhalych::after {
+      content: '';
+      position: absolute;
+      bottom: -80px; left: -80px;
+      width: 400px; height: 400px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(6,182,212,0.1) 0%, transparent 70%);
+      pointer-events: none;
+      animation: orbPulse 8s ease-in-out infinite reverse;
+    }
+    .mik-inner {
+      background: rgba(14,14,16,0.5);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 24px;
+      padding: 3rem;
+      position: relative;
+      z-index: 1;
+      box-shadow: 0 0 80px rgba(99,102,241,0.08), inset 0 1px 0 rgba(255,255,255,0.06);
+    }
+    @media(max-width:640px){ .mik-inner { padding: 2rem 1.5rem; } }
+    .mik-stat {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      padding: 0.75rem 1rem;
+      transition: border-color 0.3s, background 0.3s, box-shadow 0.3s;
+    }
+    .mik-stat:hover {
+      border-color: rgba(6,182,212,0.3);
+      background: rgba(6,182,212,0.06);
+      box-shadow: 0 0 20px rgba(6,182,212,0.12);
+    }
+
+    /* ─── CASES: premium placeholder cards ─── */
+    .case-card.placeholder {
+      border-style: solid !important;
+      border-color: rgba(255,255,255,0.07) !important;
+      position: relative;
+      overflow: hidden;
+    }
+    .case-card.placeholder::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 16px;
+      padding: 1px;
+      background: linear-gradient(135deg, rgba(99,102,241,0.3), transparent 50%, rgba(6,182,212,0.3));
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: destination-out;
+      mask-composite: exclude;
+      opacity: 0;
+      transition: opacity 0.4s;
+    }
+    .case-card.placeholder:hover::before { opacity: 1; }
+    .case-card.placeholder:hover {
+      border-color: rgba(99,102,241,0.2) !important;
+      box-shadow: 0 20px 60px rgba(99,102,241,0.12), 0 0 40px rgba(6,182,212,0.08) !important;
+    }
+    .placeholder-cover-icon {
+      font-size: 2.8rem !important;
+      animation: floatIcon 3s ease-in-out infinite;
+    }
+    @keyframes floatIcon {
+      0%,100% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-8px) scale(1.05); }
+    }
+    .case-card.placeholder .case-tag {
+      background: rgba(6,182,212,0.08);
+      border-color: rgba(6,182,212,0.25);
+      color: #22d3ee;
+    }
+    .case-card.placeholder .case-title { color: rgba(255,255,255,0.8); }
+
+    /* ─── FOCUS & ACCESSIBILITY ─── */
+    *:focus-visible {
+      outline: 2px solid rgba(6,182,212,0.7);
+      outline-offset: 3px;
+      border-radius: 4px;
+    }
+
+    /* ─── REDUCED MOTION ─── */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+      }
+    }
+
+    /* ─── SKIP LINK ─── */
+    .skip-link {
+      position: absolute;
+      top: -100px;
+      left: 1rem;
+      background: var(--accent);
+      color: #fff;
+      padding: 0.5rem 1rem;
+      border-radius: 0 0 8px 8px;
+      font-weight: 600;
+      font-size: 0.875rem;
+      text-decoration: none;
+      z-index: 9999;
+      transition: top 0.2s;
+    }
+    .skip-link:focus { top: 0; }
+
+    /* ─── HAMBURGER → X ANIMATION ─── */
+    nav.menu-open .hamburger span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+    nav.menu-open .hamburger span:nth-child(2) {
+      opacity: 0;
+      transform: scaleX(0);
+    }
+    nav.menu-open .hamburger span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+    .hamburger span { transition: transform 0.3s ease, opacity 0.2s ease; }
+
+    /* ─── ACTIVE NAV LINK ─── */
+    .nav-links a.active {
+      color: #fff;
+      position: relative;
+    }
+    .nav-links a.active::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0; right: 0;
+      height: 2px;
+      border-radius: 2px;
+      background: var(--grad-cyan);
+    }
+
+    /* ─── HERO SCROLL INDICATOR ─── */
+    .hero-scroll {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.4rem;
+      color: rgba(255,255,255,0.3);
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      animation: scrollBounce 2s ease-in-out infinite;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .hero-scroll-mouse {
+      width: 22px; height: 34px;
+      border: 2px solid rgba(255,255,255,0.2);
+      border-radius: 11px;
+      position: relative;
+    }
+    .hero-scroll-mouse::before {
+      content: '';
+      position: absolute;
+      top: 5px; left: 50%;
+      transform: translateX(-50%);
+      width: 3px; height: 6px;
+      background: rgba(255,255,255,0.4);
+      border-radius: 2px;
+      animation: scrollDot 2s ease-in-out infinite;
+    }
+    @keyframes scrollDot {
+      0% { transform: translateX(-50%) translateY(0); opacity: 1; }
+      100% { transform: translateX(-50%) translateY(10px); opacity: 0; }
+    }
+    @keyframes scrollBounce {
+      0%,100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(6px); }
+    }
+    @media(max-width:768px) { .hero-scroll { display: none; } }
+
+    /* ─── PRIMARY SERVICE CARD: horizontal layout ─── */
+    .service-card.primary {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      grid-template-rows: auto auto 1fr auto;
+      column-gap: 1.5rem;
+    }
+    .service-card.primary .service-icon {
+      grid-column: 1;
+      grid-row: 1 / 3;
+      font-size: 2.8rem;
+      margin-bottom: 0;
+      align-self: center;
+    }
+    .service-card.primary .service-title {
+      grid-column: 2;
+      grid-row: 1;
+      align-self: end;
+      font-size: 1.2rem;
+    }
+    .service-card.primary .service-list {
+      grid-column: 1 / -1;
+      grid-row: 3;
+      margin-top: 1rem;
+    }
+    .service-card.primary .btn-ghost {
+      grid-column: 1 / -1;
+      grid-row: 4;
+      align-self: end;
+      margin-top: 1rem;
+    }
+    @media(max-width:560px) {
+      .service-card.primary {
+        display: flex;
+        flex-direction: column;
+      }
+    }
+
+    /* ─── CTA TITLE GRADIENT ─── */
+    .cta-title {
+      font-family: var(--font-display) !important;
+      font-size: clamp(2rem, 5vw, 4rem) !important;
+      font-weight: 900 !important;
+      letter-spacing: -0.04em !important;
+      margin-bottom: 1rem !important;
+      color: #fff !important;
+    }
+    .cta-title .grad-word {
+      background: var(--grad-brand);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: gradShift 8s linear infinite;
+    }
+
+    /* ─── BACK TO TOP ─── */
+    .back-to-top {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      width: 44px; height: 44px;
+      border-radius: 12px;
+      background: rgba(14,14,16,0.85);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      text-decoration: none;
+      font-size: 1.1rem;
+      z-index: 90;
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity 0.3s, transform 0.3s, border-color 0.2s, color 0.2s, box-shadow 0.2s;
+      pointer-events: none;
+    }
+    .back-to-top.visible {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+    .back-to-top:hover {
+      border-color: rgba(6,182,212,0.4);
+      color: var(--cyan2);
+      box-shadow: 0 0 20px rgba(6,182,212,0.2);
+    }
+
+    /* ─── SERVICE CARD: per-color glow ─── */
+    .service-card:nth-child(1) { --sc: rgba(6,182,212,0.55); }
+    .service-card:nth-child(2) { --sc: rgba(168,85,247,0.55); }
+    .service-card:nth-child(3) { --sc: rgba(99,102,241,0.55); }
+    .service-card:nth-child(4) { --sc: rgba(245,158,11,0.55); }
+    .service-card:nth-child(5) { --sc: rgba(34,211,238,0.55); }
+    .service-card:nth-child(6) { --sc: rgba(139,92,246,0.55); }
+    .service-card { background: rgba(14,14,16,0.7) !important; backdrop-filter: blur(24px) !important; }
+    .service-card:hover { border-color: var(--sc, rgba(99,102,241,0.4)) !important; box-shadow: 0 0 0 1px var(--sc, rgba(99,102,241,0.3)), 0 20px 70px rgba(0,0,0,0.3) !important; }
+  </style>
+</head>
+<body>
+<a class="skip-link" href="#hero">Перейти к содержимому</a>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a class="nav-logo" href="#"><span class="brand-name">LAB301</span></a>
+  <ul class="nav-links">
+    <li><a href="#services">Услуги</a></li>
+    <li><a href="#cases">Кейсы</a></li>
+    <li><a href="#contact">Контакты</a></li>
+    <li><a href="#mikhalych">Михалыч</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li class="mobile-contacts">
+      <div class="mobile-contact-row">
+        <a href="tel:+79996708772" class="mobile-contact-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.33 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          +7 (999) 670-87-72
+        </a>
+      </div>
+      <div class="mobile-contact-row">
+        <a href="mailto:lab.301@ya.ru" class="mobile-contact-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          lab.301@ya.ru
+        </a>
+      </div>
+      <div class="mobile-contact-row mobile-contact-actions">
+        <a href="https://t.me/yuriybyg" target="_blank" rel="noopener noreferrer" class="mobile-contact-pill">Telegram</a>
+        <a href="https://wa.me/79996708772" target="_blank" rel="noopener noreferrer" class="mobile-contact-pill">WhatsApp</a>
+      </div>
+    </li>
+  </ul>
+  <a class="btn-nav" href="https://t.me/yuriybyg" target="_blank" rel="noopener noreferrer">Написать</a>
+  <button class="hamburger" id="hamburger" aria-label="Открыть меню" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<!-- Global floating particles overlay -->
+<div id="particles"></div>
+
+<section id="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-watermark">301</div>
+
+  <div class="hero-content">
+    <div class="hero-text">
+      <div class="hero-badge">✦ Технологии роста · 2026</div>
+      <h1>
+        <span class="accent">LAB301</span><br/>
+        Технологии роста<br/>
+        для бизнеса
+      </h1>
+      <p class="hero-sub">Разрабатываем сайты, автоматизируем процессы и&nbsp;помогаем бизнесу расти.</p>
+      <div class="hero-cta">
+        <a class="btn-primary" href="https://t.me/yuriybyg" target="_blank" rel="noopener noreferrer">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          Обсудить проект
+        </a>
+        <a class="btn-outline" href="#cases">
+          Смотреть кейсы →
+        </a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat-item">
+          <span class="hero-stat-val">100+</span>
+          <span class="hero-stat-label">Проектов запущено</span>
+        </div>
+        <div class="hero-stat-item">
+          <span class="hero-stat-val">5 лет</span>
+          <span class="hero-stat-label">На рынке</span>
+        </div>
+        <div class="hero-stat-item">
+          <span class="hero-stat-val">24/7</span>
+          <span class="hero-stat-label">Михалыч на связи</span>
+        </div>
+        <div class="hero-stat-item">
+          <span class="hero-stat-val">5 мин</span>
+          <span class="hero-stat-label">Среднее время ответа</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-robot">
+      <img src="ai_assistant_main.webp" alt="Михалыч — AI-ассистент LAB301" loading="eager" fetchpriority="high" />
+    </div>
+  </div>
+  <a class="hero-scroll" href="#services" aria-label="Прокрутить вниз">
+    <div class="hero-scroll-mouse"></div>
+    <span>Листай</span>
+  </a>
+</section>
+
+<!-- TECH MARQUEE -->
+<section class="marquee-section">
+  <div class="marquee">
+    <div class="marquee-track">
+      <span class="marquee-item">React</span>
+      <span class="marquee-dot"></span>
+      <span class="marquee-item">Next.js</span>
+      <span class="marquee-dot"></span>
+      <span class="marquee-item">Figma</span>
+      <span class="marquee-dot"></span>
+      <span class="marquee-item">Claude AI</span>
+      <span class="marquee-dot"></span>
+      <span class="marquee-item">OpenAI</span>
+      <span class="marquee-dot"></span>
+      <span class="marquee-item">ChatGPT</span>
+      <span class="marquee-dot"></span>
+      <span class="marquee-item">n8n</span>
+      <span class="marquee-dot"></span>
+      <span class="marquee-item">Make</span>
+      <span class="marquee-dot"></span>
+      <span class="marquee-item">Zapier</span>
+      <span class="marquee-dot"></span>
+      <span class="marquee-item">Telegram</span>
+      <span class="marquee-dot"></span>
+      <span class="marquee-item">WhatsApp</span>
+      <span class="marquee-dot"></span>
+      <span class="marquee-item">WordPress</span>
+      <span class="marquee-dot"></span>
+      <span class="marquee-item">Tilda</span>
+      <span class="marquee-dot"></span>
+      <span class="marquee-item">Bitrix24</span>
+      <span class="marquee-dot"></span>
+      <span class="marquee-item">Webflow</span>
+      <span class="marquee-dot"></span>
+      <span class="marquee-item">Notion</span>
+      <span class="marquee-dot"></span>
+      <span class="marquee-item">Slack</span>
+      <span class="marquee-dot"></span>
+      <span class="marquee-item">Google</span>
+      <span class="marquee-dot"></span>
+      <span class="marquee-item">Yandex</span>
+      <span class="marquee-dot"></span>
+      <span class="marquee-item">GitHub</span>
+      <span class="marquee-dot"></span>
+      <span class="marquee-item">Stripe</span>
+      <span class="marquee-dot"></span>
+      <span class="marquee-item">Supabase</span>
+      <span class="marquee-dot"></span>
+      <span class="marquee-item">OpenClaw</span>
+      <span class="marquee-dot"></span>
+      <span class="marquee-item">Manus</span>
+      <span class="marquee-dot"></span>
+      <!-- duplicate for seamless loop -->
+      <span class="marquee-item">React</span>
+      <span class="marquee-dot"></span>
+      <span class="marquee-item">Next.js</span>
+      <span class="marquee-dot"></span>
+      <span class="marquee-item">Figma</span>
+      <span class="marquee-dot"></span>
+      <span class="marquee-item">Claude AI</span>
+      <span class="marquee-dot"></span>
+      <span class="marquee-item">OpenAI</span>
+      <span class="marquee-dot"></span>
+      <span class="marquee-item">ChatGPT</span>
+      <span class="marquee-dot"></span>
+      <span class="marquee-item">n8n</span>
+      <span class="marquee-dot"></span>
+      <span class="marquee-item">Make</span>
+      <span class="marquee-dot"></span>
+      <span class="marquee-item">Zapier</span>
+      <span class="marquee-dot"></span>
+      <span class="marquee-item">Telegram</span>
+      <span class="marquee-dot"></span>
+      <span class="marquee-item">WhatsApp</span>
+      <span class="marquee-dot"></span>
+      <span class="marquee-item">WordPress</span>
+      <span class="marquee-dot"></span>
+      <span class="marquee-item">Tilda</span>
+      <span class="marquee-dot"></span>
+      <span class="marquee-item">Bitrix24</span>
+      <span class="marquee-dot"></span>
+      <span class="marquee-item">Webflow</span>
+      <span class="marquee-dot"></span>
+      <span class="marquee-item">Notion</span>
+      <span class="marquee-dot"></span>
+      <span class="marquee-item">Slack</span>
+      <span class="marquee-dot"></span>
+      <span class="marquee-item">Google</span>
+      <span class="marquee-dot"></span>
+      <span class="marquee-item">Yandex</span>
+      <span class="marquee-dot"></span>
+      <span class="marquee-item">GitHub</span>
+      <span class="marquee-dot"></span>
+      <span class="marquee-item">Stripe</span>
+      <span class="marquee-dot"></span>
+      <span class="marquee-item">Supabase</span>
+      <span class="marquee-dot"></span>
+      <span class="marquee-item">OpenClaw</span>
+      <span class="marquee-dot"></span>
+      <span class="marquee-item">Manus</span>
+      <span class="marquee-dot"></span>
+    </div>
+  </div>
+</section>
+
+<!-- MIKHALYCH -->
+<section id="mikhalych">
+  <div class="container">
+    <div class="mik-inner">
+      <div class="mik-svg-wrap">
+        <img class="mik-avatar-img" src="ai_assistant_waving.webp" alt="Михалыч — AI-ассистент LAB301" loading="lazy" />
+      </div>
+      <div>
+        <p class="section-label">— Михалыч, AI-менеджер · LAB301</p>
+        <h2 style="font-size:clamp(1.8rem,3.5vw,2.8rem);margin-bottom:1rem;">Привет, я<br/><span class="brand-name">Михалыч</span></h2>
+        <p class="mik-quote">
+          ИИ-менеджер <strong><span class="brand-name">LAB301</span></strong>. Отвечу на любой вопрос, подберу нужную услугу и посчитаю примерную стоимость за 5 минут. Без воды и скриптов.
+        </p>
+        <a class="btn-primary" href="https://t.me/yuriybyg" target="_blank" rel="noopener noreferrer">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+          Спросить Михалыча
+        </a>
+        <div class="mik-stats">
+          <div class="mik-stat">
+            <span class="mik-stat-val">5 мин</span>
+            <span class="mik-stat-label">Среднее время ответа</span>
+          </div>
+          <div class="mik-stat">
+            <span class="mik-stat-val">24/7</span>
+            <span class="mik-stat-label">Всегда на связи</span>
+          </div>
+          <div class="mik-stat">
+            <span class="mik-stat-val">100+</span>
+            <span class="mik-stat-label">Выполненных проектов</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="container">
+    <div class="reveal">
+      <p class="section-label">Полный спектр услуг</p>
+      <h2>Услуги</h2>
+      <div class="divider"></div>
+      <p class="section-desc">Полный спектр задач — от создания сайтов до AI-автоматизации и digital-продвижения.</p>
+    </div>
+    <div class="services-grid reveal">
+
+      <div class="service-card primary">
+        <span class="service-icon">🌐</span>
+        <div class="service-title">Разработка сайтов</div>
+        <ul class="service-list">
+          <li>Лендинги и корпоративные сайты</li>
+          <li>Интернет-магазины</li>
+          <li>AI-сайты и web-приложения</li>
+          <li>UI/UX дизайн и редизайн</li>
+          <li>Домен, хостинг, техподдержка</li>
+        </ul>
+        <a class="btn-ghost" href="https://t.me/yuriybyg" target="_blank" rel="noopener noreferrer">Обсудить проект →</a>
+      </div>
+
+      <div class="service-card">
+        <span class="service-icon">⚙️</span>
+        <div class="service-title">Автоматизация бизнеса</div>
+        <ul class="service-list">
+          <li>AI-автоматизация процессов</li>
+          <li>Telegram-боты и AI-консультанты</li>
+          <li>CRM и email-автоматизация</li>
+          <li>n8n / API интеграции</li>
+          <li>Claude / ChatGPT интеграции</li>
+        </ul>
+        <a class="btn-ghost" href="https://t.me/yuriybyg" target="_blank" rel="noopener noreferrer">Получить консультацию →</a>
+      </div>
+
+      <div class="service-card">
+        <span class="service-icon">📈</span>
+        <div class="service-title">Digital-продвижение</div>
+        <ul class="service-list">
+          <li>SEO-продвижение сайтов</li>
+          <li>Локальное SEO и Google Business</li>
+          <li>Контент-маркетинг</li>
+          <li>Аналитика и аудит</li>
+          <li>Рост позиций в поиске</li>
+        </ul>
+        <a class="btn-ghost" href="https://t.me/yuriybyg" target="_blank" rel="noopener noreferrer">Обсудить проект →</a>
+      </div>
+
+      <div class="service-card">
+        <span class="service-icon">🎨</span>
+        <div class="service-title">Дизайн и брендинг</div>
+        <ul class="service-list">
+          <li>Логотип и фирменный стиль</li>
+          <li>UI/UX дизайн интерфейсов</li>
+          <li>Баннеры и креативы</li>
+          <li>Дизайн соцсетей</li>
+          <li>Презентации и брендбук</li>
+        </ul>
+        <a class="btn-ghost" href="https://t.me/yuriybyg" target="_blank" rel="noopener noreferrer">Обсудить проект →</a>
+      </div>
+
+      <div class="service-card primary">
+        <span class="service-icon">🤖</span>
+        <div class="service-title">AI-решения</div>
+        <ul class="service-list">
+          <li>AI-чатботы для сайтов</li>
+          <li>Claude / OpenAI интеграции</li>
+          <li>AI-автоматизация поддержки</li>
+          <li>AI-агенты для бизнеса</li>
+          <li>AI-генерация контента</li>
+        </ul>
+        <a class="btn-ghost" href="https://t.me/yuriybyg" target="_blank" rel="noopener noreferrer">Получить консультацию →</a>
+      </div>
+
+      <div class="service-card">
+        <span class="service-icon">🛡️</span>
+        <div class="service-title">Поддержка и сопровождение</div>
+        <ul class="service-list">
+          <li>Техническая поддержка 24/7</li>
+          <li>Обновление и мониторинг</li>
+          <li>Безопасность и резервные копии</li>
+          <li>Оптимизация скорости</li>
+          <li>Консультации и аудит</li>
+        </ul>
+        <a class="btn-ghost" href="https://t.me/yuriybyg" target="_blank" rel="noopener noreferrer">Обсудить проект →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- HOW WE WORK -->
+<section id="how">
+  <div class="container">
+    <div class="reveal">
+      <p class="section-label">Процесс работы</p>
+      <h2>Как мы работаем</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="process-timeline reveal">
+
+      <div class="process-step">
+        <div class="process-step-left">
+          <div class="process-dot">01</div>
+        </div>
+        <div class="process-body">
+          <span class="process-icon">📋</span>
+          <div class="process-title">Заявка</div>
+          <p class="process-desc">Оставляете заявку и кратко описываете задачу, цели и пожелания по проекту. Михалыч ответит в течение 5 минут.</p>
+        </div>
+      </div>
+
+      <div class="process-step">
+        <div class="process-step-left">
+          <div class="process-dot">02</div>
+        </div>
+        <div class="process-body">
+          <span class="process-icon">🤝</span>
+          <div class="process-title">Обсуждение проекта</div>
+          <p class="process-desc">Созваниваемся или общаемся в мессенджере — уточняем детали и подбираем оптимальное решение под ваш бизнес.</p>
+        </div>
+      </div>
+
+      <div class="process-step">
+        <div class="process-step-left">
+          <div class="process-dot">03</div>
+        </div>
+        <div class="process-body">
+          <span class="process-icon">🤖</span>
+          <div class="process-title">Анализ и подготовка</div>
+          <p class="process-desc">Изучаем проект, продумываем структуру и функционал. Готовим предложение со сроками и стоимостью.</p>
+        </div>
+      </div>
+
+      <div class="process-step">
+        <div class="process-step-left">
+          <div class="process-dot">04</div>
+        </div>
+        <div class="process-body">
+          <span class="process-icon">⚡</span>
+          <div class="process-title">Разработка и запуск</div>
+          <p class="process-desc">Создаём сайт или систему автоматизации, подключаем сервисы и тестируем каждый элемент перед сдачей.</p>
+        </div>
+      </div>
+
+      <div class="process-step">
+        <div class="process-step-left">
+          <div class="process-dot">05</div>
+        </div>
+        <div class="process-body">
+          <span class="process-icon">🎯</span>
+          <div class="process-title">Поддержка и развитие</div>
+          <p class="process-desc">Передаём готовый результат и остаёмся на связи. 14 дней бесплатных правок и поддержка после запуска.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CASES -->
+<section id="cases">
+  <div class="container">
+    <div class="reveal">
+      <p class="section-label">Результаты</p>
+      <h2>Кейсы</h2>
+      <div class="divider"></div>
+      <p class="section-desc">Реальные проекты. Реальные цифры.</p>
+    </div>
+    <div class="cases-grid reveal">
+      <div class="case-card featured-case">
+        <a class="case-cover-link" href="https://xn--36-9kc3bfr2e.xn--p1ai/" target="_blank" rel="noopener">
+          <img class="case-cover-img" src="remcity36_cover.webp" alt="Ремсити36 — ремонт бытовой техники и электроники" loading="lazy" />
+        </a>
+        <div class="case-card-body">
+          <span class="case-tag">Разработка сайта · Дизайн · SEO</span>
+          <div class="case-title">Ремсити36 — сервис ремонта бытовой техники</div>
+          <div class="case-metrics">
+            <div class="case-metric"><span class="case-metric-val">+34%</span><span class="case-metric-label">конверсия</span></div>
+            <div class="case-metric"><span class="case-metric-val">×2</span><span class="case-metric-label">рост заявок</span></div>
+            <div class="case-metric"><span class="case-metric-val">14 дн</span><span class="case-metric-label">срок запуска</span></div>
+            <div class="case-metric"><span class="case-metric-val">ТОП-3</span><span class="case-metric-label">SEO Воронеж</span></div>
+          </div>
+          <div class="case-result">Профессиональный сайт для сервиса ремонта бытовой техники и электроники в Воронеже. Уникальный дизайн, AI-оптимизация, интеграция с Яндекс Картами.</div>
+          <a class="btn-ghost" href="https://xn--36-9kc3bfr2e.xn--p1ai/" target="_blank" rel="noopener">Смотреть кейс →</a>
+        </div>
+      </div>
+      <div class="case-card placeholder">
+        <div class="case-cover placeholder-cover" style="background: repeating-linear-gradient(135deg,rgba(168,85,247,0.04),rgba(168,85,247,0.04) 10px,transparent 10px,transparent 22px), linear-gradient(135deg,rgba(168,85,247,0.12),rgba(99,102,241,0.12));">
+          <div class="case-cover-bar">
+            <span class="case-cover-dot"></span><span class="case-cover-dot"></span><span class="case-cover-dot"></span>
+            <span class="case-cover-url">ai-bot.ru</span>
+          </div>
+          <div class="case-cover-content placeholder-cover-content">
+            <span class="placeholder-cover-icon">🤖</span>
+          </div>
+        </div>
+        <div class="case-card-body">
+          <span class="case-tag">В работе</span>
+          <div class="case-title">AI-автоматизация<br/>бизнеса</div>
+          <div class="case-result">Telegram-бот + CRM + автоответы 24/7 · Скоро здесь</div>
+          <a class="btn-ghost" href="https://t.me/yuriybyg" target="_blank" rel="noopener noreferrer">Обсудить проект →</a>
+        </div>
+      </div>
+
+      <div class="case-card placeholder">
+        <div class="case-cover placeholder-cover" style="background: repeating-linear-gradient(135deg,rgba(6,182,212,0.04),rgba(6,182,212,0.04) 10px,transparent 10px,transparent 22px), linear-gradient(135deg,rgba(6,182,212,0.12),rgba(34,211,238,0.08));">
+          <div class="case-cover-bar">
+            <span class="case-cover-dot"></span><span class="case-cover-dot"></span><span class="case-cover-dot"></span>
+            <span class="case-cover-url">shop.ru</span>
+          </div>
+          <div class="case-cover-content placeholder-cover-content">
+            <span class="placeholder-cover-icon">🛒</span>
+          </div>
+        </div>
+        <div class="case-card-body">
+          <span class="case-tag">Скоро</span>
+          <div class="case-title">Интернет-магазин<br/>с AI-консультантом</div>
+          <div class="case-result">Каталог + оплата + AI-помощник · Ваш проект здесь</div>
+          <a class="btn-ghost" href="https://t.me/yuriybyg" target="_blank" rel="noopener noreferrer">Занять место →</a>
+        </div>
+      </div>
+
+      <div class="case-card placeholder">
+        <div class="case-cover placeholder-cover" style="background: repeating-linear-gradient(135deg,rgba(99,102,241,0.04),rgba(99,102,241,0.04) 10px,transparent 10px,transparent 22px), linear-gradient(135deg,rgba(99,102,241,0.12),rgba(168,85,247,0.08));">
+          <div class="case-cover-bar">
+            <span class="case-cover-dot"></span><span class="case-cover-dot"></span><span class="case-cover-dot"></span>
+            <span class="case-cover-url">company.ru</span>
+          </div>
+          <div class="case-cover-content placeholder-cover-content">
+            <span class="placeholder-cover-icon">🏢</span>
+          </div>
+        </div>
+        <div class="case-card-body">
+          <span class="case-tag">Ваш проект</span>
+          <div class="case-title">Корпоративный<br/>сайт под ключ</div>
+          <div class="case-result">SEO + CRM + дизайн · Запустим за 14–30 дней</div>
+          <a class="btn-ghost" href="https://t.me/yuriybyg" target="_blank" rel="noopener noreferrer">Получить скидку 15% →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing">
+  <div class="container">
+    <div class="reveal">
+      <p class="section-label">Тарифы и услуги</p>
+      <h2>Прозрачные цены</h2>
+      <div class="divider"></div>
+      <p class="section-desc">Выберите подходящую категорию — от лендинга до AI-автоматизации. Финальная цена обсуждается после брифа.</p>
+    </div>
+
+    <div class="pricing-tabs reveal">
+      <button class="pricing-tab active" data-tab="landing">🚀 Лендинги</button>
+      <button class="pricing-tab" data-tab="corp">🏢 Корпоративные</button>
+      <button class="pricing-tab" data-tab="shop">🛒 Интернет-магазины</button>
+      <button class="pricing-tab" data-tab="ai">🤖 AI и автоматизация</button>
+      <button class="pricing-tab" data-tab="seo">📈 SEO</button>
+      <button class="pricing-tab" data-tab="design">🎨 Дизайн и брендинг</button>
+      <button class="pricing-tab" data-tab="support">🛡️ Поддержка</button>
+    </div>
+
+    <!-- LANDING -->
+    <div class="pricing-panel active" data-panel="landing">
+      <div class="plan-card">
+        <div class="plan-name">Старт</div>
+        <div class="plan-price"><sup>от </sup>35 000<sup> ₽</sup></div>
+        <p class="plan-sub">Лендинг для старта бизнеса и презентации продукта</p>
+        <div class="plan-features-label">Что входит</div>
+        <ul class="plan-features">
+          <li>Адаптивный дизайн до 5 экранов</li>
+          <li>Форма заявок + мессенджеры</li>
+          <li>Базовая SEO-оптимизация</li>
+          <li>Домен, хостинг, аналитика</li>
+          <li>Мобильная версия</li>
+        </ul>
+        <div class="plan-duration">⚡ Срок: 5–10 дней</div>
+        <a class="btn-outline" href="https://t.me/yuriybyg" target="_blank" rel="noopener noreferrer" style="display:block;text-align:center;">Выбрать →</a>
+      </div>
+
+      <div class="plan-card featured">
+        <div class="plan-badge">Популярный</div>
+        <div class="plan-name">Бизнес</div>
+        <div class="plan-price"><sup>от </sup>65 000<sup> ₽</sup></div>
+        <p class="plan-sub">Лендинг для рекламы и digital-продвижения</p>
+        <div class="plan-features-label">Что входит</div>
+        <ul class="plan-features">
+          <li>Уникальный дизайн до 10 экранов</li>
+          <li>Анимации + формы захвата заявок</li>
+          <li>CRM и Telegram-интеграции</li>
+          <li>SEO + аналитика событий</li>
+          <li>Оптимизация скорости</li>
+        </ul>
+        <div class="plan-duration">⚡ Срок: 7–14 дней</div>
+        <a class="btn-primary" href="https://t.me/yuriybyg" target="_blank" rel="noopener noreferrer" style="display:block;text-align:center;">Выбрать →</a>
+      </div>
+
+      <div class="plan-card">
+        <div class="plan-name">Премиум</div>
+        <div class="plan-price"><sup>от </sup>120 000<sup> ₽</sup></div>
+        <p class="plan-sub">Премиальные digital-решения и сложные проекты</p>
+        <div class="plan-features-label">Что входит</div>
+        <ul class="plan-features">
+          <li>Премиальный UI/UX + квиз-системы</li>
+          <li>AI-интеграции + автоматизация</li>
+          <li>CRM, API и аналитика конверсий</li>
+          <li>SEO + высокая скорость загрузки</li>
+          <li>Техподдержка после запуска</li>
+        </ul>
+        <div class="plan-duration">⚡ Срок: 14–25 дней</div>
+        <a class="btn-outline" href="https://t.me/yuriybyg" target="_blank" rel="noopener noreferrer" style="display:block;text-align:center;">Выбрать →</a>
+      </div>
+    </div>
+
+    <!-- CORPORATE -->
+    <div class="pricing-panel" data-panel="corp">
+      <div class="plan-card">
+        <div class="plan-name">Базовый</div>
+        <div class="plan-price"><sup>от </sup>90 000<sup> ₽</sup></div>
+        <p class="plan-sub">Корпоративный сайт с базовым функционалом</p>
+        <div class="plan-features-label">Что входит</div>
+        <ul class="plan-features">
+          <li>Многостраничный сайт + дизайн</li>
+          <li>Страницы услуг + форма заявок</li>
+          <li>Адаптивная версия</li>
+          <li>Базовое SEO + аналитика</li>
+          <li>Домен и хостинг</li>
+        </ul>
+        <div class="plan-duration">⚡ Срок: 10–20 дней</div>
+        <a class="btn-outline" href="https://t.me/yuriybyg" target="_blank" rel="noopener noreferrer" style="display:block;text-align:center;">Выбрать →</a>
+      </div>
+
+      <div class="plan-card featured">
+        <div class="plan-badge">PRO</div>
+        <div class="plan-name">PRO</div>
+        <div class="plan-price"><sup>от </sup>150 000<sup> ₽</sup></div>
+        <p class="plan-sub">Корпоративный сайт с расширенными возможностями</p>
+        <div class="plan-features-label">Что входит</div>
+        <ul class="plan-features">
+          <li>Индивидуальный дизайн + блог</li>
+          <li>CRM, Telegram и email-интеграции</li>
+          <li>Формы, калькуляторы, AI-решения</li>
+          <li>SEO + оптимизация скорости</li>
+          <li>Техническая поддержка</li>
+        </ul>
+        <div class="plan-duration">⚡ Срок: 14–30 дней</div>
+        <a class="btn-primary" href="https://t.me/yuriybyg" target="_blank" rel="noopener noreferrer" style="display:block;text-align:center;">Выбрать →</a>
+      </div>
+    </div>
+
+    <!-- SHOPS -->
+    <div class="pricing-panel" data-panel="shop">
+      <div class="plan-card">
+        <div class="plan-name">Start</div>
+        <div class="plan-price"><sup>от </sup>150 000<sup> ₽</sup></div>
+        <p class="plan-sub">Интернет-магазин для запуска онлайн-продаж</p>
+        <div class="plan-features-label">Что входит</div>
+        <ul class="plan-features">
+          <li>Каталог + корзина + оформление</li>
+          <li>Оплата и доставка</li>
+          <li>Адаптивный дизайн</li>
+          <li>Базовое SEO + аналитика</li>
+          <li>Мобильная версия</li>
+        </ul>
+        <div class="plan-duration">⚡ Срок: 14–30 дней</div>
+        <a class="btn-outline" href="https://t.me/yuriybyg" target="_blank" rel="noopener noreferrer" style="display:block;text-align:center;">Выбрать →</a>
+      </div>
+
+      <div class="plan-card featured">
+        <div class="plan-badge">Полный</div>
+        <div class="plan-name">Business</div>
+        <div class="plan-price"><sup>от </sup>250 000<sup> ₽</sup></div>
+        <p class="plan-sub">Интернет-магазин с AI и автоматизацией</p>
+        <div class="plan-features-label">Что входит</div>
+        <ul class="plan-features">
+          <li>Индивидуальный дизайн + каталог</li>
+          <li>AI-консультант + CRM</li>
+          <li>Автоматизация заказов и уведомлений</li>
+          <li>SEO + аналитика продаж</li>
+          <li>Высокая производительность</li>
+        </ul>
+        <div class="plan-duration">⚡ Срок: 20–45 дней</div>
+        <a class="btn-primary" href="https://t.me/yuriybyg" target="_blank" rel="noopener noreferrer" style="display:block;text-align:center;">Выбрать →</a>
+      </div>
+    </div>
+
+    <!-- AI / AUTOMATION -->
+    <div class="pricing-panel" data-panel="ai">
+      <div class="plan-card">
+        <div class="plan-name">Telegram-боты</div>
+        <div class="plan-price"><sup>от </sup>25 000<sup> ₽</sup></div>
+        <p class="plan-sub">Чат-боты под задачи бизнеса</p>
+        <div class="plan-features-label">Что входит</div>
+        <ul class="plan-features">
+          <li>Создание Telegram-бота</li>
+          <li>Автоматические ответы</li>
+          <li>Меню и команды</li>
+          <li>Интеграции с сайтом</li>
+          <li>Подключение AI</li>
+        </ul>
+        <a class="btn-outline" href="https://t.me/yuriybyg" target="_blank" rel="noopener noreferrer" style="display:block;text-align:center;">Выбрать →</a>
+      </div>
+
+      <div class="plan-card featured">
+        <div class="plan-badge">Топ</div>
+        <div class="plan-name">AI-консультант</div>
+        <div class="plan-price"><sup>от </sup>40 000<sup> ₽</sup></div>
+        <p class="plan-sub">AI-чат для сайта на Claude / ChatGPT</p>
+        <div class="plan-features-label">Что входит</div>
+        <ul class="plan-features">
+          <li>AI-чат для сайта</li>
+          <li>Ответы клиентам в режиме 24/7</li>
+          <li>Обучение на информации компании</li>
+          <li>Интеграция Claude / ChatGPT</li>
+          <li>Подключение CRM</li>
+        </ul>
+        <a class="btn-primary" href="https://t.me/yuriybyg" target="_blank" rel="noopener noreferrer" style="display:block;text-align:center;">Выбрать →</a>
+      </div>
+
+      <div class="plan-card">
+        <div class="plan-name">CRM-автоматизация</div>
+        <div class="plan-price"><sup>от </sup>35 000<sup> ₽</sup></div>
+        <p class="plan-sub">Автоматизация процессов продаж</p>
+        <div class="plan-features-label">Что входит</div>
+        <ul class="plan-features">
+          <li>Автоматизация заявок</li>
+          <li>Интеграции CRM</li>
+          <li>Автоматические уведомления</li>
+          <li>Автоматизация продаж</li>
+          <li>Подключение email и Telegram</li>
+        </ul>
+        <a class="btn-outline" href="https://t.me/yuriybyg" target="_blank" rel="noopener noreferrer" style="display:block;text-align:center;">Выбрать →</a>
+      </div>
+
+      <div class="plan-card">
+        <div class="plan-name">n8n-сценарии</div>
+        <div class="plan-price"><sup>от </sup>30 000<sup> ₽</sup></div>
+        <p class="plan-sub">Автоматизация рутины через n8n</p>
+        <div class="plan-features-label">Что входит</div>
+        <ul class="plan-features">
+          <li>Создание автоматических сценариев</li>
+          <li>Интеграции сервисов</li>
+          <li>Автоматизация рутинных задач</li>
+          <li>AI-интеграции</li>
+          <li>Подключение API</li>
+        </ul>
+        <a class="btn-outline" href="https://t.me/yuriybyg" target="_blank" rel="noopener noreferrer" style="display:block;text-align:center;">Выбрать →</a>
+      </div>
+    </div>
+
+    <!-- SEO -->
+    <div class="pricing-panel" data-panel="seo">
+      <div class="plan-card">
+        <div class="plan-name">Базовое SEO</div>
+        <div class="plan-price"><sup>от </sup>15 000<sup> ₽</sup><span class="plan-period">/мес</span></div>
+        <p class="plan-sub">Стартовая оптимизация и техническая база</p>
+        <div class="plan-features-label">Что входит</div>
+        <ul class="plan-features">
+          <li>Техническая оптимизация</li>
+          <li>Настройка мета-тегов</li>
+          <li>Базовая аналитика</li>
+          <li>Оптимизация скорости</li>
+          <li>Рекомендации по продвижению</li>
+        </ul>
+        <a class="btn-outline" href="https://t.me/yuriybyg" target="_blank" rel="noopener noreferrer" style="display:block;text-align:center;">Выбрать →</a>
+      </div>
+
+      <div class="plan-card featured">
+        <div class="plan-badge">Полный</div>
+        <div class="plan-name">SEO-продвижение</div>
+        <div class="plan-price"><sup>от </sup>30 000<sup> ₽</sup><span class="plan-period">/мес</span></div>
+        <p class="plan-sub">Полноценное продвижение в поиске</p>
+        <div class="plan-features-label">Что входит</div>
+        <ul class="plan-features">
+          <li>SEO-аудит + структура сайта</li>
+          <li>Работа с контентом</li>
+          <li>Повышение позиций в поиске</li>
+          <li>Аналитика и отчёты</li>
+          <li>Рекомендации по росту</li>
+        </ul>
+        <a class="btn-primary" href="https://t.me/yuriybyg" target="_blank" rel="noopener noreferrer" style="display:block;text-align:center;">Выбрать →</a>
+      </div>
+    </div>
+
+    <!-- DESIGN -->
+    <div class="pricing-panel" data-panel="design">
+      <div class="plan-card">
+        <div class="plan-name">Логотип и стиль</div>
+        <div class="plan-price"><sup>от </sup>20 000<sup> ₽</sup></div>
+        <p class="plan-sub">Логотип и фирменный стиль с базовым брендбуком</p>
+        <div class="plan-features-label">Что входит</div>
+        <ul class="plan-features">
+          <li>Разработка логотипа</li>
+          <li>Подбор цветовой палитры</li>
+          <li>Фирменные шрифты</li>
+          <li>Базовый брендбук</li>
+          <li>Варианты для соцсетей и сайта</li>
+        </ul>
+        <a class="btn-outline" href="https://t.me/yuriybyg" target="_blank" rel="noopener noreferrer" style="display:block;text-align:center;">Выбрать →</a>
+      </div>
+
+      <div class="plan-card featured">
+        <div class="plan-badge">Полный</div>
+        <div class="plan-name">UI/UX дизайн</div>
+        <div class="plan-price"><sup>от </sup>30 000<sup> ₽</sup></div>
+        <p class="plan-sub">Дизайн интерфейсов и прототипов</p>
+        <div class="plan-features-label">Что входит</div>
+        <ul class="plan-features">
+          <li>UI/UX дизайн</li>
+          <li>Дизайн мобильных версий</li>
+          <li>Современный интерфейс</li>
+          <li>Прототипирование</li>
+          <li>Адаптация под бренд</li>
+        </ul>
+        <a class="btn-primary" href="https://t.me/yuriybyg" target="_blank" rel="noopener noreferrer" style="display:block;text-align:center;">Выбрать →</a>
+      </div>
+    </div>
+
+    <!-- SUPPORT -->
+    <div class="pricing-panel" data-panel="support">
+      <div class="plan-card featured" style="max-width:420px;margin:0 auto;">
+        <div class="plan-badge">Подписка</div>
+        <div class="plan-name">Поддержка сайтов</div>
+        <div class="plan-price"><sup>от </sup>10 000<sup> ₽</sup><span class="plan-period">/мес</span></div>
+        <p class="plan-sub">Техническая поддержка и сопровождение</p>
+        <div class="plan-features-label">Что входит</div>
+        <ul class="plan-features">
+          <li>Обновления + исправление ошибок</li>
+          <li>Резервное копирование</li>
+          <li>Мониторинг и безопасность</li>
+          <li>Оптимизация скорости</li>
+          <li>Технические консультации</li>
+        </ul>
+        <a class="btn-primary" href="https://t.me/yuriybyg" target="_blank" rel="noopener noreferrer" style="display:block;text-align:center;">Выбрать →</a>
+      </div>
+    </div>
+
+    <div class="pricing-trust reveal">
+      <div class="pricing-trust-item"><span>⚡</span><span>Ответим за <strong style="color:#fff">5 минут</strong></span></div>
+      <div class="pricing-trust-item"><span>📄</span><span>Договор и официальный счёт</span></div>
+      <div class="pricing-trust-item"><span>✅</span><span><strong style="color:#fff">14 дней</strong> бесплатных правок</span></div>
+      <div class="pricing-trust-item"><span>🛡️</span><span>Поддержка после запуска</span></div>
+      <div class="pricing-trust-item"><span>🌍</span><span>Работаем по всей России</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="container">
+    <div class="reveal" style="text-align:center; margin-bottom: 3rem;">
+      <p class="section-label">Вопросы</p>
+      <h2>Частые вопросы</h2>
+      <div class="divider" style="margin: 1.25rem auto 0;"></div>
+    </div>
+    <div class="faq-layout reveal">
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-q">Сколько стоит сайт?<span class="faq-icon">+</span></button>
+          <div class="faq-a">Зависит от задачи. Лендинг — от 35 000 ₽. Корпоративный сайт — от 90 000 ₽. Точную стоимость рассчитаем после брифа. Напишите — это бесплатно и ни к чему не обязывает.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Как быстро сделаете?<span class="faq-icon">+</span></button>
+          <div class="faq-a">Лендинг — 7–14 дней. Корпоративный сайт — 3–6 недель. Срочный проект? Спросите Михалыча — найдём вариант. Всегда называем реальные сроки, не затягиваем.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Нужен ли мне сайт или карточка Яндекса?<span class="faq-icon">+</span></button>
+          <div class="faq-a">Если работаете локально — начните с Яндекс Карточки, она даст клиентов быстрее. Если нужно выйти за пределы города или продукт сложный — сайт обязателен. Лучше всего — и то, и другое.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Вы работаете по всей России?<span class="faq-icon">+</span></button>
+          <div class="faq-a">Да. Работаем удалённо с клиентами из Москвы, Питера, Воронежа, Екатеринбурга и других городов. Всё общение — в мессенджерах, оплата — по счёту.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Что если результат не понравится?<span class="faq-icon">+</span></button>
+          <div class="faq-a">14 дней бесплатных правок после сдачи. Работаем строго по ТЗ — согласовываем макет перед разработкой, чтобы результат соответствовал ожиданиям.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Как происходит оплата?<span class="faq-icon">+</span></button>
+          <div class="faq-a">50% предоплата, 50% по сдаче. Безналичный расчёт, договор и закрывающие документы. ИП или ООО — работаем официально.</div>
+        </div>
+      </div>
+      <div class="faq-side">
+        <div class="faq-side-title">Почему выбирают LAB301</div>
+        <ul class="faq-trust-list">
+          <li class="faq-trust-item">
+            <span class="faq-trust-icon">⚡</span>
+            <span>Ответим в течение <strong style="color:#fff">5 минут</strong> — Михалыч на связи 24/7</span>
+          </li>
+          <li class="faq-trust-item">
+            <span class="faq-trust-icon">✅</span>
+            <span><strong style="color:#fff">14 дней</strong> бесплатных правок после сдачи</span>
+          </li>
+          <li class="faq-trust-item">
+            <span class="faq-trust-icon">🔒</span>
+            <span>Работаем официально — <strong style="color:#fff">договор и счёт</strong></span>
+          </li>
+          <li class="faq-trust-item">
+            <span class="faq-trust-icon">📈</span>
+            <span>Поддержка и развитие <strong style="color:#fff">после запуска</strong></span>
+          </li>
+        </ul>
+        <a class="btn-primary" href="https://t.me/yuriybyg" target="_blank" rel="noopener noreferrer" style="display:flex;justify-content:center;gap:0.5rem;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+          Спросить Михалыча
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="cta">
+  <div class="container">
+    <div class="reveal cta-inner">
+      <div class="cta-orb"></div>
+      <p class="cta-label">✦ Напишите прямо сейчас</p>
+      <h2 class="cta-title"><span class="grad-word">Обсудим</span> ваш проект?</h2>
+      <p class="cta-sub">Ответим за <strong>5 минут</strong> и предложим решение под ваш бизнес</p>
+      <div class="cta-buttons">
+        <a class="btn-primary" href="https://t.me/yuriybyg" target="_blank" rel="noopener noreferrer">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+          Написать в Telegram
+        </a>
+        <a class="btn-whatsapp" href="https://wa.me/79996708772" target="_blank" rel="noopener noreferrer">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+          Написать в WhatsApp
+        </a>
+      </div>
+      <p class="cta-note">Без скрытых платежей · Договор и счёт · Поддержка после запуска</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="contact">
+  <div class="footer-stats">
+    <div class="footer-stat">
+      <span class="footer-stat-val">100+</span>
+      <span class="footer-stat-label">Выполненных проектов</span>
+    </div>
+    <div class="footer-stat">
+      <span class="footer-stat-val">24/7</span>
+      <span class="footer-stat-label">Поддержка и связь</span>
+    </div>
+    <div class="footer-stat">
+      <span class="footer-stat-val">5 мин</span>
+      <span class="footer-stat-label">Среднее время ответа</span>
+    </div>
+  </div>
+  <div class="footer-inner">
+    <div>
+      <a class="nav-logo" href="#" style="display:inline-block;margin-bottom:0.75rem;"><span class="brand-name">LAB301</span></a>
+      <p class="footer-desc">Разрабатываем сайты, автоматизируем процессы и помогаем бизнесу расти. Работаем по всей России.</p>
+      <div style="margin-top:1.25rem;display:flex;flex-direction:column;gap:0.5rem;">
+        <div class="contact-line">
+          <span class="contact-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.33 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
+          <a href="tel:+79996708772">+7 (999) 670-87-72</a>
+        </div>
+        <div class="contact-line">
+          <span class="contact-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></span>
+          <a href="mailto:lab.301@ya.ru">lab.301@ya.ru</a>
+        </div>
+        <div class="contact-line">
+          <span class="contact-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="10" r="3"/><path d="M12 22s-8-7.5-8-13a8 8 0 1 1 16 0c0 5.5-8 13-8 13z"/></svg></span>
+          <a href="https://lab301.ru" target="_blank">lab301.ru</a>
+        </div>
+      </div>
+      <div class="social-links" style="margin-top:1.5rem;">
+        <a class="social-link" href="https://t.me/yuriybyg" target="_blank" rel="noopener noreferrer" title="Telegram">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+        </a>
+        <a class="social-link" href="https://wa.me/79996708772" target="_blank" rel="noopener noreferrer" title="WhatsApp">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Услуги</h4>
+      <ul>
+        <li><a href="#services">Разработка сайтов</a></li>
+        <li><a href="#services">Автоматизация бизнеса</a></li>
+        <li><a href="#services">Digital-продвижение</a></li>
+        <li><a href="#services">AI-решения</a></li>
+        <li><a href="#services">Дизайн и брендинг</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>LAB301</h4>
+      <ul>
+        <li><a href="#mikhalych">Михалыч</a></li>
+        <li><a href="#cases">Кейсы</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="https://t.me/yuriybyg" target="_blank" rel="noopener noreferrer">Telegram</a></li>
+        <li><a href="https://wa.me/79996708772" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 LAB301 · lab301.ru</p>
+    <p style="color:rgba(136,136,136,0.5);font-size:0.8rem;display:inline-flex;align-items:center;gap:0.4rem;">
+      Михалыч powered by AI · Built with
+      <a href="https://openclaw.com" target="_blank" rel="noopener noreferrer" class="oc-mark" aria-label="OpenClaw">
+        <img src="openclaw-logo-text-dark.webp" alt="OpenClaw" style="height:18px;width:auto;opacity:0.7;transition:opacity 0.25s;filter:drop-shadow(0 0 6px rgba(168,85,247,0.4));" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.7'" />
+      </a>
+    </p>
+  </div>
+</section>
+
+<script>
+// NAV SCROLL
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 40);
+});
+
+// HAMBURGER
+const hamburger = document.getElementById('hamburger');
+hamburger.addEventListener('click', () => {
+  navbar.classList.toggle('menu-open');
+});
+document.querySelectorAll('.nav-links a').forEach(a => {
+  a.addEventListener('click', () => navbar.classList.remove('menu-open'));
+});
+
+// PRICING TABS
+document.querySelectorAll('.pricing-tab').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const tab = btn.dataset.tab;
+    document.querySelectorAll('.pricing-tab').forEach(b => b.classList.toggle('active', b === btn));
+    document.querySelectorAll('.pricing-panel').forEach(p => p.classList.toggle('active', p.dataset.panel === tab));
+  });
+});
+
+// FAQ ACCORDION
+document.querySelectorAll('.faq-q').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.parentElement;
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  });
+});
+
+// PARTICLES (global, flying upward across the whole site)
+const container = document.getElementById('particles');
+const colorClasses = ['cyan', 'purple', 'indigo', 'cyan', 'purple'];
+for (let i = 0; i < 90; i++) {
+  const p = document.createElement('div');
+  p.className = 'particle ' + colorClasses[Math.floor(Math.random() * colorClasses.length)];
+  if (Math.random() > 0.78) p.classList.add('big');
+  const x = Math.random() * 100;
+  const dur = 10 + Math.random() * 18;
+  const delay = -Math.random() * dur;
+  const drift = (Math.random() - 0.5) * 260;
+  p.style.cssText = `left:${x}%;animation-duration:${dur}s;animation-delay:${delay}s;--drift:${drift}px;opacity:${0.35+Math.random()*0.65}`;
+  container.appendChild(p);
+}
+
+// SCROLL REVEAL
+const revealEls = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+  });
+}, { threshold: 0.1 });
+revealEls.forEach(el => observer.observe(el));
+
+// TODO: Яндекс.Метрика — замените XXXXXXXX на ID счётчика
+// (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+// m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+// (window,document,"script","https://mc.yandex.ru/metrika/tag.js","ym");
+// ym(XXXXXXXX,"init",{clickmap:true,trackLinks:true,accurateTrackBounce:true});
+
+// SCROLL SPY for active nav links
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+const spyObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      navLinks.forEach(l => l.classList.remove('active'));
+      const active = document.querySelector(`.nav-links a[href="#${e.target.id}"]`);
+      if (active) active.classList.add('active');
+    }
+  });
+}, { threshold: 0.35 });
+sections.forEach(s => spyObserver.observe(s));
+
+// BACK TO TOP
+const btt = document.getElementById('backToTop');
+window.addEventListener('scroll', () => {
+  btt.classList.toggle('visible', window.scrollY > 400);
+}, { passive: true });
+
+// HAMBURGER ARIA
+hamburger.addEventListener('click', () => {
+  const expanded = navbar.classList.contains('menu-open');
+  hamburger.setAttribute('aria-expanded', String(!expanded));
+  hamburger.setAttribute('aria-label', expanded ? 'Открыть меню' : 'Закрыть меню');
+});
+
+// CLOSE MENU ON OUTSIDE CLICK
+document.addEventListener('click', (e) => {
+  if (navbar.classList.contains('menu-open') && !navbar.contains(e.target)) {
+    navbar.classList.remove('menu-open');
+    hamburger.setAttribute('aria-expanded', 'false');
+    hamburger.setAttribute('aria-label', 'Открыть меню');
+  }
+});
+</script>
+<a href="#" class="back-to-top" id="backToTop" aria-label="Наверх">↑</a>
+</body>
+</html>
