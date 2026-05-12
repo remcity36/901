@@ -1,0 +1,96 @@
+Проанализируй дизайн главной страницы LAB301 и улучши её как современный premium AI/digital agency сайт уровня 2026 года.
+
+Что нужно улучшить:
+
+1. Hero block
+
+* Сделать первый экран более «дорогим» и минималистичным.
+* Уменьшить визуальный шум.
+* Усилить ощущение premium tech brand.
+* Сохранить dark futuristic стиль.
+
+2. Typography
+
+* Улучшить типографику заголовка.
+* Сделать переносы текста более аккуратными.
+* Добавить больше воздуха между строками.
+* Подобрать более современный баланс размеров текста.
+
+3. Layout
+
+* Выровнять композицию hero-секции.
+* Сделать робота визуально дороже и более органично встроенным в интерфейс.
+* Улучшить spacing между элементами.
+* Добавить более чистую сетку.
+
+4. Background
+
+* Сделать фон менее хаотичным.
+* Оставить futuristic glow и particles, но уменьшить их количество.
+* Добавить subtle gradients и depth.
+* Сделать фон более cinematic.
+
+5. CTA Buttons
+
+* Сделать кнопки более premium:
+
+  * glassmorphism,
+  * soft glow,
+  * hover animations,
+  * smooth transitions.
+* Главная кнопка должна выглядеть как primary action.
+* Secondary button — менее яркой.
+
+6. Navigation
+
+* Улучшить navbar:
+
+  * более современный spacing,
+  * hover effects,
+  * glass effect,
+  * sticky behavior.
+* Сделать кнопку «Написать» более заметной.
+
+7. Branding
+
+* Усилить бренд LAB301:
+
+  * сделать логотип более выразительным,
+  * использовать subtle neon accents,
+  * добавить ощущение AI/automation studio.
+
+8. Visual effects
+
+* Добавить:
+
+  * smooth animations,
+  * parallax,
+  * cursor glow,
+  * subtle motion effects.
+* Но сохранить clean premium look без перегруза.
+
+9. Hero illustration
+
+* Улучшить AI-робота:
+
+  * сделать более современным,
+  * менее «детским»,
+  * ближе к premium AI assistant aesthetic.
+* Добавить мягкое свечение и depth.
+
+10. Общий стиль
+    Нужен стиль:
+
+* Apple × Linear × Vercel × Lovable × modern AI startup.
+* Максимально clean.
+* Premium dark UI.
+* Minimal futuristic aesthetic.
+* High-end digital agency vibe.
+
+Дополнительно:
+
+* Улучши UX.
+* Сделай интерфейс визуально дороже.
+* Добавь современные micro-interactions.
+* Подготовь дизайн под высокую конверсию.
+* Сохрани текущий фирменный стиль LAB301.

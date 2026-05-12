@@ -1,0 +1,876 @@
+﻿=== FILE: Claude_Code_Instructions_No_Example.docx ===
+Claude Code — Project Instructions Template
+Скопируй этот документ в Claude Code / Cursor / Claude Project Instructions и используй как базовые правила для редактирования и доработки сайта.
+SYSTEM PROMPT
+Ты senior full-stack developer.
+
+Работай как production engineer.
+Перед изменениями:
+1. Анализируй существующий код.
+2. Не ломай текущий функционал.
+3. Сначала предлагай план изменений.
+4. Потом вноси правки.
+
+Требования:
+- clean architecture
+- SOLID
+- DRY
+- KISS
+- production-ready code
+- SEO optimization
+- responsive design
+- accessibility
+- высокая производительность
+- mobile-first
+
+Всегда:
+- проверяй edge cases
+- добавляй обработку ошибок
+- сохраняй текущий дизайн
+- не создавай дублирование кода
+- используй переиспользуемые компоненты
+- оптимизируй скорость загрузки
+
+Никогда:
+- не используй any
+- не создавай giant components
+- не добавляй лишние библиотеки
+- не удаляй существующий функционал без причины
+- не ломай SEO
+FRONTEND RULES
+Используй:
+- TypeScript strict mode
+- React functional components
+- hooks
+- semantic HTML
+- lazy loading
+- оптимизацию изображений
+- SSR/SSG где возможно
+
+Сохраняй:
+- адаптивность
+- pixel-perfect верстку
+- читаемость кода
+SEO RULES
+Всегда:
+- добавляй meta title
+- meta description
+- Open Graph
+- schema.org
+- alt для изображений
+- правильную структуру H1-H6
+- оптимизацию Core Web Vitals
+WORKFLOW
+При каждой задаче:
+1. Анализируй проблему.
+2. Кратко объясняй что будет изменено.
+3. Показывай какие файлы изменяются.
+4. Только потом вноси изменения.
+5. После изменений проверяй:
+   - ошибки
+   - responsive
+   - SEO
+   - производительность
+FOR BUSINESS WEBSITE
+Сайт должен выглядеть:
+- современно
+- дорого
+- быстро
+- профессионально
+
+Главная цель:
+- конверсия в заявку
+- доверие клиента
+- SEO продвижение
+- высокая скорость загрузки
+
+=== FILE: LAB301_Cases_Section_Upgrade.docx ===
+LAB301 — Улучшение секции «Кейсы»
+Документ подготовлен для передачи в Claude AI для улучшения секции кейсов на сайте LAB301.
+Что можно улучшить
+
+Секция уже выглядит стильно, но сейчас она ощущается как «заглушка с карточками», а не как premium showcase реальных кейсов.
+
+Главные проблемы:
+- слишком много одинаковых карточек,
+- слабая visual hierarchy,
+- мало ощущения реальных результатов,
+- карточки выглядят немного пустыми,
+- недостаточно premium UX.
+
+Что улучшить:
+
+1. Сделать кейсы более «живыми»
+- Добавить реальные превью сайтов.
+- Использовать mockup-устройства.
+- Добавить анимации интерфейсов.
+
+2. Усилить visual hierarchy
+- Один кейс должен быть главным.
+- Остальные — secondary.
+- Использовать разные размеры карточек.
+
+3. Добавить реальные результаты
+Например:
+- +34% конверсии
+- x2 заявок
+- SEO рост
+- автоматизация процессов
+
+4. Улучшить карточки
+- Glassmorphism
+- Premium borders
+- Hover glow
+- Dynamic shadows
+- Better spacing
+
+5. Добавить motion
+- Hover animations
+- Floating gradients
+- Smooth transitions
+- Mouse parallax
+
+6. Улучшить typography
+- Больше воздуха
+- Крупнее заголовки
+- Меньше плотности текста
+
+7. Уменьшить пустые заглушки
+Вместо «Ваш сайт скоро появится здесь»:
+- сделать CTA-карточки,
+- добавить mockup concepts,
+- показать pipeline проектов.
+
+8. Background
+- Меньше частиц,
+- больше cinematic glow,
+- radial gradients,
+- ambient light.
+
+9. CTA
+Вместо:
+«Открыть сайт»
+
+Лучше:
+- «Смотреть кейс →»
+- «Разобрать проект →»
+- «Посмотреть результат →»
+
+10. Общий стиль
+Стиль должен быть:
+- Apple × Linear × Vercel × Lovable,
+- premium dark UI,
+- AI startup aesthetic,
+- futuristic minimalism.
+
+Готовый промт для Claude AI
+
+Проанализируй секцию «Кейсы» сайта LAB301 и полностью переработай её как premium portfolio/case studies section для современного AI/digital agency уровня 2026 года.
+
+Что нужно улучшить:
+
+1. Case cards
+- Сделать карточки визуально значительно дороже.
+- Добавить:
+  - glassmorphism,
+  - backdrop blur,
+  - subtle glow,
+  - premium shadows,
+  - animated borders.
+
+2. Visual hierarchy
+- Не все кейсы должны быть одинаковыми.
+- Сделать:
+  - featured case,
+  - secondary cases,
+  - CTA cards.
+- Использовать разные размеры карточек.
+
+3. Real project feel
+- Сделать кейсы более реалистичными.
+- Добавить:
+  - website mockups,
+  - dashboard previews,
+  - mobile previews,
+  - analytics visuals.
+
+4. Results & metrics
+Добавить:
+- конверсию,
+- рост заявок,
+- SEO результаты,
+- автоматизацию,
+- ROI,
+- скорость разработки.
+
+5. Typography
+- Улучшить hierarchy.
+- Добавить больше воздуха.
+- Сделать тексты легче для сканирования.
+
+6. Motion & interactions
+Добавить:
+- hover animations,
+- glow effects,
+- parallax,
+- reveal on scroll,
+- floating UI effects.
+
+7. Empty cards
+- Переделать заглушки.
+- Сделать их premium CTA-блоками.
+- Добавить концепты будущих проектов или interactive placeholders.
+
+8. Background
+- Сделать фон более cinematic.
+- Уменьшить количество particles.
+- Добавить ambient gradients и soft lighting.
+
+9. CTA
+- Улучшить кнопки:
+  - «Смотреть кейс →»
+  - «Разобрать проект →»
+  - «Посмотреть результат →»
+- Сделать кнопки более premium.
+
+10. Общий стиль
+Стиль должен быть:
+- Apple × Linear × Vercel × Lovable,
+- premium dark UI,
+- futuristic minimalism,
+- AI startup aesthetic,
+- high-end digital agency vibe.
+
+Важно:
+Сохранить стиль LAB301, но сделать секцию кейсов значительно более premium, immersive и продающей.
+
+Текущий дизайн секции
+
+=== FILE: LAB301_ClaudeAI_Design_Prompts.docx ===
+LAB301 — Prompts для улучшения дизайна сайта
+Документ подготовлен для передачи в Claude AI с задачами по улучшению дизайна и UX сайта LAB301.
+1. Главная страница / Hero Section
+
+Проанализируй дизайн главной страницы LAB301 и улучши её как современный premium AI/digital agency сайт уровня 2026 года.
+
+Что нужно улучшить:
+
+• Сделать первый экран более дорогим и минималистичным.
+• Уменьшить визуальный шум.
+• Усилить ощущение premium tech brand.
+• Улучшить типографику и spacing.
+• Сделать фон более cinematic.
+• Улучшить композицию hero-секции.
+• Сделать робота визуально дороже.
+• Добавить premium glassmorphism и micro-interactions.
+• Сохранить dark futuristic стиль.
+
+Стиль:
+Apple × Linear × Vercel × Lovable × modern AI startup.
+
+2. AI-менеджер «Михалыч»
+
+Проанализируй секцию AI-менеджера «Михалыч» на сайте LAB301 и улучши её как premium AI assistant block для современного digital/AI агентства 2026 года.
+
+Что нужно улучшить:
+
+• Сделать секцию визуально дороже.
+• Улучшить баланс между текстом и иллюстрацией.
+• Сделать робота более технологичным и premium.
+• Добавить cinematic lighting и glow.
+• Улучшить typography и CTA-кнопку.
+• Оформить метрики как premium stats cards.
+• Уменьшить хаотичность background.
+• Добавить subtle animations и parallax.
+• Сделать интерфейс ближе к Apple × Vercel × Linear aesthetic.
+
+Важно:
+Сохранить фирменный стиль LAB301 и персонажа «Михалыч» как часть бренда.
+
+
+=== FILE: LAB301_FAQ_Section_Review.docx ===
+LAB301 — Улучшение FAQ секции
+Документ подготовлен для передачи в Claude AI или дизайнеру для улучшения FAQ-секции сайта LAB301.
+Что можно улучшить
+
+1. Слишком много пустого пространства
+Сейчас секция выглядит слишком пустой.
+Нужно:
+- увеличить ширину FAQ container,
+- сделать layout более balanced,
+- добавить визуальный акцент справа.
+
+2. Accordion выглядит слишком базово
+Сейчас:
+- просто линии и плюсики,
+- нет ощущения premium UI.
+
+Нужно:
+- glassmorphism,
+- subtle glow,
+- hover animation,
+- blur background,
+- animated expand.
+
+3. Нет активного состояния
+Когда FAQ раскрывается — должен быть wow-effect.
+
+Добавить:
+- glowing border,
+- smooth height animation,
+- fade-in текста,
+- rotating plus icon,
+- gradient active state.
+
+4. Typography
+Сейчас:
+- вопросы выглядят мелковато,
+- spacing плотный.
+
+Нужно:
+- увеличить font-size,
+- добавить воздуха,
+- улучшить hierarchy.
+
+5. Заголовок секции
+FAQ можно сделать сильнее.
+
+Например:
+- FAQ оставить как small label,
+- основной заголовок:
+  «Частые вопросы»
+  или
+  «Всё, что важно знать».
+
+6. Добавить доверие
+Можно добавить:
+- «Отвечаем обычно за 5 минут»,
+- «14 дней бесплатных правок»,
+- «Без скрытых платежей»,
+- «Поддержка после запуска».
+
+7. Добавить visual element
+Сейчас секция плоская.
+
+Можно:
+- AI assistant icon,
+- glowing orb,
+- floating gradient,
+- subtle 3D object.
+
+8. Hover effects
+Accordion должен:
+- glow on hover,
+- слегка подниматься,
+- анимировать плюсик,
+- давать micro-feedback.
+
+9. Background
+Сейчас фон почти пустой.
+
+Лучше:
+- soft radial gradients,
+- ambient lighting,
+- меньше случайных particles,
+- cinematic glow behind title.
+
+10. Общий стиль
+Нужно довести секцию до:
+- Apple × Linear × Stripe × Vercel aesthetic,
+- premium dark UI,
+- futuristic startup style.
+
+Готовый промт для Claude AI
+
+Проанализируй FAQ section сайта LAB301 и полностью улучши её как premium futuristic FAQ experience для AI/digital agency 2026 года.
+
+Что нужно улучшить:
+
+1. Layout
+- Уменьшить ощущение пустоты.
+- Сделать секцию более balanced.
+- Увеличить ширину FAQ container.
+
+2. Accordion UI
+Сделать accordion premium:
+- glassmorphism,
+- backdrop blur,
+- subtle borders,
+- hover glow,
+- smooth animations,
+- premium shadows.
+
+3. Active state
+При раскрытии:
+- animated expand,
+- glowing border,
+- gradient background,
+- rotating plus icon,
+- smooth fade-in текста.
+
+4. Typography
+- Увеличить размер вопросов.
+- Добавить spacing.
+- Улучшить hierarchy.
+- Сделать текст более readable.
+
+5. Section title
+Сделать более premium heading.
+FAQ оставить как small label.
+Основной заголовок сделать:
+«Частые вопросы»
+или
+«Всё, что важно знать».
+
+6. Motion
+Добавить:
+- hover animations,
+- micro-interactions,
+- smooth transitions,
+- subtle floating effects.
+
+7. Background
+Добавить:
+- ambient lighting,
+- radial gradients,
+- cinematic glow,
+- less random particles.
+
+8. Trust elements
+Добавить:
+- быстрый ответ,
+- бесплатные правки,
+- прозрачная оплата,
+- поддержка после запуска.
+
+9. Visual enhancement
+Добавить:
+- AI assistant visual,
+- futuristic orb,
+- soft 3D element,
+- tech illustration.
+
+10. Общий стиль
+Стиль должен быть:
+- Apple × Linear × Stripe × Vercel,
+- premium dark UI,
+- futuristic minimalism,
+- expensive startup aesthetic.
+
+Важно:
+Сохранить стиль LAB301 и dark futuristic atmosphere.
+
+Текущий вид FAQ секции
+
+=== FILE: LAB301_Pricing_Section_Upgrade.docx ===
+LAB301 — Улучшение секции тарифов и цен
+Документ подготовлен для передачи в Claude AI для улучшения секции тарифов и pricing-блоков сайта LAB301.
+Что уже хорошо
+
+Секция уже выглядит значительно сильнее:
+- появился premium pricing vibe,
+- хороший dark futuristic стиль,
+- акцент на среднем тарифе работает,
+- карточки стали чище,
+- визуально сайт уже ощущается как AI/digital agency.
+
+Но сейчас главный лимит:
+секция выглядит как хороший шаблон pricing-блока, а не как high-end premium pricing experience.
+
+Что улучшить
+
+1. Слишком длинные списки
+Сейчас карточки перегружены текстом.
+Нужно:
+- сократить пункты,
+- оставить только ключевые преимущества,
+- остальное скрыть в expandable list / tooltip.
+
+2. Нет premium hierarchy
+Все карточки слишком одинаковые.
+Нужно:
+- сильнее выделить middle plan,
+- увеличить его,
+- добавить stronger glow,
+- animated border,
+- floating effect.
+
+3. CTA-кнопки
+Кнопки выглядят ещё немного шаблонно.
+Нужно:
+- glassmorphism,
+- softer gradients,
+- animated hover,
+- premium micro-interactions.
+
+4. Pricing cards
+Добавить:
+- depth,
+- layered glow,
+- subtle transparency,
+- backdrop blur,
+- ambient light.
+
+5. Typography
+Сейчас:
+- текст немного плотный,
+- line-height маловат,
+- списки длинные.
+
+Нужно:
+- больше воздуха,
+- cleaner hierarchy,
+- stronger contrast.
+
+6. Tabs/categories
+Категории сверху выглядят как обычные pills.
+Нужно:
+- более premium segmented control,
+- animated active state,
+- smooth transitions,
+- hover glow.
+
+7. Background
+Сейчас всё ещё много частиц.
+Нужно:
+- уменьшить particles,
+- добавить cinematic gradients,
+- ambient lighting,
+- soft spotlight behind active plan.
+
+8. Добавить доверие
+Нужны:
+- guarantees,
+- сроки,
+- этапы,
+- мини-метрики,
+- badges.
+
+9. Hover effects
+Карточки должны:
+- слегка подниматься,
+- усиливать glow,
+- анимировать border.
+
+10. Общий стиль
+Стиль должен быть:
+- Apple × Linear × Stripe × Vercel × Lovable,
+- premium dark UI,
+- futuristic startup aesthetic,
+- AI-first agency design.
+
+Готовый промт для Claude AI
+
+Проанализируй секцию «Прозрачные цены» сайта LAB301 и полностью переработай её как premium pricing section для современного AI/digital agency уровня 2026 года.
+
+Что нужно улучшить:
+
+1. Pricing cards
+- Сделать карточки визуально дороже.
+- Добавить:
+  - glassmorphism,
+  - backdrop blur,
+  - layered glow,
+  - soft shadows,
+  - subtle transparency,
+  - premium borders.
+
+2. Visual hierarchy
+- Сильнее выделить главный тариф.
+- Сделать:
+  - featured pricing card,
+  - stronger glow,
+  - animated border,
+  - floating effect,
+  - larger scale.
+
+3. Typography
+- Улучшить hierarchy.
+- Увеличить spacing.
+- Сделать тексты легче для сканирования.
+- Уменьшить перегруженность списков.
+
+4. Pricing lists
+- Сократить количество текста.
+- Показывать только ключевые преимущества.
+- Остальное скрывать через expandable interaction.
+
+5. Tabs / categories
+- Переделать category pills.
+- Сделать их:
+  - premium segmented controls,
+  - animated,
+  - futuristic,
+  - glass style.
+
+6. CTA buttons
+- Сделать кнопки более premium:
+  - glassmorphism,
+  - neon gradients,
+  - hover animations,
+  - smooth transitions,
+  - subtle glow.
+
+7. Motion & interactions
+Добавить:
+- hover lift,
+- animated glow,
+- reveal animations,
+- floating UI effects,
+- smooth transitions,
+- micro-interactions.
+
+8. Background
+- Сделать фон более cinematic.
+- Уменьшить количество particles.
+- Добавить:
+  - radial gradients,
+  - ambient lighting,
+  - spotlight behind featured pricing card.
+
+9. Trust elements
+Добавить:
+- guarantees,
+- сроки,
+- mini metrics,
+- badges,
+- trust indicators.
+
+10. Общий стиль
+Стиль должен быть:
+- Apple × Stripe × Linear × Vercel × Lovable,
+- premium dark UI,
+- futuristic minimalism,
+- AI startup aesthetic,
+- high-end digital agency vibe.
+
+Важно:
+Сохранить стиль LAB301, но сделать pricing section значительно более premium, immersive и продающей.
+
+Текущий дизайн — Скриншот 1
+Текущий дизайн — Скриншот 2
+
+=== FILE: LAB301_Process_Section_Upgrade.docx ===
+LAB301 — Улучшение секции «Как мы работаем»
+Документ подготовлен для передачи в Claude AI для улучшения секции процесса работы на сайте LAB301.
+Промт для Claude AI
+
+Проанализируй секцию «Как мы работаем» на сайте LAB301 и полностью переработай её как premium process section для современного AI/digital agency уровня 2026 года.
+
+Что нужно улучшить:
+
+1. Layout
+- Уйти от простых одинаковых колонок.
+- Сделать premium process flow / timeline layout.
+- Добавить visual journey между этапами.
+- Сделать секцию более динамичной и cinematic.
+
+2. Process cards
+- Добавить glassmorphism:
+  - backdrop blur,
+  - subtle transparency,
+  - soft borders,
+  - ambient glow.
+- Сделать карточки визуально дороже.
+
+3. Typography
+- Улучшить typography hierarchy.
+- Уменьшить перегруженность текста.
+- Сделать descriptions короче и легче для сканирования.
+- Увеличить spacing и line-height.
+
+4. Numbers
+- Переделать 01–05:
+  - сделать менее массивными,
+  - более elegant,
+  - futuristic gradient style,
+  - premium UI aesthetic.
+
+5. Icons
+- Заменить текущие иконки.
+- Использовать единый premium icon system:
+  - futuristic outline icons,
+  - subtle glow,
+  - modern AI aesthetic.
+
+6. Motion & interactions
+Добавить:
+- hover animations,
+- reveal on scroll,
+- glowing transitions,
+- animated timeline,
+- subtle parallax,
+- floating effects.
+
+7. Background
+- Сделать background более cinematic.
+- Добавить:
+  - radial gradients,
+  - ambient lighting,
+  - subtle glow,
+  - depth.
+- Уменьшить случайные particles.
+
+8. Process line
+- Добавить glowing connection line между шагами.
+- Создать ощущение AI workflow pipeline.
+
+9. UX
+- Сделать секцию более storytelling-oriented.
+- Пользователь должен чувствовать путь клиента, а не просто список этапов.
+
+10. Общий стиль
+Стиль должен быть:
+- Apple × Linear × Vercel × Lovable,
+- premium dark UI,
+- AI startup aesthetic,
+- futuristic minimalism,
+- high-end digital agency vibe.
+
+Важно:
+Сохранить фирменный стиль LAB301, но сделать секцию значительно более premium и immersive.
+
+Текущий дизайн секции
+
+=== FILE: LAB301_Services_Upgrade_Prompt.docx ===
+LAB301 — Улучшение секции услуг
+Документ подготовлен для передачи в Claude AI для улучшения секции «Услуги» сайта LAB301.
+Промт для Claude AI
+
+Проанализируй секцию «Услуги» сайта LAB301 и полностью улучши её как premium services section для современного AI/digital agency уровня 2026 года.
+
+Что нужно улучшить:
+
+1. Карточки услуг
+- Сделать карточки визуально дороже.
+- Добавить glassmorphism, backdrop blur и subtle transparency.
+- Улучшить spacing и padding внутри карточек.
+- Добавить premium hover animations:
+  - glow,
+  - scale,
+  - animated borders,
+  - smooth transitions.
+
+2. Visual hierarchy
+- Не все карточки должны быть одинаковыми.
+- Сделать hierarchy:
+  - primary service,
+  - secondary services,
+  - smaller support services.
+- Главный акцент:
+  - AI,
+  - automation,
+  - websites.
+
+3. Typography
+- Улучшить типографику.
+- Сделать текст легче для сканирования.
+- Увеличить line-height.
+- Добавить больше воздуха между элементами.
+
+4. Services list
+- Сократить количество текста внутри карточек.
+- Показывать только ключевые услуги.
+- Остальное скрывать через hover / expandable interaction / modal.
+
+5. Icons
+- Полностью заменить текущие иконки.
+- Использовать единый стиль:
+  - premium outline icons,
+  - glass icons,
+  - subtle gradients,
+  - futuristic UI style.
+
+6. Background
+- Сделать фон менее шумным.
+- Уменьшить количество particles.
+- Добавить cinematic gradients и ambient glow.
+- Сохранить dark futuristic aesthetic.
+
+7. CTA buttons
+- Улучшить CTA:
+  - «Обсудить проект →»
+  - «Получить консультацию →»
+- Сделать кнопки более premium и interactive.
+
+8. Layout
+- Сделать секцию более динамичной.
+- Использовать разные размеры карточек.
+- Добавить asymmetrical premium grid.
+- Улучшить responsive layout.
+
+9. Motion
+Добавить:
+- subtle animations,
+- floating glow,
+- hover effects,
+- parallax,
+- micro-interactions.
+
+10. Общий стиль
+Стиль должен быть:
+- Apple × Linear × Vercel × Lovable,
+- premium dark UI,
+- futuristic minimalism,
+- AI startup aesthetic,
+- high-end digital agency vibe.
+
+Важно:
+Сохранить фирменный стиль LAB301, но сделать секцию визуально значительно дороже и современнее.
+
+Текущий дизайн — Скриншот 1
+Текущий дизайн — Скриншот 2
+
+=== FILE: LAB301_footer_review.docx ===
+LAB301 — Анализ футера и CTA-блока
+Разбор нижней части сайта LAB301: CTA-блок перед футером и сам футер.
+Что сейчас выглядит слабо
+Верхний CTA-блок выглядит пустым — большая градиентная полоса без смысла.
+Слишком много пустого пространства между CTA и футером.
+Кнопка Telegram визуально теряется.
+Футер выглядит слишком “тонким” по контенту и не завершает сайт мощно.
+Нет доверительных элементов: кейсов, цифр, гарантий, CTA перед уходом пользователя.
+Нижняя часть сайта визуально темнее и слабее остальных секций.
+Что улучшить
+Сделать полноценный CTA-блок с заголовком: “Обсудим ваш проект?”
+Добавить подзаголовок с оффером: “Ответим за 5 минут и предложим решение под ваш бизнес”.
+Добавить 2 кнопки: Telegram + WhatsApp.
+Добавить glow-эффект вокруг CTA-кнопок.
+Сделать градиентную полосу фоном, а не пустым элементом.
+Уменьшить вертикальные отступы между CTA и футером.
+Добавить в футер микро-статистику: “100+ проектов”, “24/7 поддержка”, “5 минут средний ответ”.
+Усилить нижний копирайт: добавить “Создано LAB301” и плавную линию-разделитель.
+Добавить hover-анимации для ссылок футера.
+Сделать Telegram/WhatsApp иконки ярче и крупнее.
+Готовый промт для Claude AI
+
+Улучши нижнюю часть сайта LAB301.
+
+Что нужно изменить:
+
+1. Перед футером сделать полноценный CTA-блок:
+- крупный заголовок “Обсудим ваш проект?”
+- подзаголовок “Ответим за 5 минут и предложим решение под ваш бизнес”
+- кнопки Telegram и WhatsApp
+- glow-эффект и анимацию hover
+- градиент использовать как фон CTA, а не пустую полоску
+
+2. Улучшить футер:
+- сделать визуально премиальнее
+- добавить микро-статистику:
+  • 100+ проектов
+  • 24/7 поддержка
+  • Ответ за 5 минут
+- усилить контраст текста
+- добавить hover-анимации
+- уменьшить пустое пространство
+- сделать нижнюю часть более “живой”
+
+3. Визуальный стиль:
+- сохранить cyber/digital стиль LAB301
+- использовать glassmorphism
+- мягкие blur/glow эффекты
+- акцент на neon blue + purple
+- сделать футер завершением премиального digital-сайта
+
+
