@@ -4,16 +4,16 @@
    density switched by [data-density] on <html>
    ─────────────────────────────────────────────────────── */
 :root {
-  --bg:        #0A0B0D;
-  --bg-2:      #0E1014;
-  --panel:     #12141A;
-  --panel-2:   #161922;
+  --bg:        #1A1B1F;
+  --bg-2:      #1E1F24;
+  --panel:     #24262D;
+  --panel-2:   #2A2C34;
   --ink:       #F2F3F5;
   --ink-2:     #B6BAC3;
   --ink-3:     #6E737F;
-  --rule:      rgba(255,255,255,0.07);
-  --rule-2:    rgba(255,255,255,0.14);
-  --grid:      rgba(255,255,255,0.035);
+  --rule:      rgba(255,255,255,0.09);
+  --rule-2:    rgba(255,255,255,0.16);
+  --grid:      rgba(255,255,255,0.045);
 
   --acc:       #FF3B47;
   --acc-2:     #FFE5E2;
