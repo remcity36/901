@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="ru" data-palette="signal" data-density="comfortable">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AI-ассистент Михалыч — LAB301</title>
+<meta name="description" content="Михалыч отвечает 24/7, квалифицирует лиды, заводит карточки в CRM. Закрывает 30–60% входящих без оператора." />
+<link rel="canonical" href="https://lab301.ru/ai-assistant.html" />
+<meta name="theme-color" content="#0A0B0D" />
+<meta name="robots" content="index, follow" />
+
+<!-- Open Graph -->
+<meta property="og:title" content="AI-ассистент Михалыч — LAB301" />
+<meta property="og:description" content="Михалыч отвечает 24/7, квалифицирует лиды, заводит карточки в CRM. Закрывает 30–60% входящих без оператора." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://lab301.ru/ai-assistant.html" />
+<meta property="og:image" content="og-share.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="LAB301 — Технологии роста для бизнеса" />
+<meta property="og:locale" content="ru_RU" />
+<meta property="og:site_name" content="LAB301" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="AI-ассистент Михалыч — LAB301" />
+<meta name="twitter:description" content="Михалыч отвечает 24/7, квалифицирует лиды, заводит карточки в CRM. Закрывает 30–60% входящих без оператора." />
+<meta name="twitter:image" content="og-share.png" />
+
+<!-- Favicons -->
+<link rel="icon" type="image/x-icon" href="favicon.ico" />
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+<meta name="apple-mobile-web-app-title" content="LAB301" />
+<meta name="application-name" content="LAB301" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="theme.css?v=2">
+<style>
+  .chat-vis {
+    background: var(--surface-2);
+    border:1px solid var(--rule);
+    border-radius:6px;
+    padding:24px;
+    font-family: var(--font-m);
+    font-size:13px;
+    line-height:1.55;
+    color:var(--ink-2);
+    position:relative;
+    min-height:380px;
+  }
+  .chat-vis::before {
+    content:"MIKHALYCH · v3.1 · LIVE";
+    position:absolute; top:14px; right:18px;
+    font-size:10px; letter-spacing:.16em; color:var(--ink-3);
+  }
+  .chat-vis::after {
+    content:""; position:absolute; top:18px; left:18px;
+    width:8px; height:8px; border-radius:50%;
+    background: var(--acc);
+    box-shadow: 0 0 16px var(--acc-glow);
+    animation: pulse 2.4s ease-in-out infinite;
+  }
+  @keyframes pulse { 0%,100%{opacity:1;transform:scale(1);} 50%{opacity:.4;transform:scale(.85);} }
+  .msg { margin: 18px 0; max-width: 78%; }
+  .msg.user { margin-left:auto; text-align:left; }
+  .msg .who { font-size:10px; letter-spacing:.18em; color:var(--ink-3); margin-bottom:6px; text-transform:uppercase; }
+  .msg .b { background:var(--surface); border:1px solid var(--rule); padding:12px 14px; border-radius:4px; color:var(--ink); }
+  .msg.user .b { background: color-mix(in oklch, var(--acc) 14%, var(--panel)); border-color: color-mix(in oklch, var(--acc) 40%, var(--rule)); }
+  .msg .b b { color: var(--acc); font-weight:600; }
+
+  /* Михалыч-портрет в hero */
+  .mik-hero {
+    margin-top: 56px;
+    display: grid; grid-template-columns: auto 1fr; gap: 32px; align-items: center;
+    padding: 32px;
+    border: 1px solid var(--rule); border-radius: 8px;
+    background:
+      radial-gradient(circle 280px at 18% 50%, var(--acc-soft), transparent 65%),
+      linear-gradient(180deg, var(--panel) 0%, var(--panel-2) 100%);
+    position: relative; overflow: hidden;
+  }
+  @media (max-width: 720px) { .mik-hero { grid-template-columns: 1fr; text-align:center; } }
+  @media (max-width: 720px) {
+    .chat-grid { grid-template-columns: 1fr !important; }
+    .msg { max-width: 88%; }
+    .chat-vis { padding: 16px; }
+  }
+  .mik-hero img {
+    width: 200px; height: auto; display:block;
+    filter: drop-shadow(0 0 50px var(--acc-glow));
+  }
+  .mik-hero-info { font-family: var(--font-m); font-size:12px; line-height:1.7; color: var(--ink-2); }
+  .mik-hero-info b { color: var(--acc); font-weight:500; }
+  .mik-hero-info .row { display:flex; justify-content:space-between; gap: 14px; padding: 4px 0; border-bottom: 1px dashed var(--rule); }
+  .mik-hero-info .row:last-child { border-bottom: none; }
+  .mik-hero-info .k { color: var(--ink-3); letter-spacing:.14em; text-transform:uppercase; font-size:10px; }
+
+  .sys-card-light {
+    background: #ffffff;
+    border-color: #d8d8d8;
+  }
+  .sys-card-light::before { display: none; }
+  .sys-card-light .row .k { color: #111111; }
+  .sys-card-light .row .v { color: #555555; }
+  .sys-card-light .row .v.ok { color: var(--acc); font-weight: 700; }
+</style>
+</head>
+<body data-page="ai">
+
+<section class="page-head">
+  <div class="container">
+    <div class="coord reveal"><div><b>FILE / 03</b> &nbsp; AI.MIKHALYCH &nbsp; / &nbsp; v3.1</div><div class="sig">● AGENT ONLINE</div></div>
+    <div class="crumbs reveal"><a href="index.html">LAB301</a><span class="sep">/</span><a href="services.html">Услуги</a><span class="sep">/</span><span class="here">AI‑ассистент Михалыч</span></div>
+    <div class="grid2">
+      <div class="reveal">
+        <div class="label" style="margin-bottom:32px;"><span class="dot">▌</span> ИНДЕКС / 03 — АГЕНТ</div>
+        <h1><span class="swatch"></span>Михалыч<br>не&nbsp;<em>спит</em>.</h1>
+      </div>
+      <aside class="meta reveal">
+        <p class="lede">AI‑ассистент, который <b>отвечает 24/7</b>, квалифицирует лиды, заводит карточки в&nbsp;CRM и&nbsp;закрывает <b>30–60% входящих</b> без участия оператора.</p>
+        <div class="cta-row">
+          <a class="btn-primary" href="https://t.me/yuriybyg">Демо в&nbsp;Telegram <span>→</span></a>
+          <a class="btn-secondary" href="#how">Как работает</a>
+        </div>
+      </aside>
+    </div>
+
+    <div class="mik-hero reveal">
+      <img src="ai_assistant_waving.webp" alt="Михалыч — AI ассистент LAB301" loading="eager" fetchpriority="high" />
+      <div class="mik-hero-info">
+        <div class="row"><span class="k">Имя</span><span><b>Михалыч</b> · AI ассистент v3.1</span></div>
+        <div class="row"><span class="k">Каналы</span><span>Telegram · Web · WhatsApp</span></div>
+        <div class="row"><span class="k">Модель</span><span>Claude · GPT‑5 · RAG</span></div>
+        <div class="row"><span class="k">Языки</span><span>RU · EN · ES</span></div>
+        <div class="row"><span class="k">Память</span><span>векторная БД · полный лог диалога</span></div>
+        <div class="row"><span class="k">SLA отклика</span><span><b>≤ 2 секунды</b></span></div>
+      </div>
+    </div>
+
+    <div class="stat-row reveal" style="margin-top:48px;">
+      <div class="stat-cell"><div class="v">30–60<sup>%</sup></div><div class="k">входящих закрывает</div></div>
+      <div class="stat-cell"><div class="v">1.8<sup>с</sup></div><div class="k">средний отклик</div></div>
+      <div class="stat-cell"><div class="v">24<sup>/7</sup></div><div class="k">всегда на&nbsp;связи</div></div>
+      <div class="stat-cell"><div class="v">14<sup>д</sup></div><div class="k">до запуска</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="how">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="idx"><b>02 //</b> ДИАЛОГ&nbsp;С&nbsp;КЛИЕНТОМ</div>
+      <h2 class="title">Как Михалыч ведёт<br>обычный&nbsp;<em>лид</em>.</h2>
+      <div class="meta">пример из&nbsp;продакшна</div>
+    </div>
+
+    <div class="reveal chat-grid" style="display:grid; grid-template-columns: 1fr 1fr; gap:32px;">
+      <div class="chat-vis">
+        <div style="height:28px;"></div>
+        <div class="msg"><div class="who">Клиент / 11:42</div><div class="b">Здравствуйте! Сколько стоит сайт для&nbsp;стоматологии?</div></div>
+        <div class="msg user"><div class="who">Михалыч / 11:42</div><div class="b">Здравствуйте! Стоматологии чаще берут <b>сайт + AI‑администратора</b> — от&nbsp;240&nbsp;000&nbsp;₽. Подскажете, у&nbsp;вас одна клиника или сеть?</div></div>
+        <div class="msg"><div class="who">Клиент / 11:43</div><div class="b">Две клиники в&nbsp;Москве и&nbsp;Питере.</div></div>
+        <div class="msg user"><div class="who">Михалыч / 11:43</div><div class="b">Тогда пригодится мультигеолокация и&nbsp;онлайн‑запись. <b>Передам Юрию</b> — он&nbsp;пришлёт смету в&nbsp;течение часа. Куда удобнее — Telegram или почта?</div></div>
+        <div class="msg"><div class="who">Клиент / 11:44</div><div class="b">Telegram, @example_clinic</div></div>
+        <div class="msg user"><div class="who">Михалыч / 11:44</div><div class="b">Принял. <b>Карточка №&nbsp;3104 заведена в&nbsp;amoCRM</b>, статус — «горячий». Юрий уже на&nbsp;связи&nbsp;??</div></div>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:18px; justify-content:center;">
+        <div class="sys-card frame sys-card-light">
+          <span class="tc bl"></span><span class="tc br"></span>
+          <div class="row"><span class="k">Стек</span><span class="v">Claude · GPT‑5 · RAG</span></div>
+          <div class="row"><span class="k">Каналы</span><span class="v">TG · Web · WA</span></div>
+          <div class="row"><span class="k">CRM</span><span class="v">amoCRM · Bitrix24</span></div>
+          <div class="row"><span class="k">Голос</span><span class="v ok">опционально</span></div>
+          <div class="row"><span class="k">Языки</span><span class="v">RU · EN · ES</span></div>
+        </div>
+        <div class="sys-card frame">
+          <span class="tc bl"></span><span class="tc br"></span>
+          <div class="row"><span class="k">Память</span><span class="v">векторная БД</span></div>
+          <div class="row"><span class="k">База знаний</span><span class="v">PDF · Notion · сайт</span></div>
+          <div class="row"><span class="k">Эскалация</span><span class="v">> оператор / Юрий</span></div>
+          <div class="row"><span class="k">Логи</span><span class="v">полный диалог</span></div>
+          <div class="row"><span class="k">SLA отклика</span><span class="v ok">≤ 2 с</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="idx"><b>03 //</b> ЧТО&nbsp;УМЕЕТ</div>
+      <h2 class="title">Набор&nbsp;<em>навыков</em><br>из&nbsp;коробки.</h2>
+      <div class="meta">расширяется под&nbsp;нишу</div>
+    </div>
+    <div class="stack-grid reveal">
+      <div class="mod span4"><div class="mod-id"><span>SKILL · <b>01</b></span></div><div class="mod-title">Квалификация</div><div class="mod-desc">Узнаёт задачу, бюджет, сроки, лицо принимающее решение.</div></div>
+      <div class="mod span4"><div class="mod-id"><span>SKILL · <b>02</b></span></div><div class="mod-title">Ответы по&nbsp;продукту</div><div class="mod-desc">Учится по&nbsp;вашей базе знаний — без галлюцинаций и&nbsp;«я&nbsp;не знаю».</div></div>
+      <div class="mod span4"><div class="mod-id"><span>SKILL · <b>03</b></span></div><div class="mod-title">CRM‑карточка</div><div class="mod-desc">Заводит лид, проставляет тег, статус и&nbsp;первичный диалог.</div></div>
+      <div class="mod span4"><div class="mod-id"><span>SKILL · <b>04</b></span></div><div class="mod-title">Запись на&nbsp;слот</div><div class="mod-desc">Предлагает свободные слоты в&nbsp;календаре, бронирует, шлёт напоминание.</div></div>
+      <div class="mod span4"><div class="mod-id"><span>SKILL · <b>05</b></span></div><div class="mod-title">Подбор продукта</div><div class="mod-desc">По&nbsp;каталогу — сужает выбор, рекомендует, оформляет заказ.</div></div>
+      <div class="mod span4"><div class="mod-id"><span>SKILL · <b>06</b></span></div><div class="mod-title">Эскалация</div><div class="mod-desc">Если задача нестандартная — мягко передаёт оператору с&nbsp;контекстом.</div></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="idx"><b>04 //</b> ЦЕНЫ</div>
+      <h2 class="title">Тарифы —<br>без&nbsp;<em>сюрпризов</em>.</h2>
+      <div class="meta">фикс. ставка + обучение</div>
+    </div>
+    <div class="stack-grid reveal">
+      <div class="mod span4">
+        <div class="mod-id"><span>TIER · <b>01</b> / START</span></div>
+        <div class="mod-title">Базовый</div>
+        <div class="mod-desc">1&nbsp;канал, FAQ‑база до&nbsp;100&nbsp;вопросов, эскалация в&nbsp;Telegram.</div>
+        <div class="mod-price"><span>от</span><b>90 000 ₽</b></div>
+      </div>
+      <div class="mod spotlight span4">
+        <div class="mod-id"><span>TIER · <b>02</b> / PRO</span><span class="mod-arrow">→</span></div>
+        <div class="mod-title">Продвинутый <span class="acc">— популярный</span></div>
+        <div class="mod-desc">До&nbsp;3&nbsp;каналов, CRM‑связка, запись в&nbsp;слот, A/B‑промпты.</div>
+        <div class="mod-price"><span>от</span><b>180 000 ₽</b></div>
+      </div>
+      <div class="mod span4">
+        <div class="mod-id"><span>TIER · <b>03</b> / ENT</span></div>
+        <div class="mod-title">Enterprise</div>
+        <div class="mod-desc">Собственный LLM‑контур, голос, мульти‑тенант, SSO, SLA&nbsp;99.95%.</div>
+        <div class="mod-price"><span>от</span><b>от 450 000 ₽</b></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="signal-band">
+  <div class="container">
+    <div class="signal-wrap reveal">
+      <div>
+        <div class="label" style="margin-bottom:24px;"><span class="dot">▌</span> 05 // ДЕМО</div>
+        <h2 class="signal-title">Хотите попробовать?<br><em>Михалыч уже&nbsp;ждёт.</em></h2>
+        <p class="signal-sub">Напишите ему в&nbsp;Telegram — он&nbsp;покажет, как поведёт ваших клиентов, и&nbsp;соберёт бриф на&nbsp;внедрение. Без давления, без презентаций.</p>
+      </div>
+      <div class="signal-cta">
+        <a class="btn-primary" href="https://t.me/yuriybyg"><span>Открыть демо</span><span>></span></a>
+        <a class="btn-secondary" href="contacts.html"><span>Все контакты</span><span>↗</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script src="theme.js?v=2"></script>
+</body>
+</html>
