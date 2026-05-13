@@ -4,10 +4,12 @@
    density switched by [data-density] on <html>
    ─────────────────────────────────────────────────────── */
 :root {
-  --bg:        #1A1B1F;
-  --bg-2:      #1E1F24;
-  --panel:     #24262D;
-  --panel-2:   #2A2C34;
+  --bg:        #000000;
+  --bg-2:      #000000;
+  --panel:     #070707;
+  --panel-2:   #0a0a0a;
+  --surface:   #0d0d0d;
+  --surface-2: #111111;
   --ink:       #F2F3F5;
   --ink-2:     #B6BAC3;
   --ink-3:     #6E737F;
@@ -536,13 +538,14 @@ footer { padding: 64px 0 28px; border-top: 1px solid var(--rule); position:relat
 .f-col a:hover { color:var(--acc); }
 .f-bot { padding-top: 24px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; font-family:var(--font-m); font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:var(--ink-3); }
 
-/* ── Black background mode ── */
-[data-bg="black"] {
-  --bg: #000000;
-  --panel: #070707;
-  --panel-2: #0a0a0a;
-  --surface: #0d0d0d;
-  --surface-2: #111111;
+/* ── Grey background mode ── */
+[data-bg="grey"] {
+  --bg:        #1A1B1F;
+  --bg-2:      #1E1F24;
+  --panel:     #24262D;
+  --panel-2:   #2A2C34;
+  --surface:   #24262D;
+  --surface-2: #2A2C34;
 }
 
 /* ── Background toggle button ── */

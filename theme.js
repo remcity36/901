@@ -15,7 +15,7 @@
     if (p && NAMES[p]) root.setAttribute('data-palette', p);
     if (d) root.setAttribute('data-density', d);
     if (l === 'en') root.setAttribute('lang', 'en');
-    if (bg === 'black') root.setAttribute('data-bg', 'black');
+    if (bg === 'grey') root.setAttribute('data-bg', 'grey');
   } catch(e){}
 
   // Translation dictionary for chrome + common UI strings
@@ -213,10 +213,10 @@
   }
   // shared toggle logic for all .bg-toggle buttons
   const bgToggleHandler = () => {
-    const isBlack = root.getAttribute('data-bg') === 'black';
-    if (isBlack) { root.removeAttribute('data-bg'); }
-    else { root.setAttribute('data-bg', 'black'); }
-    try { localStorage.setItem('lab301.bg', isBlack ? '' : 'black'); } catch(e){}
+    const isGrey = root.getAttribute('data-bg') === 'grey';
+    if (isGrey) { root.removeAttribute('data-bg'); }
+    else { root.setAttribute('data-bg', 'grey'); }
+    try { localStorage.setItem('lab301.bg', isGrey ? '' : 'grey'); } catch(e){}
   };
   document.querySelectorAll('.bg-toggle').forEach(b => b.addEventListener('click', bgToggleHandler));
 
