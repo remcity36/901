@@ -118,7 +118,7 @@ section { padding: var(--row) 0; position:relative; z-index:2; }
 
 nav.topnav {
   position:fixed; top:36px; left:0; right:0; z-index:49;
-  display:flex; align-items:center; justify-content:space-between;
+  display:flex; align-items:center; justify-content:flex-start;
   padding: 4px var(--gutter);
   background: rgba(10,11,13,.6);
   backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
@@ -144,11 +144,11 @@ nav.topnav {
   .logo span.dim { display:none; }
 }
 
-.nav-links { display:flex; gap:34px; list-style:none; }
+.nav-links { display:flex; gap:34px; list-style:none; margin-left: 36px; }
 .nav-links a {
   font-family:var(--font-m); font-size:13.5px; font-weight:500; letter-spacing:.14em; text-transform:uppercase;
   color:var(--ink-2); text-decoration:none; padding: 8px 0; position:relative;
-  transition:color .15s;
+  transition:color .15s; white-space: nowrap;
 }
 .nav-links a::before { content:attr(data-i); color:var(--acc); margin-right:10px; font-size: 12px; }
 .nav-links a::after {
@@ -169,11 +169,30 @@ nav.topnav {
   text-decoration:none; border-radius:4px;
   box-shadow: 0 0 24px var(--acc-glow);
   transition: transform .15s ease, box-shadow .25s ease;
+  margin-left: auto; flex-shrink: 0;
 }
 .nav-cta:hover { transform:translateY(-1px); }
 .nav-cta .arrow { display:inline-block; transition:transform .2s; }
 .nav-cta:hover .arrow { transform:translateX(3px); }
-@media (max-width:900px){ .nav-links { display:none; } }
+/* ── Nav responsive compression ── */
+@media (max-width: 1600px) {
+  /* Тэглайн убирается раньше всего */
+  .logo span.dim { display: none; }
+}
+@media (max-width: 1500px) {
+  /* Числа сжимаются, CTA скрыт — числа занимают место */
+  .topnav .nav-cta { display: none; }
+  .nav-links { gap: 20px; }
+  .nav-links a { font-size: 12px; letter-spacing: .09em; }
+}
+@media (max-width: 1380px) {
+  /* Числа убраны — высвобождается ~350px, CTA возвращается справа */
+  .nav-links a::before { display: none; }
+  .nav-links { gap: 20px; }
+  .nav-links a { font-size: 12px; letter-spacing: .10em; }
+  .topnav .nav-cta { display: inline-flex; font-size: 11px; padding: 10px 16px; }
+}
+@media (max-width: 1280px) { .nav-links { display:none; } }
 
 /* ── Buttons ── */
 .btn-primary {
@@ -539,14 +558,14 @@ footer { padding: 64px 0 28px; border-top: 1px solid var(--rule); position:relat
 .bg-toggle:hover { border-color: var(--acc); color: var(--ink); transform: scale(1.08); }
 
 /* In mobile nav — inline next to hamburger */
-.nav-mobile-controls { display: none; align-items: center; gap: 8px; }
+.nav-mobile-controls { display: none; align-items: center; gap: 8px; margin-left: auto; }
 .nav-bg-toggle {
   position: static; box-shadow: none;
   width: 42px; height: 42px;
 }
-@media (max-width: 900px) {
+@media (max-width: 1280px) {
   .nav-mobile-controls { display: flex; }
-  .bg-toggle:not(.nav-bg-toggle) { display: none; } /* hide the floating one on mobile */
+  .bg-toggle:not(.nav-bg-toggle) { display: none; } /* hide the floating one on tablets/mobile */
 }
 
 /* ── Floating Order Button ── */
@@ -623,15 +642,14 @@ footer { padding: 64px 0 28px; border-top: 1px solid var(--rule); position:relat
 .drawer-cta { display:flex; flex-direction:column; gap:10px; margin-top: 16px; padding-top: 24px; border-top: 1px solid var(--rule); }
 .drawer-cta a { justify-content:space-between; padding: 16px 18px; font-size: 12px; }
 
-@media (max-width: 900px) {
-  .topnav .nav-cta { display:none; }
+@media (max-width: 1280px) {
   .hamburger { display:flex; }
   .fab-order { display:flex; }
 }
 @media (max-width: 720px) {
   .mobile-drawer { top: 116px; }
 }
-@media (min-width: 901px) {
+@media (min-width: 1281px) {
   .mobile-drawer { display:none !important; }
 }
 
