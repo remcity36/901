@@ -180,17 +180,17 @@ nav.topnav {
   .logo span.dim { display: none; }
 }
 @media (max-width: 1500px) {
-  /* Числа сжимаются, CTA скрыт — числа занимают место */
-  .topnav .nav-cta { display: none; }
+  /* Числа и CTA компактнее, тэглайн уже скрыт */
   .nav-links { gap: 20px; }
   .nav-links a { font-size: 12px; letter-spacing: .09em; }
+  .topnav .nav-cta { font-size: 11px; padding: 10px 16px; }
 }
 @media (max-width: 1380px) {
-  /* Числа убраны — высвобождается ~350px, CTA возвращается справа */
+  /* Числа убраны — освобождает ~350px */
   .nav-links a::before { display: none; }
   .nav-links { gap: 20px; }
   .nav-links a { font-size: 12px; letter-spacing: .10em; }
-  .topnav .nav-cta { display: inline-flex; font-size: 11px; padding: 10px 16px; }
+  .topnav .nav-cta { font-size: 11px; padding: 10px 16px; }
 }
 @media (max-width: 1280px) { .nav-links { display:none; } }
 
