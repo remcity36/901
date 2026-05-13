@@ -102,6 +102,26 @@
   }
   .chan.primary:hover { transform: translateX(2px); background: var(--ink); }
 
+  .chan.ai-chan {
+    background: color-mix(in oklch, var(--acc) 8%, var(--surface));
+    border-color: var(--acc);
+    box-shadow: 0 0 0 1px var(--acc-glow), 0 4px 24px rgba(0,0,0,.3);
+  }
+  .chan.ai-chan .chan-label { color: var(--acc); }
+  .chan.ai-chan .chan-value { color: var(--ink); }
+  .chan.ai-chan .chan-sub { color: var(--ink-2); }
+  .chan.ai-chan .chan-arrow { color: var(--acc); }
+  .chan.ai-chan .chan-glyph {
+    background: var(--acc); color: #fff; border-color: var(--acc);
+    box-shadow: 0 0 20px var(--acc-glow);
+    font-weight: 700; font-size: 13px;
+  }
+  .chan.ai-chan:hover {
+    background: color-mix(in oklch, var(--acc) 14%, var(--surface));
+    box-shadow: 0 0 0 1px var(--acc), 0 8px 32px rgba(0,0,0,.4);
+    transform: translateX(2px);
+  }
+
   .side-card {
     background: var(--surface);
     border: 1px solid var(--rule);
@@ -195,7 +215,7 @@
       <aside class="meta reveal">
         <p class="lede">Один человек, четыре канала. В&nbsp;рабочее время отвечаем <b>за&nbsp;≤&nbsp;5&nbsp;минут</b>. Вне рабочего&nbsp;— подхватывает <b>AI‑Михалыч</b>, утром Юрий продолжает диалог.</p>
         <div class="cta-row">
-          <a class="btn-primary" href="https://t.me/yuriybyg">Быстро — в&nbsp;Telegram <span>→</span></a>
+          <a class="btn-primary" href="https://t.me/Judgeopenclawbot" target="_blank">Быстро — в&nbsp;Telegram <span>→</span></a>
         </div>
       </aside>
     </div>
@@ -208,9 +228,19 @@
           <div class="chan-body">
             <div class="chan-label">Основной канал · Telegram</div>
             <div class="chan-value">@yuriybyg</div>
-            <div class="chan-sub">Юрий «Михалыч» Бугаков · отвечает лично, ≤ 5&nbsp;мин</div>
+            <div class="chan-sub">Юрий · отвечает лично, ≤ 5&nbsp;мин</div>
           </div>
           <div class="chan-arrow">></div>
+        </a>
+
+        <a class="chan ai-chan" href="https://t.me/Judgeopenclawbot" target="_blank">
+          <div class="chan-glyph">AI</div>
+          <div class="chan-body">
+            <div class="chan-label">AI‑ассистент · Михалыч</div>
+            <div class="chan-value">@Judgeopenclawbot</div>
+            <div class="chan-sub">Ответит мгновенно 24/7 — подберёт решение и&nbsp;передаст Юрию</div>
+          </div>
+          <div class="chan-arrow">↗</div>
         </a>
 
         <a class="chan" href="tel:+79996708772">
@@ -232,7 +262,6 @@
           </div>
           <div class="chan-arrow">↗</div>
         </a>
-
 
       </div>
 
@@ -291,7 +320,7 @@
         <p class="signal-sub">5&nbsp;минут на&nbsp;первое сообщение, 30&nbsp;минут на&nbsp;звонок, 24&nbsp;часа на&nbsp;смету. Дальше&nbsp;— 14&nbsp;дней до&nbsp;запуска.</p>
       </div>
       <div class="signal-cta">
-        <a class="btn-primary" href="https://t.me/yuriybyg"><span>Написать в&nbsp;Telegram</span><span>></span></a>
+        <a class="btn-primary" href="https://t.me/Judgeopenclawbot" target="_blank"><span>Написать в&nbsp;Telegram</span><span>></span></a>
         <a class="btn-secondary" href="index.html"><span>На&nbsp;главную</span><span>↗</span></a>
       </div>
     </div>

@@ -11,9 +11,11 @@
     const p = localStorage.getItem('lab301.palette');
     const d = localStorage.getItem('lab301.density');
     const l = localStorage.getItem('lab301.lang');
+    const bg = localStorage.getItem('lab301.bg');
     if (p && NAMES[p]) root.setAttribute('data-palette', p);
     if (d) root.setAttribute('data-density', d);
     if (l === 'en') root.setAttribute('lang', 'en');
+    if (bg === 'black') root.setAttribute('data-bg', 'black');
   } catch(e){}
 
   // Translation dictionary for chrome + common UI strings
@@ -22,7 +24,7 @@
     ru: {
       home:'Главная', services:'Услуги', sites:'Сайты', ai:'AI-Ассистент', process:'Процесс', cases:'Архив', faq:'FAQ', contacts:'Контакты',
       live:'LAB301 / OPERATIONS LIVE', sys:'SYS · STABLE', uptime:'UPTIME · 99.98%', queue:'QUEUE · 03', tz:'MSK GMT+3',
-      cta:'Открыть канал', menuOpen:'Открыть меню', backHome:'LAB301 — на главную',
+      cta:'Заказать сайт', menuOpen:'Открыть меню', backHome:'LAB301 — на главную',
       fBrand:'LAB301 / OPS', fAbout:'Лаборатория, которая собирает сайты, AI‑агентов и&nbsp;автоматизации для роста&nbsp;бизнеса.',
       fNav:'Навигация', fSvc:'Сервисы', fLink:'Связь',
       fSvcSite:'Сайт под ключ', fSvcAi:'AI‑агент', fSvcAuto:'Автоматизация', fSvcPerf:'Performance',
@@ -36,7 +38,7 @@
     en: {
       home:'Home', services:'Services', sites:'Sites', ai:'AI Assistant', process:'Process', cases:'Archive', faq:'FAQ', contacts:'Contacts',
       live:'LAB301 / OPERATIONS LIVE', sys:'SYS · STABLE', uptime:'UPTIME · 99.98%', queue:'QUEUE · 03', tz:'MSK GMT+3',
-      cta:'Open channel', menuOpen:'Open menu', backHome:'LAB301 — home',
+      cta:'Order a site', menuOpen:'Open menu', backHome:'LAB301 — home',
       fBrand:'LAB301 / OPS', fAbout:'A lab building websites, AI&nbsp;agents and automations that move business metrics.',
       fNav:'Navigation', fSvc:'Services', fLink:'Contact',
       fSvcSite:'Website turnkey', fSvcAi:'AI agent', fSvcAuto:'Automation', fSvcPerf:'Performance',
@@ -98,19 +100,27 @@
         <span class="dim">AI automation &amp; digital studio</span>
       </a>
       <ul class="nav-links">${navLinks}</ul>
-      <a class="nav-cta" href="contacts.html">${t.cta} <span class="arrow">→</span></a>
-      <button class="hamburger" id="hamburger" aria-label="${t.menuOpen}" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
+      <a class="nav-cta" href="https://t.me/Judgeopenclawbot" target="_blank">${t.cta} <span class="arrow">→</span></a>
+      <div class="nav-mobile-controls">
+        <button class="bg-toggle nav-bg-toggle" id="bgToggle" aria-label="Сменить фон" title="Тёмный / Чёрный фон">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6.5" stroke="currentColor" stroke-width="1.5"/><path d="M8 1.5a6.5 6.5 0 0 1 0 13V1.5z" fill="currentColor"/></svg>
+        </button>
+        <button class="hamburger" id="hamburger" aria-label="${t.menuOpen}" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
     </nav>
     <div class="mobile-drawer" id="mobileDrawer" aria-hidden="true">
       <ul class="drawer-links">${drawerLinks}</ul>
       <div class="drawer-cta">
-        <a class="btn-primary" href="https://t.me/yuriybyg">Telegram / @yuriybyg <span>→</span></a>
+        <a class="btn-primary" href="https://t.me/Judgeopenclawbot" target="_blank">Заказать сайт <span>→</span></a>
         <a class="btn-secondary" href="tel:+79996708772">+7 999 670 87 72</a>
         <a class="btn-secondary" href="mailto:lab.301@ya.ru">lab.301@ya.ru</a>
       </div>
-    </div>`;
+    </div>
+    <a class="fab-order" href="https://t.me/Judgeopenclawbot" target="_blank" aria-label="Заказать сайт">
+      <span class="fab-text">Заказать сайт</span>
+    </a>`;
 
   const footer = `
     <footer>
@@ -165,28 +175,11 @@
         </div>
         <div class="f-bot">
           <span>${t.fCopy}</span>
-          <span>${t.fBuild} ${dd}.${mm} · ${t.fPalette} <span id="palOut" style="color:var(--acc)">${NAMES[palette]||NAMES.signal}</span></span>
+          <span>Built for humans. <span style="color:var(--acc)">Optimized by AI.</span></span>
         </div>
       </div>
     </footer>`;
 
-  const dock = `
-    <div class="dock" role="region" aria-label="Theme controls">
-      <div class="dock-label">
-        <b>${t.dPalette}</b>
-        <span class="nm" id="palName">${NAMES[palette]||NAMES.signal}</span>
-      </div>
-      <div class="swatches" role="radiogroup" aria-label="Color palette">
-        ${Object.keys(NAMES).map(p =>
-          `<button class="sw" data-p="${p}" data-active="${p===palette}" title="${NAMES[p]}" aria-label="${NAMES[p]}"></button>`
-        ).join('')}
-      </div>
-      <div class="density-toggle" role="radiogroup" aria-label="Density">
-        <button data-d="compact"     data-active="${density==='compact'}"     aria-label="${t.dCompact}">— —</button>
-        <button data-d="comfortable" data-active="${density==='comfortable'}" aria-label="${t.dComfort}">— — —</button>
-        <button data-d="spacious"    data-active="${density==='spacious'}"    aria-label="${t.dSpacious}">— — — —</button>
-      </div>
-    </div>`;
 
   // inject ambience layers if not already present
   if (!document.querySelector('.grid-bg')) {
@@ -208,32 +201,24 @@
   }
   if (!document.querySelector('.ribbon'))    mount(n => document.body.prepend(n), ribbon);
   if (!document.querySelector('footer'))     mount(n => document.body.appendChild(n), footer);
-  if (!document.querySelector('.dock'))      mount(n => document.body.appendChild(n), dock);
 
-  // ── palette switching
-  document.querySelectorAll('.sw').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const p = btn.dataset.p;
-      root.setAttribute('data-palette', p);
-      document.querySelectorAll('.sw').forEach(b => b.dataset.active = (b===btn));
-      const nm = NAMES[p];
-      const palName = document.getElementById('palName');
-      const palOut  = document.getElementById('palOut');
-      if (palName) palName.textContent = nm;
-      if (palOut)  palOut.textContent  = nm;
-      try { localStorage.setItem('lab301.palette', p); } catch(e){}
-    });
-  });
-
-  // ── density
-  document.querySelectorAll('.density-toggle button').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const d = btn.dataset.d;
-      root.setAttribute('data-density', d);
-      document.querySelectorAll('.density-toggle button').forEach(b => b.dataset.active = (b===btn));
-      try { localStorage.setItem('lab301.density', d); } catch(e){}
-    });
-  });
+  // ── Background toggle button (desktop floating)
+  if (!document.querySelector('.bg-toggle:not(.nav-bg-toggle)')) {
+    const btn = document.createElement('button');
+    btn.className = 'bg-toggle';
+    btn.setAttribute('aria-label', 'Сменить фон');
+    btn.title = 'Тёмный / Чёрный фон';
+    btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6.5" stroke="currentColor" stroke-width="1.5"/><path d="M8 1.5a6.5 6.5 0 0 1 0 13V1.5z" fill="currentColor"/></svg>';
+    document.body.appendChild(btn);
+  }
+  // shared toggle logic for all .bg-toggle buttons
+  const bgToggleHandler = () => {
+    const isBlack = root.getAttribute('data-bg') === 'black';
+    if (isBlack) { root.removeAttribute('data-bg'); }
+    else { root.setAttribute('data-bg', 'black'); }
+    try { localStorage.setItem('lab301.bg', isBlack ? '' : 'black'); } catch(e){}
+  };
+  document.querySelectorAll('.bg-toggle').forEach(b => b.addEventListener('click', bgToggleHandler));
 
   // ── reveal on scroll
   const io = new IntersectionObserver(es => {
@@ -296,33 +281,6 @@
   };
   applyTranslations(lang);
 
-  // ── A11y toggle (high contrast mode) — добавим в dock
-  const dockEl = document.querySelector('.dock');
-  if (dockEl && !document.getElementById('a11yToggle')) {
-    const a11yBtn = document.createElement('button');
-    a11yBtn.id = 'a11yToggle';
-    a11yBtn.className = 'a11y-btn';
-    a11yBtn.setAttribute('aria-label', 'Режим высокого контраста');
-    a11yBtn.setAttribute('aria-pressed', 'false');
-    a11yBtn.title = 'Режим доступности';
-    a11yBtn.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 0 0 18V3z" fill="currentColor"/></svg>';
-    dockEl.appendChild(a11yBtn);
-
-    try {
-      if (localStorage.getItem('lab301.a11y') === '1') {
-        root.setAttribute('data-a11y', 'high-contrast');
-        a11yBtn.setAttribute('aria-pressed', 'true');
-      }
-    } catch(e) {}
-
-    a11yBtn.addEventListener('click', () => {
-      const on = root.getAttribute('data-a11y') !== 'high-contrast';
-      if (on) root.setAttribute('data-a11y', 'high-contrast');
-      else    root.removeAttribute('data-a11y');
-      a11yBtn.setAttribute('aria-pressed', on ? 'true' : 'false');
-      try { localStorage.setItem('lab301.a11y', on ? '1' : '0'); } catch(e) {}
-    });
-  }
 
   // ── Pulsing green dot for ONLINE status indicators
   document.querySelectorAll('.sig, .v, .hero-coord > div').forEach(el => {
