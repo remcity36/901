@@ -340,7 +340,7 @@ nav.topnav {
 .step:hover { background: rgba(255,255,255,0.015); }
 .step-num { font-family:var(--font-m); font-size: 11px; letter-spacing:.16em; color: var(--ink-3); margin-bottom: 64px; }
 .step-num b { color:var(--acc); font-weight:500; }
-.step-title { font-family:var(--font-d); font-size: 20px; font-weight:700; letter-spacing:-.02em; margin-bottom:10px; }
+.step-title { font-family:var(--font-d); font-size: 20px; font-weight:700; letter-spacing:-.02em; margin-bottom:10px; display:inline-block; border-bottom: 2px solid var(--acc); padding-bottom: 4px; }
 .step-desc { font-size: 13.5px; color:var(--ink-2); line-height:1.55; }
 .step::after { content:""; position:absolute; left:24px; top:0; height:2px; width:32px; background:var(--acc); transition: width .35s; }
 .step:hover::after { width:80px; }
