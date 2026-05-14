@@ -1,5 +1,10 @@
 /* LAB301 / OPERATIONS — shared chrome + palette controls */
 (function(){
+  // ── Clean URL: strip .html from address bar (GitHub Pages)
+  if (window.location.pathname.endsWith('.html')) {
+    var cleanPath = window.location.pathname.slice(0, -5);
+    history.replaceState(null, '', cleanPath + window.location.search + window.location.hash);
+  }
   const NAMES = {
     signal:"SIGNAL // 01", cyber:"CYBER // 02", acid:"ACID // 03",
     magenta:"PLASMA // 04", amber:"SODIUM // 05", ice:"ARCTIC // 06"

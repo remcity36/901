@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <title>LAB301</title>
+  <script>
+    // GitHub Pages clean URL redirect
+    // When user visits lab301.ru/services (no .html),
+    // GitHub serves this 404.html instead of 404 error.
+    // We detect the path and redirect to the real .html file.
+    (function() {
+      var path = window.location.pathname;
+      var search = window.location.search;
+      var hash = window.location.hash;
+
+      // Only redirect if path has no file extension
+      if (!path.match(/\.[a-zA-Z0-9]+$/)) {
+        // Remove trailing slash if present
+        var cleanPath = path.replace(/\/$/, '');
+        if (cleanPath === '' || cleanPath === '/') {
+          window.location.replace('/' + search + hash);
+        } else {
+          window.location.replace(cleanPath + '.html' + search + hash);
+        }
+      }
+    })();
+  </script>
+</head>
+<body>
+  <!-- Redirecting... -->
+</body>
+</html>
