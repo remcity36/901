@@ -1,4 +1,4 @@
-/* ───────────────────────────────────────────────────────
+﻿/* ───────────────────────────────────────────────────────
    LAB301 / OPERATIONS — shared theme
    palette switched by [data-palette] on <html>
    density switched by [data-density] on <html>
@@ -96,8 +96,7 @@ section { padding: var(--row) 0; position:relative; z-index:2; }
   position:fixed; top:0; left:0; right:0; z-index:50;
   display:flex; align-items:center; justify-content:space-between;
   padding: 10px var(--gutter);
-  background: rgba(8,9,11,.78);
-  backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+  background: rgba(8,9,11,.96);
   border-bottom: 1px solid var(--rule);
   font-family:var(--font-m); font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-3);
 }
@@ -108,10 +107,10 @@ section { padding: var(--row) 0; position:relative; z-index:2; }
   animation:pulse 1.6s ease-in-out infinite;
 }
 @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.45;transform:scale(.75)} }
-@keyframes pulse-online { 0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(34,197,94,.5)} 50%{opacity:.5;box-shadow:0 0 0 5px rgba(34,197,94,0)} }
+@keyframes pulse-online { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.4;transform:scale(1.6)} }
 .online-dot {
   display:inline-block; width:8px; height:8px; border-radius:50%;
-  background:#22c55e; vertical-align:middle; margin-right:5px;
+  background:#16a34a; vertical-align:middle; margin-right:5px;
   animation: pulse-online 1.4s ease-in-out infinite;
 }
 .ribbon-mid { display:flex; gap:28px; }
@@ -122,8 +121,7 @@ nav.topnav {
   position:fixed; top:36px; left:0; right:0; z-index:49;
   display:flex; align-items:center; justify-content:space-between;
   padding: 4px var(--gutter);
-  background: rgba(10,11,13,.6);
-  backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+  background: rgba(10,11,13,.94);
   border-bottom: 1px solid var(--rule);
 }
 .logo {
@@ -167,7 +165,7 @@ nav.topnav {
 .nav-cta {
   display:inline-flex; align-items:center; gap:10px;
   font-family:var(--font-m); font-size:13px; font-weight:600; letter-spacing:.14em; text-transform:uppercase;
-  color:#000; background:var(--acc); padding: 12px 20px;
+  color:#fff; background:var(--acc); padding: 12px 20px;
   text-decoration:none; border-radius:4px;
   box-shadow: 0 0 24px var(--acc-glow);
   transition: transform .15s ease, box-shadow .25s ease;
@@ -200,7 +198,7 @@ nav.topnav {
 .btn-primary {
   display:inline-flex; align-items:center; gap:10px;
   font-family:var(--font-m); font-size:12px; letter-spacing:.16em; text-transform:uppercase;
-  color:#000; background:var(--acc); padding: 14px 20px;
+  color:#fff; background:var(--acc); padding: 14px 20px;
   text-decoration:none; border-radius:4px; font-weight:500;
   box-shadow: 0 0 0 1px var(--acc) inset, 0 0 40px var(--acc-glow);
   transition: transform .15s ease;
@@ -311,7 +309,7 @@ nav.topnav {
 }
 .mod-id b { color:var(--acc); font-weight:500; }
 .mod-arrow { color:var(--ink-3); font-family:var(--font-m); font-size:14px; transition: transform .25s, color .25s; }
-.mod-title { font-family:var(--font-d); font-size: 26px; font-weight:700; letter-spacing:-.025em; line-height:1.05; margin-bottom:16px; word-break: break-word; overflow-wrap: break-word; }
+.mod-title { font-family:var(--font-d); font-size: 26px; font-weight:700; letter-spacing:-.025em; line-height:1.05; margin-bottom:16px; word-break: break-word; overflow-wrap: break-word; padding-bottom:14px; border-bottom:2px solid var(--acc); }
 .mod-title .acc { color: var(--acc); }
 .mod-desc { font-size: 14px; line-height:1.55; color:var(--ink-2); margin-bottom: 24px; word-break: break-word; }
 .mod-tags { display:flex; gap:6px; flex-wrap:wrap; margin-bottom:24px; }
@@ -439,12 +437,13 @@ nav.topnav {
 }
 .faq-q .num b { color: var(--acc); font-weight:500; }
 .faq-q .toggle {
-  flex-shrink:0; width:32px; height:32px; border:1px solid var(--rule-2); border-radius:4px;
-  display:grid; place-items:center; color:var(--ink-2);
-  transition: background .2s, color .2s, transform .2s;
+  flex-shrink:0; width:32px; height:32px; border:1px solid var(--acc); border-radius:4px;
+  display:grid; place-items:center; color:#1a1a1a;
+  background: var(--acc);
+  transition: background .2s, color .2s, transform .2s, border-color .2s;
   font-family: var(--font-m);
 }
-.faq-item.open .faq-q .toggle { background: var(--acc); color:#000; transform: rotate(45deg); }
+.faq-item.open .faq-q .toggle { background: var(--acc); color:#1a1a1a; transform: rotate(45deg); border-color: var(--acc); }
 .faq-q-text { flex:1; }
 .faq-a {
   max-height: 0; overflow:hidden;

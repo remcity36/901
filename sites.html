@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ru" data-palette="signal" data-density="comfortable">
 <head>
 <meta charset="UTF-8" />
@@ -36,14 +36,36 @@
 <meta name="application-name" content="LAB301" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap"></noscript>
 <link rel="stylesheet" href="theme.css?v=2">
+<style>
+  /* ── Профили клиентов ── */
+  .profile-grid .mod-title {
+    font-size: clamp(22px, 3vw, 32px);
+  }
+  .profile-grid .mod-id {
+    color: var(--acc);
+    margin-bottom: 10px;
+  }
+  /* ── Рекомендательный тег — яркий и заметный ── */
+  .profile-grid .mod-tags .mod-tag {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: .04em;
+    padding: 8px 16px;
+    background: var(--acc);
+    color: #ffffff !important;
+    border-color: var(--acc);
+    border-radius: 4px;
+  }
+</style>
 </head>
 <body data-page="sites">
 
 <section class="page-head">
   <div class="container">
-    <div class="coord reveal"><div><b>FILE / 02</b> &nbsp; SITES.INDEX &nbsp; / &nbsp; 04 ТИПА</div><div class="sig">● BUILD READY</div></div>
+    <div class="coord reveal"><div><b>FILE / 02</b> &nbsp; SITES.INDEX &nbsp; / &nbsp; 9 КАТЕГОРИЙ · 30+ ТИПОВ</div><div class="sig"><span style="color:#16a34a;">●</span> BUILD READY</div></div>
     <div class="crumbs reveal"><a href="index.html">LAB301</a><span class="sep">/</span><a href="services.html">Услуги</a><span class="sep">/</span><span class="here">Сайты</span></div>
     <div class="grid2">
       <div class="reveal">
@@ -59,7 +81,8 @@
       </aside>
     </div>
     <div class="stat-row reveal" style="margin-top:48px;">
-      <div class="stat-cell"><div class="v">95<sup>+</sup></div><div class="k">PageSpeed</div></div>
+      <div class="stat-cell"><div class="v">95<sup>+</sup></div><div class="k">PageSpeed Desktop</div></div>
+      <div class="stat-cell"><div class="v">90<sup>+</sup></div><div class="k">PageSpeed Mobile</div></div>
       <div class="stat-cell"><div class="v">1.5<sup>с</sup></div><div class="k">скорость загрузки</div></div>
       <div class="stat-cell"><div class="v">14<sup>д</sup></div><div class="k">средний запуск</div></div>
       <div class="stat-cell"><div class="v">120<sup>+</sup></div><div class="k">сайтов в&nbsp;арх.</div></div>
@@ -67,42 +90,154 @@
   </div>
 </section>
 
+
+<!-- ── Полный каталог типов ── -->
 <section id="types">
   <div class="container">
     <div class="sec-head reveal">
-      <div class="idx"><b>02 //</b> ТИПЫ&nbsp;САЙТОВ</div>
-      <h2 class="title">Какие сайты<br><em>собираем</em>.</h2>
-      <div class="meta">04 формата · MVP&nbsp;>&nbsp;e‑com</div>
+      <div class="idx"><b>02 //</b> ПОЛНЫЙ&nbsp;КАТАЛОГ</div>
+      <h2 class="title">9 категорий.<br><em>30+ типов</em>&nbsp;сайтов.</h2>
+      <div class="meta">от лендинга до веб-приложения</div>
     </div>
+
     <div class="stack-grid reveal">
-      <div class="mod spotlight span6">
-        <div class="mod-id"><span>TYPE · <b>01</b> / LANDING</span><span class="mod-arrow">→</span></div>
-        <div class="mod-title">Лендинг <span class="acc">— быстрый запуск гипотезы</span></div>
-        <div class="mod-desc">Одностраничник для&nbsp;тестирования продукта, привлечения первых клиентов и&nbsp;окупаемости рекламы. 7–14 дней.</div>
-        <div class="mod-tags"><span class="mod-tag">Tilda Pro</span><span class="mod-tag">Next.js</span><span class="mod-tag">A/B</span><span class="mod-tag">CRM‑связка</span></div>
-        <div class="mod-price"><span>от</span><b>120 000 ₽</b></div>
+
+      <div class="mod spotlight span12">
+        <div class="mod-id"><span>КАТ · <b>01</b> / AI‑SITE</span><span class="mod-arrow">→</span><span style="margin-left:auto; font-size:10px; letter-spacing:.14em; color:#16a34a; text-transform:uppercase; font-family:var(--font-m); background:rgba(22,163,74,0.12); padding:3px 10px; border-radius:999px; border:1px solid rgba(22,163,74,0.3);">★ Популярно</span></div>
+        <div class="mod-title">AI‑сайт <span class="acc">— сайт + встроенный AI‑консультант</span></div>
+        <div class="mod-desc" style="max-width:72ch;">Обычный сайт отвечает только тогда, когда клиент сам нашёл нужную страницу. AI‑сайт <b>ведёт диалог 24/7</b> — отвечает на вопросы, квалифицирует лид, рассчитывает стоимость и оформляет заявку без оператора. Михалыч встроен прямо в сайт: живёт в чат-виджете, знает весь контент и передаёт горячие лиды в CRM автоматически.</div>
+        <div class="mod-tags" style="margin-top:16px;"><span class="mod-tag">Claude AI</span><span class="mod-tag">RAG‑база знаний</span><span class="mod-tag">Михалыч</span><span class="mod-tag">Notion CRM</span><span class="mod-tag">Lead Scoring</span><span class="mod-tag">24/7</span></div>
+        <div class="mod-price" style="margin-top:20px;"><span>от</span><b>190 000 ₽</b><span style="font-size:11px; color:var(--ink-3); margin-left:12px;">· 14–21 день · включая настройку AI</span></div>
       </div>
+
+      <div class="mod span4">
+        <div class="mod-id"><span>КАТ · <b>02</b> / LANDING</span></div>
+        <div class="mod-title">Лендинги</div>
+        <div class="mod-desc">Промо-лендинг, страница специалиста, страница вебинара / события. Быстро, чётко, под одну цель.</div>
+        <div class="mod-tags"><span class="mod-tag">Промо</span><span class="mod-tag">Услуга</span><span class="mod-tag">Вебинар</span></div>
+        <div class="mod-price"><span>от</span><b>100 000 ₽</b><span style="font-size:11px; color:var(--ink-3); margin-left:8px;">· 5–10 дней</span></div>
+      </div>
+
+      <div class="mod span4">
+        <div class="mod-id"><span>КАТ · <b>03</b> / CORP</span></div>
+        <div class="mod-title">Корпоративные сайты</div>
+        <div class="mod-desc">5–10 страниц, CMS, блог, команда, кейсы. Многоязычная версия для международного бизнеса.</div>
+        <div class="mod-tags"><span class="mod-tag">WordPress</span><span class="mod-tag">Next.js</span><span class="mod-tag">SEO</span></div>
+        <div class="mod-price"><span>от</span><b>180 000 ₽</b><span style="font-size:11px; color:var(--ink-3); margin-left:8px;">· 14–21 день</span></div>
+      </div>
+
+      <div class="mod span4">
+        <div class="mod-id"><span>КАТ · <b>04</b> / SHOP</span></div>
+        <div class="mod-title">Интернет-магазины</div>
+        <div class="mod-desc">Мини-магазин до 100 товаров, средний до 1000, маркетплейс, цифровые товары и курсы.</div>
+        <div class="mod-tags"><span class="mod-tag">YooKassa</span><span class="mod-tag">1С</span><span class="mod-tag">CDEK</span><span class="mod-tag">СБП</span></div>
+        <div class="mod-price"><span>от</span><b>150 000 ₽</b><span style="font-size:11px; color:var(--ink-3); margin-left:8px;">· 14–30 дней</span></div>
+      </div>
+
+      <div class="mod span4">
+        <div class="mod-id"><span>КАТ · <b>05</b> / EDU</span></div>
+        <div class="mod-title">Образовательные сайты</div>
+        <div class="mod-desc">Сайт курса с оплатой и кабинетом, полноценная LMS платформа, wiki / база знаний.</div>
+        <div class="mod-tags"><span class="mod-tag">Курсы</span><span class="mod-tag">LMS</span><span class="mod-tag">Сертификаты</span></div>
+        <div class="mod-price"><span>от</span><b>80 000 ₽</b><span style="font-size:11px; color:var(--ink-3); margin-left:8px;">· 10–21 день</span></div>
+      </div>
+
+      <div class="mod span4">
+        <div class="mod-id"><span>КАТ · <b>06</b> / PORTFOLIO</span></div>
+        <div class="mod-title">Портфолио и&nbsp;творческие</div>
+        <div class="mod-desc">Портфолио дизайнера или разработчика, фотографа / видеомонтажёра, арт-галерея.</div>
+        <div class="mod-tags"><span class="mod-tag">Галерея</span><span class="mod-tag">Case Studies</span><span class="mod-tag">GitHub</span></div>
+        <div class="mod-price"><span>от</span><b>100 000 ₽</b><span style="font-size:11px; color:var(--ink-3); margin-left:8px;">· 7–14 дней</span></div>
+      </div>
+
+      <div class="mod span4">
+        <div class="mod-id"><span>КАТ · <b>07</b> / B2B</span></div>
+        <div class="mod-title">B2B и стартапы</div>
+        <div class="mod-desc">SaaS лендинг с тарифами и демо, стартап-сайт для инвесторов, B2B-каталог / агрегатор.</div>
+        <div class="mod-tags"><span class="mod-tag">SaaS</span><span class="mod-tag">Инвесторы</span><span class="mod-tag">B2B каталог</span></div>
+        <div class="mod-price"><span>от</span><b>150 000 ₽</b><span style="font-size:11px; color:var(--ink-3); margin-left:8px;">· 14–28 дней</span></div>
+      </div>
+
+      <div class="mod span4">
+        <div class="mod-id"><span>КАТ · <b>08</b> / NICHE</span></div>
+        <div class="mod-title">Отраслевые сайты</div>
+        <div class="mod-desc">Салон / клиника с онлайн-записью, ресторан с меню и доставкой, недвижимость, туризм.</div>
+        <div class="mod-tags"><span class="mod-tag">Calendly</span><span class="mod-tag">Яндекс.Карты</span><span class="mod-tag">Бронирование</span></div>
+        <div class="mod-price"><span>от</span><b>100 000 ₽</b><span style="font-size:11px; color:var(--ink-3); margin-left:8px;">· 10–14 дней</span></div>
+      </div>
+
+      <div class="mod span4">
+        <div class="mod-id"><span>КАТ · <b>09</b> / MEDIA</span></div>
+        <div class="mod-title">Медиа и развлечения</div>
+        <div class="mod-desc">Блог / новостной сайт, видео-платформа, подкаст с плеером и RSS. Контент-движок с CMS.</div>
+        <div class="mod-tags"><span class="mod-tag">Блог</span><span class="mod-tag">Видео</span><span class="mod-tag">Подкаст</span><span class="mod-tag">RSS</span></div>
+        <div class="mod-price"><span>от</span><b>80 000 ₽</b><span style="font-size:11px; color:var(--ink-3); margin-left:8px;">· 10–28 дней</span></div>
+      </div>
+
+      <div class="mod span4">
+        <div class="mod-id"><span>КАТ · <b>10</b> / APP</span></div>
+        <div class="mod-title">Web App &amp;&nbsp;инструменты</div>
+        <div class="mod-desc">CRM / система управления, интерактивный калькулятор / конфигуратор, аналитический дашборд с real-time данными.</div>
+        <div class="mod-tags"><span class="mod-tag">Charts.js</span><span class="mod-tag">API</span><span class="mod-tag">Dashboard</span><span class="mod-tag">CRM</span></div>
+        <div class="mod-price"><span>от</span><b>120 000 ₽</b><span style="font-size:11px; color:var(--ink-3); margin-left:8px;">· 14–60 дней</span></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── Рекомендации по клиентам ── -->
+<section>
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="idx"><b>03 //</b> КТО&nbsp;ВЫ?</div>
+      <h2 class="title">Какой сайт&nbsp;нужен<br><em>именно&nbsp;вам</em>.</h2>
+      <div class="meta">подбираем под задачу</div>
+    </div>
+    <div class="stack-grid profile-grid reveal">
+
       <div class="mod span6">
-        <div class="mod-id"><span>TYPE · <b>02</b> / CORP</span><span class="mod-arrow">→</span></div>
-        <div class="mod-title">Корпоративный сайт</div>
-        <div class="mod-desc">Многостраничник для&nbsp;B2B и&nbsp;услуг. Каталог, портфолио, кейсы, отдел кадров, новости — всё на&nbsp;CMS.</div>
-        <div class="mod-tags"><span class="mod-tag">WordPress</span><span class="mod-tag">Strapi</span><span class="mod-tag">SEO</span><span class="mod-tag">Многоязычность</span></div>
-        <div class="mod-price"><span>от</span><b>220 000 ₽</b></div>
+        <div class="mod-id"><span>ПРОФИЛЬ · <b>01</b></span></div>
+        <div class="mod-title">Фрилансер / специалист</div>
+        <div class="mod-desc">Психолог, коуч, дизайнер, юрист — нужно показать экспертизу и принимать заявки.</div>
+        <div class="mod-tags" style="margin-top:12px;"><span class="mod-tag" style="background:var(--acc-soft); color:var(--acc); border-color:var(--acc-soft);">→ Лендинг услуги от 100 000 ₽</span></div>
       </div>
+
       <div class="mod span6">
-        <div class="mod-id"><span>TYPE · <b>03</b> / SHOP</span><span class="mod-arrow">→</span></div>
-        <div class="mod-title">интернет‑магазин</div>
-        <div class="mod-desc">До&nbsp;10&nbsp;000 SKU, интеграция с&nbsp;1С, оплатой, доставкой и&nbsp;аналитикой воронки покупок.</div>
-        <div class="mod-tags"><span class="mod-tag">Next.js Commerce</span><span class="mod-tag">1C</span><span class="mod-tag">YooKassa</span><span class="mod-tag">CDEK</span></div>
-        <div class="mod-price"><span>от</span><b>380 000 ₽</b></div>
+        <div class="mod-id"><span>ПРОФИЛЬ · <b>02</b></span></div>
+        <div class="mod-title">Малый бизнес / магазин</div>
+        <div class="mod-desc">Офлайн-магазин выходит в онлайн или небольшой e-commerce с ограниченным каталогом.</div>
+        <div class="mod-tags" style="margin-top:12px;"><span class="mod-tag" style="background:var(--acc-soft); color:var(--acc); border-color:var(--acc-soft);">→ Мини-магазин от 150 000 ₽</span></div>
       </div>
+
       <div class="mod span6">
-        <div class="mod-id"><span>TYPE · <b>04</b> / AI</span><span class="mod-arrow">→</span></div>
-        <div class="mod-title">AI‑сайт</div>
-        <div class="mod-desc">Сайт + интегрированный AI‑консультант. Отвечает на&nbsp;вопросы, ведёт диалог, оформляет заявку — без оператора.</div>
-        <div class="mod-tags"><span class="mod-tag">Claude</span><span class="mod-tag">RAG</span><span class="mod-tag">Михалыч</span><span class="mod-tag">Voice</span></div>
-        <div class="mod-price"><span>от</span><b>290 000 ₽</b></div>
+        <div class="mod-id"><span>ПРОФИЛЬ · <b>03</b></span></div>
+        <div class="mod-title">Студия / агентство</div>
+        <div class="mod-desc">Нужен представительный сайт с кейсами, командой, блогом и CRM-интеграцией.</div>
+        <div class="mod-tags" style="margin-top:12px;"><span class="mod-tag" style="background:var(--acc-soft); color:var(--acc); border-color:var(--acc-soft);">→ Корпоративный сайт от 180 000 ₽</span></div>
       </div>
+
+      <div class="mod span6">
+        <div class="mod-id"><span>ПРОФИЛЬ · <b>04</b></span></div>
+        <div class="mod-title">Онлайн-школа</div>
+        <div class="mod-desc">Один-пять курсов с оплатой и личным кабинетом, или большая LMS-платформа для сотен студентов.</div>
+        <div class="mod-tags" style="margin-top:12px;"><span class="mod-tag" style="background:var(--acc-soft); color:var(--acc); border-color:var(--acc-soft);">→ Сайт курса от 150 000 ₽</span></div>
+      </div>
+
+      <div class="mod span6">
+        <div class="mod-id"><span>ПРОФИЛЬ · <b>05</b></span></div>
+        <div class="mod-title">Стартап / SaaS</div>
+        <div class="mod-desc">Новый продукт, поиск инвесторов или MVP — нужен убедительный продуктовый сайт с демо и тарифами.</div>
+        <div class="mod-tags" style="margin-top:12px;"><span class="mod-tag" style="background:var(--acc-soft); color:var(--acc); border-color:var(--acc-soft);">→ SaaS лендинг от 200 000 ₽</span></div>
+      </div>
+
+      <div class="mod span6">
+        <div class="mod-id"><span>ПРОФИЛЬ · <b>06</b></span></div>
+        <div class="mod-title">Ресторан / клиника / салон</div>
+        <div class="mod-desc">Онлайн-запись, меню, галерея, карта, отзывы — всё чтобы клиент дошёл до вас, а не к конкуренту.</div>
+        <div class="mod-tags" style="margin-top:12px;"><span class="mod-tag" style="background:var(--acc-soft); color:var(--acc); border-color:var(--acc-soft);">→ Отраслевой сайт от 100 000 ₽</span></div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -110,7 +245,7 @@
 <section>
   <div class="container">
     <div class="sec-head reveal">
-      <div class="idx"><b>03 //</b> ЭТАПЫ&nbsp;ПРОЕКТА</div>
+      <div class="idx"><b>04 //</b> ЭТАПЫ&nbsp;ПРОЕКТА</div>
       <h2 class="title">Что&nbsp;входит<br>в&nbsp;<em>каждую сборку</em>.</h2>
       <div class="meta">прозрачный процесс</div>
     </div>
@@ -127,7 +262,7 @@
 <section>
   <div class="container">
     <div class="sec-head reveal">
-      <div class="idx"><b>04 //</b> ЧТО&nbsp;ВХОДИТ</div>
+      <div class="idx"><b>05 //</b> ЧТО&nbsp;ВХОДИТ</div>
       <h2 class="title">Сайт&nbsp;«под ключ» —<br>значит&nbsp;<em>под ключ</em>.</h2>
       <div class="meta">никаких «у&nbsp;нас только&nbsp;вёрстка»</div>
     </div>
@@ -144,11 +279,88 @@
   </div>
 </section>
 
+<section id="pagespeed">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="idx"><b>06 //</b> PAGESPEED</div>
+      <h2 class="title">Почему скорость сайта —<br>это&nbsp;<em>деньги бизнеса</em>.</h2>
+      <div class="meta">PageSpeed Desktop 95+ · PageSpeed Mobile 90+</div>
+    </div>
+
+    <div class="stack-grid reveal" style="--cols:3;">
+
+      <div class="mod span4">
+        <div class="mod-id"><span>01 / SEO</span><span class="mod-arrow">→</span></div>
+        <div class="mod-title">Рейтинг в&nbsp;Google и&nbsp;Яндексе</div>
+        <div class="mod-desc">Core Web Vitals входят в&nbsp;алгоритм ранжирования напрямую. Сайт с&nbsp;PageSpeed&nbsp;95+ получает приоритет в&nbsp;выдаче перед медленными конкурентами — без дополнительных вложений в&nbsp;рекламу.</div>
+        <div class="mod-tags"><span class="mod-tag">Core Web Vitals</span><span class="mod-tag">Google Ranking</span></div>
+      </div>
+
+      <div class="mod span4">
+        <div class="mod-id"><span>02 / CONV</span><span class="mod-arrow">→</span></div>
+        <div class="mod-title">Конверсия и&nbsp;продажи</div>
+        <div class="mod-desc">Каждая лишняя секунда загрузки снижает конверсию на&nbsp;<b>4–7%</b>. При загрузке за&nbsp;1.5&nbsp;с вместо 4&nbsp;с &mdash; вы получаете на&nbsp;15–25% больше заявок с&nbsp;того&nbsp;же трафика, не&nbsp;меняя рекламный бюджет.</div>
+        <div class="mod-tags"><span class="mod-tag">+15–25% заявок</span><span class="mod-tag">LCP &lt; 2.5&nbsp;с</span></div>
+      </div>
+
+      <div class="mod span4">
+        <div class="mod-id"><span>03 / BOUNCE</span><span class="mod-arrow">→</span></div>
+        <div class="mod-title">Отказы и&nbsp;удержание</div>
+        <div class="mod-desc">53% мобильных пользователей уходят, если страница грузится дольше 3&nbsp;секунд. Быстрый сайт удерживает посетителей, снижает показатель отказов и&nbsp;повышает время на&nbsp;сайте.</div>
+        <div class="mod-tags"><span class="mod-tag">−53% отказов</span><span class="mod-tag">FID &lt; 100&nbsp;мс</span></div>
+      </div>
+
+      <div class="mod span4">
+        <div class="mod-id"><span>04 / MOBILE</span><span class="mod-arrow">→</span></div>
+        <div class="mod-title">Мобильный трафик</div>
+        <div class="mod-desc">Больше 65% поискового трафика идёт с&nbsp;мобильных. PageSpeed&nbsp;Mobile&nbsp;90+ — это гарантия, что каждый посетитель с&nbsp;телефона видит сайт быстро, читабельно и&nbsp;без&nbsp;лагов при&nbsp;скролле.</div>
+        <div class="mod-tags"><span class="mod-tag">Mobile 90+</span><span class="mod-tag">CLS &lt; 0.1</span></div>
+      </div>
+
+      <div class="mod span4">
+        <div class="mod-id"><span>05 / ADS</span><span class="mod-arrow">→</span></div>
+        <div class="mod-title">Стоимость рекламы</div>
+        <div class="mod-desc">Google Ads и&nbsp;Яндекс.Директ учитывают скорость посадочной страницы при&nbsp;расчёте CTR и&nbsp;Quality Score. Быстрый сайт = ниже CPC, выше позиция объявления при&nbsp;том&nbsp;же бюджете.</div>
+        <div class="mod-tags"><span class="mod-tag">Quality Score</span><span class="mod-tag">CPC −20%</span></div>
+      </div>
+
+      <div class="mod span4">
+        <div class="mod-id"><span>06 / UX</span><span class="mod-arrow">→</span></div>
+        <div class="mod-title">Доверие и&nbsp;бренд</div>
+        <div class="mod-desc">Медленный сайт воспринимается как ненадёжный бизнес — это прямо говорят данные исследований поведения пользователей. Быстрый, плавный сайт формирует доверие ещё до&nbsp;первого слова прочитанного текста.</div>
+        <div class="mod-tags"><span class="mod-tag">Brand Trust</span><span class="mod-tag">UX Premium</span></div>
+      </div>
+
+    </div>
+
+    <div class="reveal" style="margin-top:40px; padding:28px 32px; background:var(--panel); border:1px solid var(--rule); border-radius:var(--r); display:flex; gap:24px; align-items:center; flex-wrap:wrap;">
+      <div style="flex:1; min-width:240px;">
+        <div style="font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--acc); font-family:var(--font-m); margin-bottom:8px;">КАК МЫ ДОСТИГАЕМ 95+</div>
+        <p style="font-size:0.9rem; color:var(--ink-2); margin:0; line-height:1.6;">Пишем чистый HTML·CSS·JS без лишних зависимостей. Деплой через Netlify·Vercel с&nbsp;CDN edge-нодами по всему миру. Автоматическая оптимизация изображений, lazy-load, critical CSS и&nbsp;prefetch — всё включено в&nbsp;стоимость.</p>
+      </div>
+      <div style="display:flex; gap:20px; flex-wrap:wrap;">
+        <div style="text-align:center; min-width:80px;">
+          <div style="font-size:2rem; font-weight:700; color:var(--acc); font-family:var(--font-h); line-height:1;">95<sup style="font-size:0.6em;">+</sup></div>
+          <div style="font-size:10px; letter-spacing:.1em; color:var(--ink-3); text-transform:uppercase; margin-top:4px;">Desktop</div>
+        </div>
+        <div style="text-align:center; min-width:80px;">
+          <div style="font-size:2rem; font-weight:700; color:var(--acc); font-family:var(--font-h); line-height:1;">90<sup style="font-size:0.6em;">+</sup></div>
+          <div style="font-size:10px; letter-spacing:.1em; color:var(--ink-3); text-transform:uppercase; margin-top:4px;">Mobile</div>
+        </div>
+        <div style="text-align:center; min-width:80px;">
+          <div style="font-size:2rem; font-weight:700; color:var(--acc); font-family:var(--font-h); line-height:1;">1.5<sup style="font-size:0.6em;">с</sup></div>
+          <div style="font-size:10px; letter-spacing:.1em; color:var(--ink-3); text-transform:uppercase; margin-top:4px;">Загрузка</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="signal-band">
   <div class="container">
     <div class="signal-wrap reveal">
       <div>
-        <div class="label" style="margin-bottom:24px;"><span class="dot">▌</span> 05 // ЗАПУСК</div>
+        <div class="label" style="margin-bottom:24px;"><span class="dot">▌</span> 07 // ЗАПУСК</div>
         <h2 class="signal-title">Запустим сайт<br><em>за&nbsp;14&nbsp;дней</em>.</h2>
         <p class="signal-sub">Бесплатный бриф и&nbsp;расчёт стоимости — ответим за&nbsp;5&nbsp;минут в&nbsp;Telegram. Подскажем, какой тип сайта подходит под&nbsp;задачу.</p>
       </div>
@@ -160,6 +372,6 @@
   </div>
 </section>
 
-<script src="theme.js?v=2"></script>
+<script src="theme.js?v=2" defer></script>
 </body>
 </html>

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ru" data-palette="signal" data-density="comfortable">
 <head>
 <meta charset="UTF-8" />
@@ -36,14 +36,15 @@
 <meta name="application-name" content="LAB301" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap"></noscript>
 <link rel="stylesheet" href="theme.css?v=2">
 </head>
 <body data-page="services">
 
 <section class="page-head">
   <div class="container">
-    <div class="coord reveal"><div><b>FILE / 01</b> &nbsp; SERVICES.INDEX &nbsp; / &nbsp; 06 МОДУЛЕЙ</div><div class="sig">● ALL SYSTEMS READY</div></div>
+    <div class="coord reveal"><div><b>FILE / 01</b> &nbsp; SERVICES.INDEX &nbsp; / &nbsp; 06 МОДУЛЕЙ</div><div class="sig"><span style="color:#16a34a;">●</span> ALL SYSTEMS READY</div></div>
     <div class="crumbs reveal"><a href="index.html">LAB301</a><span class="sep">/</span><span class="here">Услуги</span></div>
     <div class="grid2">
       <div class="reveal">
@@ -70,13 +71,14 @@
     </div>
 
     <div class="stack-grid reveal">
-      <div class="mod span6">
-        <div class="mod-id"><span>MOD · <b>01</b> / SITE</span><span class="mod-arrow">→</span></div>
-        <div class="mod-title">Сайт под&nbsp;ключ</div>
-        <div class="mod-desc">Лендинги, корпоративные сайты, интернет‑магазины и&nbsp;web‑приложения. Дизайн, разработка, аналитика, SEO‑база.</div>
-        <div class="mod-tags"><span class="mod-tag">Next.js</span><span class="mod-tag">Tilda Pro</span><span class="mod-tag">WordPress</span><span class="mod-tag">PageSpeed 95+</span></div>
-        <div class="mod-price"><span>от</span><b>180 000 ₽</b></div>
+      <div class="mod spotlight span12">
+        <div class="mod-id"><span>MOD · <b>01</b> / SITE</span><span class="mod-arrow">→</span><span style="margin-left:auto; font-size:10px; letter-spacing:.14em; color:#16a34a; text-transform:uppercase; font-family:var(--font-m); background:rgba(22,163,74,0.12); padding:3px 10px; border-radius:999px; border:1px solid rgba(22,163,74,0.3);">★ Популярно</span></div>
+        <div class="mod-title">Сайт под&nbsp;ключ <span class="acc">— от&nbsp;брифа до&nbsp;первой&nbsp;продажи</span></div>
+        <div class="mod-desc" style="max-width:72ch;">Лендинги, корпоративные сайты, интернет‑магазины и&nbsp;web‑приложения. Стратегия, дизайн, разработка, аналитика и&nbsp;SEO‑база. Запускаем MVP за&nbsp;14&nbsp;дней — на&nbsp;данных, а&nbsp;не на&nbsp;ощущениях.</div>
+        <div class="mod-tags" style="margin-top:14px;"><span class="mod-tag">HTML·CSS·JS</span><span class="mod-tag">Next.js</span><span class="mod-tag">WordPress</span><span class="mod-tag">Netlify·Vercel</span><span class="mod-tag">PageSpeed Desktop 95+</span><span class="mod-tag">PageSpeed Mobile 90+</span></div>
+        <div class="mod-price" style="margin-top:20px;"><span>от</span><b>180 000 ₽</b><span style="font-size:11px; color:var(--ink-3); margin-left:12px;">· 14 дней · дизайн + разработка + аналитика</span></div>
       </div>
+      <!-- РЯД 2: span6 + span6 -->
       <div class="mod span6">
         <div class="mod-id"><span>MOD · <b>02</b> / AI</span><span class="mod-arrow">→</span></div>
         <div class="mod-title">AI‑ассистент Михалыч</div>
@@ -84,14 +86,15 @@
         <div class="mod-tags"><span class="mod-tag">Claude</span><span class="mod-tag">RAG</span><span class="mod-tag">Telegram / Web</span><span class="mod-tag">amoCRM</span></div>
         <div class="mod-price"><span>от</span><b>90 000 ₽</b></div>
       </div>
-
-      <div class="mod span4">
+      <div class="mod span6">
         <div class="mod-id"><span>MOD · <b>03</b> / AUTO</span><span class="mod-arrow">→</span></div>
         <div class="mod-title">Автоматизация</div>
-        <div class="mod-desc">Связываем CRM, формы, мессенджеры и&nbsp;аналитику в&nbsp;единый контур.</div>
+        <div class="mod-desc">Связываем CRM, формы, мессенджеры и&nbsp;аналитику в&nbsp;единый контур. Освобождаем менеджеров от&nbsp;рутины.</div>
         <div class="mod-tags"><span class="mod-tag">n8n</span><span class="mod-tag">Make</span><span class="mod-tag">Bitrix24</span></div>
         <div class="mod-price"><span>от</span><b>60 000 ₽</b></div>
       </div>
+
+      <!-- РЯД 3: span4 + span4 + span4 -->
       <div class="mod span4">
         <div class="mod-id"><span>MOD · <b>04</b> / GROW</span><span class="mod-arrow">→</span></div>
         <div class="mod-title">Performance</div>
@@ -106,21 +109,21 @@
         <div class="mod-tags"><span class="mod-tag">Logo</span><span class="mod-tag">Guideline</span><span class="mod-tag">UI Kit</span></div>
         <div class="mod-price"><span>от</span><b>120 000 ₽</b></div>
       </div>
-
-      <div class="mod span6">
+      <div class="mod span4">
         <div class="mod-id"><span>MOD · <b>06</b> / CARE</span><span class="mod-arrow">→</span></div>
-        <div class="mod-title">Сопровождение и&nbsp;развитие</div>
-        <div class="mod-desc">Хостинг, бэкапы, фиксы, A/B‑тесты, доработки и&nbsp;аналитика. SLA — 4&nbsp;часа. Спим спокойно, сайт&nbsp;работает.</div>
-        <div class="mod-tags"><span class="mod-tag">24/7</span><span class="mod-tag">SLA · ≤4ч</span><span class="mod-tag">Backups</span><span class="mod-tag">A/B</span><span class="mod-tag">Monitoring</span></div>
+        <div class="mod-title">Сопровождение</div>
+        <div class="mod-desc">Хостинг, бэкапы, фиксы, A/B‑тесты, доработки и&nbsp;аналитика. SLA — 4&nbsp;часа.</div>
+        <div class="mod-tags"><span class="mod-tag">24/7</span><span class="mod-tag">SLA · ≤4ч</span><span class="mod-tag">Backups</span><span class="mod-tag">A/B</span></div>
         <div class="mod-price"><span>от</span><b>25 000 ₽/мес</b></div>
       </div>
 
-      <div class="mod span6">
+      <!-- РЯД 4: span12 -->
+      <div class="mod span12">
         <div class="mod-id"><span>MOD · <b>07</b> / MAPS</span><span class="mod-arrow">→</span></div>
-        <div class="mod-title">Упаковка Яндекс&nbsp;Бизнес</div>
-        <div class="mod-desc">Заполняем карточку компании в&nbsp;Яндекс Картах и&nbsp;Яндекс Бизнесе: фото, услуги, цены, отзывы, акции. Поднимаем в&nbsp;локальной выдаче и&nbsp;ловим клиентов «у&nbsp;дома».</div>
-        <div class="mod-tags"><span class="mod-tag">Я.Бизнес</span><span class="mod-tag">Я.Карты</span><span class="mod-tag">Локальное SEO</span><span class="mod-tag">Отзывы</span><span class="mod-tag">Геомаркетинг</span></div>
-        <div class="mod-price"><span>от</span><b>35 000 ₽</b></div>
+        <div class="mod-title">Упаковка Яндекс&nbsp;Бизнес <span class="acc">— клиенты «у&nbsp;дома»</span></div>
+        <div class="mod-desc" style="max-width:72ch;">Заполняем карточку компании в&nbsp;Яндекс Картах и&nbsp;Яндекс Бизнесе: фото, услуги, цены, отзывы, акции. Поднимаем в&nbsp;локальной выдаче и&nbsp;ловим клиентов «у&nbsp;дома».</div>
+        <div class="mod-tags" style="margin-top:14px;"><span class="mod-tag">Я.Бизнес</span><span class="mod-tag">Я.Карты</span><span class="mod-tag">Локальное SEO</span><span class="mod-tag">Отзывы</span><span class="mod-tag">Геомаркетинг</span></div>
+        <div class="mod-price" style="margin-top:20px;"><span>от</span><b>35 000 ₽</b></div>
       </div>
     </div>
   </div>
@@ -136,7 +139,7 @@
 
     <div class="stack-grid reveal">
       <div class="mod spotlight span12">
-        <div class="mod-id"><span>BUNDLE · <b>S</b> / START &nbsp;·&nbsp; ★ ПОПУЛЯРНОЕ</span><span class="mod-arrow">→</span></div>
+        <div class="mod-id"><span>BUNDLE · <b>S</b> / START</span><span class="mod-arrow">→</span><span style="margin-left:auto; font-size:10px; letter-spacing:.14em; color:#16a34a; text-transform:uppercase; font-family:var(--font-m); background:rgba(22,163,74,0.12); padding:3px 10px; border-radius:999px; border:1px solid rgba(22,163,74,0.3);">★ Популярно</span></div>
         <div class="mod-title">Старт под&nbsp;ключ <span class="acc">— лендинг + Михалыч + Яндекс&nbsp;Карты</span></div>
         <div class="mod-desc">Полный комплект для&nbsp;запуска локального бизнеса с&nbsp;нуля: одностраничник с&nbsp;квалификацией лидов, AI‑ассистент Михалыч 24/7, и&nbsp;упакованная карточка в&nbsp;Яндекс Картах и&nbsp;Яндекс Бизнесе. Поток заявок с&nbsp;первого дня&nbsp;— из&nbsp;сайта, из&nbsp;Telegram и&nbsp;из&nbsp;«у&nbsp;дома».</div>
         <div class="mod-tags"><span class="mod-tag">Лендинг</span><span class="mod-tag">AI‑ассистент</span><span class="mod-tag">Я.Бизнес</span><span class="mod-tag">Я.Карты</span><span class="mod-tag">CRM‑связка</span><span class="mod-tag">Локальное SEO</span></div>
@@ -176,6 +179,6 @@
   </div>
 </section>
 
-<script src="theme.js?v=2"></script>
+<script src="theme.js?v=2" defer></script>
 </body>
 </html>

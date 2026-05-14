@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ru" data-palette="signal" data-density="comfortable">
 <head>
 <meta charset="UTF-8" />
@@ -36,7 +36,8 @@
 <meta name="application-name" content="LAB301" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap"></noscript>
 <link rel="stylesheet" href="theme.css?v=2">
 <style>
   .chat-vis {
@@ -52,7 +53,7 @@
     min-height:380px;
   }
   .chat-vis::before {
-    content:"MIKHALYCH · v3.1 · LIVE";
+    content:"MIKHALYCH · v5.0 · LIVE";
     position:absolute; top:14px; right:18px;
     font-size:10px; letter-spacing:.16em; color:var(--ink-3);
   }
@@ -98,6 +99,20 @@
   .mik-hero-info .row:last-child { border-bottom: none; }
   .mik-hero-info .k { color: var(--ink-3); letter-spacing:.14em; text-transform:uppercase; font-size:10px; }
 
+  /* 5-steps timeline */
+  .timeline { position:relative; margin-top:48px; }
+  .tl-item { padding: 36px 0 36px 32px; border-top: 1px solid var(--rule); position:relative; }
+  .tl-item:first-child { border-top: none; padding-top: 0; }
+  .tl-item::before { content:""; position:absolute; left:0; top:42px; width:10px; height:10px; border-radius:50%; background:var(--bg); border:2px solid var(--ink-3); }
+  .tl-item:first-child::before { top:6px; }
+  .tl-item.acc::before { border-color:var(--acc); background:var(--acc); box-shadow:0 0 14px var(--acc-glow); }
+  .tl-item .tl-meta { font-family:var(--font-m); font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--ink-3); margin-bottom:8px; }
+  .tl-item.acc .tl-meta { color:var(--acc); }
+  .tl-item .tl-title { font-family:var(--font-d); font-size:26px; font-weight:600; color:var(--ink); margin-bottom:10px; }
+  .tl-item .tl-body { font-size:15px; line-height:1.55; color:var(--ink-2); margin-bottom:14px; max-width:64ch; }
+  .tl-tags { display:flex; gap:8px; flex-wrap:wrap; }
+  .tl-tags span { font-family:var(--font-m); font-size:11px; letter-spacing:.05em; padding:4px 10px; border:1px solid var(--rule); border-radius:999px; color:var(--ink-2); }
+
   .sys-card-light {
     background: #ffffff;
     border-color: #d8d8d8;
@@ -112,7 +127,7 @@
 
 <section class="page-head">
   <div class="container">
-    <div class="coord reveal"><div><b>FILE / 03</b> &nbsp; AI.MIKHALYCH &nbsp; / &nbsp; v3.1</div><div class="sig">● AGENT ONLINE</div></div>
+    <div class="coord reveal"><div><b>FILE / 03</b> &nbsp; AI.MIKHALYCH &nbsp; / &nbsp; v5.0</div><div class="sig"><span style="color:#16a34a;">●</span> AGENT ONLINE</div></div>
     <div class="crumbs reveal"><a href="index.html">LAB301</a><span class="sep">/</span><a href="services.html">Услуги</a><span class="sep">/</span><span class="here">AI‑ассистент Михалыч</span></div>
     <div class="grid2">
       <div class="reveal">
@@ -129,9 +144,9 @@
     </div>
 
     <div class="mik-hero reveal">
-      <img src="ai_assistant_waving.webp" alt="Михалыч — AI ассистент LAB301" loading="eager" fetchpriority="high" />
+      <img src="ai_assistant_waving.webp" alt="Михалыч — AI ассистент LAB301" width="200" height="260" loading="eager" fetchpriority="high" />
       <div class="mik-hero-info">
-        <div class="row"><span class="k">Имя</span><span><b>Михалыч</b> · AI ассистент v3.1</span></div>
+        <div class="row"><span class="k">Имя</span><span><b>Михалыч</b> · AI Sales Manager v5.0</span></div>
         <div class="row"><span class="k">Каналы</span><span>Telegram · Web · WhatsApp</span></div>
         <div class="row"><span class="k">Модель</span><span>Claude · GPT‑5 · RAG</span></div>
         <div class="row"><span class="k">Языки</span><span>RU · EN · ES</span></div>
@@ -157,35 +172,174 @@
       <div class="meta">пример из&nbsp;продакшна</div>
     </div>
 
-    <div class="reveal chat-grid" style="display:grid; grid-template-columns: 1fr 1fr; gap:32px;">
-      <div class="chat-vis">
-        <div style="height:28px;"></div>
-        <div class="msg"><div class="who">Клиент / 11:42</div><div class="b">Здравствуйте! Сколько стоит сайт для&nbsp;стоматологии?</div></div>
-        <div class="msg user"><div class="who">Михалыч / 11:42</div><div class="b">Здравствуйте! Стоматологии чаще берут <b>сайт + AI‑администратора</b> — от&nbsp;240&nbsp;000&nbsp;₽. Подскажете, у&nbsp;вас одна клиника или сеть?</div></div>
-        <div class="msg"><div class="who">Клиент / 11:43</div><div class="b">Две клиники в&nbsp;Москве и&nbsp;Питере.</div></div>
-        <div class="msg user"><div class="who">Михалыч / 11:43</div><div class="b">Тогда пригодится мультигеолокация и&nbsp;онлайн‑запись. <b>Передам Юрию</b> — он&nbsp;пришлёт смету в&nbsp;течение часа. Куда удобнее — Telegram или почта?</div></div>
-        <div class="msg"><div class="who">Клиент / 11:44</div><div class="b">Telegram, @example_clinic</div></div>
-        <div class="msg user"><div class="who">Михалыч / 11:44</div><div class="b">Принял. <b>Карточка №&nbsp;3104 заведена в&nbsp;amoCRM</b>, статус — «горячий». Юрий уже на&nbsp;связи&nbsp;??</div></div>
-      </div>
-      <div style="display:flex; flex-direction:column; gap:18px; justify-content:center;">
-        <div class="sys-card frame sys-card-light">
-          <span class="tc bl"></span><span class="tc br"></span>
-          <div class="row"><span class="k">Стек</span><span class="v">Claude · GPT‑5 · RAG</span></div>
-          <div class="row"><span class="k">Каналы</span><span class="v">TG · Web · WA</span></div>
-          <div class="row"><span class="k">CRM</span><span class="v">amoCRM · Bitrix24</span></div>
-          <div class="row"><span class="k">Голос</span><span class="v ok">опционально</span></div>
-          <div class="row"><span class="k">Языки</span><span class="v">RU · EN · ES</span></div>
+    <div class="reveal" style="display:grid; grid-template-columns: 1fr 1fr; gap:32px; align-items:start;">
+
+      <!-- ЛЕВАЯ КОЛОНКА: Telegram-чат -->
+      <div class="tg-wrap">
+        <!-- Шапка чата -->
+        <div class="tg-header">
+          <div class="tg-avatar">
+            <img src="ai_assistant_waving.webp" alt="Михалыч" />
+          </div>
+          <div class="tg-header-info">
+            <div class="tg-name">Михалыч · LAB301</div>
+            <div class="tg-status"><span class="tg-dot"></span>в сети</div>
+          </div>
+          <div class="tg-header-icons">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="2"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></svg>
+          </div>
         </div>
-        <div class="sys-card frame">
-          <span class="tc bl"></span><span class="tc br"></span>
-          <div class="row"><span class="k">Память</span><span class="v">векторная БД</span></div>
-          <div class="row"><span class="k">База знаний</span><span class="v">PDF · Notion · сайт</span></div>
-          <div class="row"><span class="k">Эскалация</span><span class="v">> оператор / Юрий</span></div>
-          <div class="row"><span class="k">Логи</span><span class="v">полный диалог</span></div>
-          <div class="row"><span class="k">SLA отклика</span><span class="v ok">≤ 2 с</span></div>
+        <!-- Сообщения -->
+        <div class="tg-body">
+          <div class="tg-date-divider"><span>сегодня</span></div>
+
+          <div class="tg-msg tg-in">
+            <div class="tg-bubble">Здравствуйте! Сколько стоит сайт для стоматологии?</div>
+            <div class="tg-time">11:42</div>
+          </div>
+
+          <div class="tg-msg tg-out">
+            <div class="tg-bubble">Здравствуйте! Стоматологии чаще берут <b>сайт + AI‑администратора</b> — от 240 000 ₽.<br><br>Подскажете, у вас одна клиника или сеть?</div>
+            <div class="tg-time">11:42 <span class="tg-read">✓✓</span></div>
+          </div>
+
+          <div class="tg-msg tg-in">
+            <div class="tg-bubble">Две клиники — Москва и Питер.</div>
+            <div class="tg-time">11:43</div>
+          </div>
+
+          <div class="tg-msg tg-out">
+            <div class="tg-bubble">Тогда нужна мультигеолокация и онлайн‑запись.<br><br><b>Передам Юрию</b> — он пришлёт смету в течение часа. Куда удобнее — Telegram или почта?</div>
+            <div class="tg-time">11:43 <span class="tg-read">✓✓</span></div>
+          </div>
+
+          <div class="tg-msg tg-in">
+            <div class="tg-bubble">Telegram, @example_clinic</div>
+            <div class="tg-time">11:44</div>
+          </div>
+
+          <div class="tg-msg tg-out">
+            <div class="tg-bubble">Принял ✅<br><b>Карточка № 3104 заведена в CRM</b>, статус — «горячий».<br><br>Юрий уже написал вам — удачи 🤝</div>
+            <div class="tg-time">11:44 <span class="tg-read">✓✓</span></div>
+          </div>
+
+          <div class="tg-crm-tag">🔥 HOT · Lead #3104 → amoCRM · Уведомление отправлено</div>
+        </div>
+        <!-- Инпут (декоративный) -->
+        <div class="tg-footer">
+          <div class="tg-input-wrap">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="2"><path d="M14.5 10c-.83 0-1.5-.67-1.5-1.5v-5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5z"/><path d="M20.5 10H19V8.5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/><path d="M9.5 14c.83 0 1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5S8 21.33 8 20.5v-5c0-.83.67-1.5 1.5-1.5z"/><path d="M3.5 14H5v1.5c0 .83-.67 1.5-1.5 1.5S2 16.33 2 15.5 2.67 14 3.5 14z"/><path d="M14 14.5c0-.83.67-1.5 1.5-1.5h5c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5h-5c-.83 0-1.5-.67-1.5-1.5z"/><path d="M15.5 9H14V7.5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/><path d="M10 9.5C10 8.67 9.33 8 8.5 8H3.5C2.67 8 2 8.67 2 9.5S2.67 11 3.5 11h5c.83 0 1.5-.67 1.5-1.5z"/><path d="M8.5 15H10v1.5c0 .83-.67 1.5-1.5 1.5S7 17.33 7 16.5 7.67 15 8.5 15z"/></svg>
+            <span style="color:rgba(255,255,255,0.2); font-size:13px;">Сообщение</span>
+          </div>
+          <div class="tg-send-btn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><path d="M2 21l21-9L2 3v7l15 2-15 2v7z"/></svg>
+          </div>
         </div>
       </div>
+
+      <!-- ПРАВАЯ КОЛОНКА: Инфографика -->
+      <div class="lead-flow">
+        <div class="lf-title">Как Михалыч<br>ведёт лид</div>
+
+        <div class="lf-step">
+          <div class="lf-num">01</div>
+          <div class="lf-body">
+            <div class="lf-label">Клиент пишет</div>
+            <div class="lf-desc">Любой канал: Telegram, сайт, WhatsApp. Михалыч отвечает за <b>≤ 2 секунды</b>, 24/7.</div>
+            <div class="lf-tags"><span>Telegram</span><span>Web-виджет</span><span>WhatsApp</span></div>
+          </div>
+        </div>
+        <div class="lf-arrow">↓</div>
+
+        <div class="lf-step">
+          <div class="lf-num">02</div>
+          <div class="lf-body">
+            <div class="lf-label">Квалификация</div>
+            <div class="lf-desc">Уточняет тип задачи, бюджет и сроки — естественно, без анкеты. Подбирает нужный формат.</div>
+            <div class="lf-tags"><span>Тип проекта</span><span>Бюджет</span><span>Дедлайн</span></div>
+          </div>
+        </div>
+        <div class="lf-arrow">↓</div>
+
+        <div class="lf-step">
+          <div class="lf-num">03</div>
+          <div class="lf-body">
+            <div class="lf-label">Расчёт стоимости</div>
+            <div class="lf-desc">Считает смету автоматически: база + опции + срочность. Отправляет итог прямо в чат.</div>
+            <div class="lf-tags"><span>Калькулятор</span><span>Смета в Telegram</span></div>
+          </div>
+        </div>
+        <div class="lf-arrow">↓</div>
+
+        <div class="lf-step lf-step--hot">
+          <div class="lf-num lf-num--hot">04</div>
+          <div class="lf-body">
+            <div class="lf-label">Lead Score + CRM <span class="lf-badge">🔥 HOT</span></div>
+            <div class="lf-desc">Присваивает оценку HOT / WARM / COLD, создаёт карточку в amoCRM и мгновенно уведомляет менеджера.</div>
+            <div class="lf-tags"><span style="color:#ef4444; border-color:rgba(239,68,68,0.4);">🔥 HOT 80–100</span><span style="color:#f59e0b; border-color:rgba(245,158,11,0.4);">🟡 WARM 50–79</span><span>❄️ COLD 0–49</span></div>
+          </div>
+        </div>
+
+        <div class="lf-result">
+          <div class="lf-result-icon">✓</div>
+          <div>
+            <div style="font-size:13px; font-weight:600; color:var(--ink); margin-bottom:4px;">Юрий получил горячий лид</div>
+            <div style="font-size:12px; color:var(--ink-3);">Карточка · контекст · следующий шаг — всё готово</div>
+          </div>
+        </div>
+      </div>
+
     </div>
+
+    <style>
+      /* ── Telegram UI ── */
+      .tg-wrap { border-radius:12px; overflow:hidden; border:1px solid var(--rule); background:#0e1621; display:flex; flex-direction:column; }
+      .tg-header { display:flex; align-items:center; gap:12px; padding:12px 16px; background:#17212b; border-bottom:1px solid rgba(255,255,255,0.06); }
+      .tg-avatar { width:38px; height:38px; border-radius:50%; overflow:hidden; flex-shrink:0; background:var(--acc-soft); border:2px solid var(--acc); }
+      .tg-avatar img { width:100%; height:100%; object-fit:cover; }
+      .tg-header-info { flex:1; }
+      .tg-name { font-family:var(--font-m); font-size:13px; font-weight:600; color:#fff; letter-spacing:.01em; }
+      .tg-status { font-size:11px; color:#4fc3f7; display:flex; align-items:center; gap:5px; margin-top:2px; }
+      .tg-dot { width:6px; height:6px; border-radius:50%; background:#4fc3f7; display:inline-block; }
+      .tg-header-icons { display:flex; gap:14px; }
+      .tg-body { padding:16px; display:flex; flex-direction:column; gap:6px; min-height:360px; background:#0e1621; }
+      .tg-date-divider { text-align:center; margin:4px 0 8px; }
+      .tg-date-divider span { font-size:11px; color:rgba(255,255,255,0.3); background:rgba(255,255,255,0.06); padding:3px 10px; border-radius:999px; font-family:var(--font-m); letter-spacing:.04em; }
+      .tg-msg { display:flex; flex-direction:column; max-width:78%; gap:2px; }
+      .tg-in { align-self:flex-start; }
+      .tg-out { align-self:flex-end; }
+      .tg-bubble { padding:9px 13px; border-radius:12px; font-size:13px; line-height:1.5; color:#e8eaed; }
+      .tg-in .tg-bubble { background:#182533; border-radius:4px 12px 12px 12px; }
+      .tg-out .tg-bubble { background:#2b5278; border-radius:12px 4px 12px 12px; }
+      .tg-out .tg-bubble b { color:#90caf9; }
+      .tg-time { font-size:10px; color:rgba(255,255,255,0.3); text-align:right; padding:0 4px; }
+      .tg-read { color:#4fc3f7; }
+      .tg-crm-tag { margin:10px 0 4px; text-align:center; font-family:var(--font-m); font-size:10px; letter-spacing:.1em; color:#ef4444; background:rgba(239,68,68,0.1); border:1px solid rgba(239,68,68,0.25); border-radius:6px; padding:8px 14px; }
+      .tg-footer { padding:10px 12px; background:#17212b; border-top:1px solid rgba(255,255,255,0.06); display:flex; align-items:center; gap:10px; }
+      .tg-input-wrap { flex:1; background:rgba(255,255,255,0.06); border-radius:20px; padding:8px 14px; display:flex; align-items:center; gap:8px; }
+      .tg-send-btn { width:36px; height:36px; background:#2b5278; border-radius:50%; display:flex; align-items:center; justify-content:center; }
+
+      /* ── Lead Flow Infographic ── */
+      .lead-flow { display:flex; flex-direction:column; gap:0; padding:8px 0; }
+      .lf-title { font-family:var(--font-d); font-size:22px; font-weight:700; color:var(--ink); letter-spacing:-.02em; margin-bottom:28px; line-height:1.2; }
+      .lf-step { display:flex; gap:16px; align-items:flex-start; background:var(--panel); border:1px solid var(--rule); border-radius:8px; padding:16px; }
+      .lf-step--hot { border-color:rgba(239,68,68,0.3); background:rgba(239,68,68,0.05); }
+      .lf-num { font-family:var(--font-m); font-size:11px; font-weight:700; letter-spacing:.14em; color:var(--acc); background:var(--acc-soft); border:1px solid var(--acc); border-radius:4px; padding:4px 8px; flex-shrink:0; height:fit-content; margin-top:2px; }
+      .lf-num--hot { color:#ef4444; background:rgba(239,68,68,0.1); border-color:rgba(239,68,68,0.4); }
+      .lf-label { font-family:var(--font-m); font-size:13px; font-weight:700; color:var(--ink); letter-spacing:.02em; margin-bottom:5px; display:flex; align-items:center; gap:8px; }
+      .lf-desc { font-size:12px; line-height:1.55; color:var(--ink-2); margin-bottom:8px; }
+      .lf-tags { display:flex; gap:6px; flex-wrap:wrap; }
+      .lf-tags span { font-family:var(--font-m); font-size:10px; letter-spacing:.05em; padding:3px 8px; border:1px solid var(--rule); border-radius:999px; color:var(--ink-3); }
+      .lf-badge { font-size:10px; color:#ef4444; background:rgba(239,68,68,0.12); border:1px solid rgba(239,68,68,0.3); border-radius:999px; padding:2px 8px; letter-spacing:.06em; font-weight:600; }
+      .lf-arrow { text-align:center; font-size:18px; color:var(--rule-2); line-height:1; padding:4px 0; }
+      .lf-result { display:flex; align-items:center; gap:14px; background:rgba(22,163,74,0.08); border:1px solid rgba(22,163,74,0.25); border-radius:8px; padding:14px 16px; margin-top:4px; }
+      .lf-result-icon { width:32px; height:32px; background:#16a34a; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:16px; color:#000; font-weight:700; flex-shrink:0; }
+
+      @media(max-width:900px) {
+        .chat-grid, .reveal[style*="grid-template-columns: 1fr 1fr"] { grid-template-columns:1fr !important; }
+      }
+    </style>
   </div>
 </section>
 
@@ -207,10 +361,199 @@
   </div>
 </section>
 
+<!-- ── Секция: AI Квалификация 5 шагов ── -->
 <section>
   <div class="container">
     <div class="sec-head reveal">
-      <div class="idx"><b>04 //</b> ЦЕНЫ</div>
+      <div class="idx"><b>04 //</b> КАК&nbsp;РАБОТАЕТ</div>
+      <h2 class="title">5 шагов от&nbsp;«привет»<br>до&nbsp;<em>горячего&nbsp;лида</em>.</h2>
+      <div class="meta">автоматическая квалификация</div>
+    </div>
+    <div class="timeline reveal">
+
+      <div class="tl-item acc">
+        <div class="tl-meta">ШАГ 01 · ПРОЕКТ</div>
+        <div class="tl-title">Что нужно?</div>
+        <div class="tl-body">Михалыч уточняет тип задачи — сайт под ключ, AI-бот, интернет-магазин, SEO или автоматизация. Сразу понимает масштаб и нишу.</div>
+        <div class="tl-tags"><span>Сайт под ключ</span><span>AI-бот</span><span>Интернет-магазин</span><span>Автоматизация</span></div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-meta">ШАГ 02 · БЮДЖЕТ</div>
+        <div class="tl-title">Какой бюджет?</div>
+        <div class="tl-body">Выясняет диапазон инвестиций без неловкости. Помогает клиенту самому сформулировать ожидания — и сразу подбирает подходящий формат.</div>
+        <div class="tl-tags"><span>До 100 000 ₽</span><span>100–300 000 ₽</span><span>300–500 000 ₽</span><span>500 000 ₽+</span></div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-meta">ШАГ 03 · СРОКИ</div>
+        <div class="tl-title">Когда нужно?</div>
+        <div class="tl-body">Учитывает срочность и корректирует смету: срочный проект до&nbsp;2 недель — автоматически +20% к стоимости. Честно и прозрачно.</div>
+        <div class="tl-tags"><span>Срочно (до 2 нед) +20%</span><span>1 месяц</span><span>Не торопимся</span></div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-meta">ШАГ 04 · РАСЧЁТ</div>
+        <div class="tl-title">Считает стоимость</div>
+        <div class="tl-body">Автоматический калькулятор: складывает базу, добавляет опции (AI, дизайн, срочность) и выдаёт точную смету прямо в Telegram — без ожидания.</div>
+        <div class="tl-tags"><span>Фикс. смета</span><span>Разбивка по статьям</span><span>Сроки сдачи</span></div>
+      </div>
+
+      <div class="tl-item acc">
+        <div class="tl-meta">ШАГ 05 · РЕЗУЛЬТАТ</div>
+        <div class="tl-title">Lead Score + CRM</div>
+        <div class="tl-body">Присваивает оценку HOT / WARM / COLD, создаёт карточку в Notion CRM с полным контекстом и уведомляет Юрия о горячих лидах мгновенно.</div>
+        <div class="tl-tags"><span>🔥 HOT 80–100</span><span>🟡 WARM 50–79</span><span>❄️ COLD 0–49</span><span>Notion CRM</span></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── Секция: Сравнение с другими ботами ── -->
+<section>
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="idx"><b>05 //</b> СРАВНЕНИЕ</div>
+      <h2 class="title">Михалыч vs<br><em>другие&nbsp;боты</em>.</h2>
+      <div class="meta">честная матрица функционала</div>
+    </div>
+
+    <div class="reveal" style="overflow-x:auto; margin-top:40px;">
+      <table style="width:100%; border-collapse:collapse; font-family:var(--font-m); font-size:12px; letter-spacing:.02em;">
+        <thead>
+          <tr>
+            <th style="text-align:left; padding:14px 16px; border-bottom:1px solid var(--rule); color:var(--ink-3); text-transform:uppercase; letter-spacing:.14em; font-size:10px;">Функция</th>
+            <th style="text-align:center; padding:14px 16px; border-bottom:1px solid var(--rule); color:var(--ink-3); text-transform:uppercase; letter-spacing:.14em; font-size:10px;">Базовый бот</th>
+            <th style="text-align:center; padding:14px 16px; border-bottom:1px solid var(--rule); color:var(--ink-3); text-transform:uppercase; letter-spacing:.14em; font-size:10px;">GPT‑чат</th>
+            <th style="text-align:center; padding:14px 16px; border-bottom:1px solid var(--rule-2); color:#fff; text-transform:uppercase; letter-spacing:.14em; font-size:10px; background:var(--acc); border-radius:4px 4px 0 0;">Михалыч</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom:1px solid var(--rule);">
+            <td style="padding:12px 16px; color:var(--ink-2);">Меню и кнопки</td>
+            <td style="text-align:center; padding:12px; color:var(--ink-3);">✓</td>
+            <td style="text-align:center; padding:12px; color:var(--ink-3);">✓</td>
+            <td style="text-align:center; padding:12px; background:rgba(22,163,74,0.10); color:#16a34a; font-weight:700;">✓✓</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--rule);">
+            <td style="padding:12px 16px; color:var(--ink-2);">AI-диалог (LLM)</td>
+            <td style="text-align:center; padding:12px; color:var(--ink-3);">—</td>
+            <td style="text-align:center; padding:12px; color:var(--ink-3);">✓</td>
+            <td style="text-align:center; padding:12px; background:rgba(22,163,74,0.10); color:#16a34a; font-weight:700;">✓✓</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--rule);">
+            <td style="padding:12px 16px; color:var(--ink-2);">Калькулятор стоимости</td>
+            <td style="text-align:center; padding:12px; color:var(--ink-3);">—</td>
+            <td style="text-align:center; padding:12px; color:var(--ink-3);">—</td>
+            <td style="text-align:center; padding:12px; background:rgba(22,163,74,0.10); color:#16a34a; font-weight:700;">✓✓</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--rule);">
+            <td style="padding:12px 16px; color:var(--ink-2);">CRM‑интеграция (Notion)</td>
+            <td style="text-align:center; padding:12px; color:var(--ink-3);">—</td>
+            <td style="text-align:center; padding:12px; color:var(--ink-3);">—</td>
+            <td style="text-align:center; padding:12px; background:rgba(22,163,74,0.10); color:#16a34a; font-weight:700;">✓✓</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--rule);">
+            <td style="padding:12px 16px; color:var(--ink-2);">Lead Scoring (HOT/WARM/COLD)</td>
+            <td style="text-align:center; padding:12px; color:var(--ink-3);">—</td>
+            <td style="text-align:center; padding:12px; color:var(--ink-3);">—</td>
+            <td style="text-align:center; padding:12px; background:rgba(22,163,74,0.10); color:#16a34a; font-weight:700;">✓✓</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--rule);">
+            <td style="padding:12px 16px; color:var(--ink-2);">Real-time дашборд</td>
+            <td style="text-align:center; padding:12px; color:var(--ink-3);">—</td>
+            <td style="text-align:center; padding:12px; color:var(--ink-3);">—</td>
+            <td style="text-align:center; padding:12px; background:rgba(22,163,74,0.10); color:#16a34a; font-weight:700;">✓✓</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--rule);">
+            <td style="padding:12px 16px; color:var(--ink-2);">Follow-up автоматика</td>
+            <td style="text-align:center; padding:12px; color:var(--ink-3);">—</td>
+            <td style="text-align:center; padding:12px; color:var(--ink-3);">—</td>
+            <td style="text-align:center; padding:12px; background:rgba(22,163,74,0.10); color:#16a34a; font-weight:700;">✓✓</td>
+          </tr>
+          <tr>
+            <td style="padding:12px 16px; color:var(--ink-2);">Голосовые сообщения</td>
+            <td style="text-align:center; padding:12px; color:var(--ink-3);">—</td>
+            <td style="text-align:center; padding:12px; color:var(--ink-3);">—</td>
+            <td style="text-align:center; padding:12px; background:rgba(22,163,74,0.10); color:#16a34a; font-weight:700; border-radius:0 0 4px 4px;">✓✓</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr style="border-top:1px solid var(--rule-2);">
+            <td style="padding:14px 16px; color:var(--ink-3); font-size:10px; text-transform:uppercase; letter-spacing:.14em;">Уровень</td>
+            <td style="text-align:center; padding:14px; color:var(--ink-3); font-size:10px;">БАЗОВЫЙ</td>
+            <td style="text-align:center; padding:14px; color:var(--ink-3); font-size:10px;">ХОРОШИЙ</td>
+            <td style="text-align:center; padding:14px; background:var(--acc); color:#fff; font-size:10px; font-weight:700; letter-spacing:.1em;">ENTERPRISE</td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ── Секция: Бизнес-эффект ── -->
+<section>
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="idx"><b>06 //</b> ЭФФЕКТ</div>
+      <h2 class="title">Что меняется<br>в&nbsp;<em>вашем&nbsp;бизнесе</em>.</h2>
+      <div class="meta">до и после внедрения</div>
+    </div>
+    <div class="stack-grid reveal">
+
+      <div class="mod span6">
+        <div class="mod-id"><span>БЫЛО</span></div>
+        <div class="mod-title" style="color:var(--ink-3);">Без Михалыча</div>
+        <div class="mod-desc">
+          <div style="display:flex; flex-direction:column; gap:10px; margin-top:8px; font-family:var(--font-m); font-size:12px;">
+            <div style="display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px dashed var(--rule);"><span style="color:var(--ink-3);">Время ответа</span><span style="color:var(--ink-2);">1–2 часа</span></div>
+            <div style="display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px dashed var(--rule);"><span style="color:var(--ink-3);">Конверсия</span><span style="color:var(--ink-2);">5–10%</span></div>
+            <div style="display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px dashed var(--rule);"><span style="color:var(--ink-3);">Обработка лида</span><span style="color:var(--ink-2);">60 мин вручную</span></div>
+            <div style="display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px dashed var(--rule);"><span style="color:var(--ink-3);">Нагрузка на команду</span><span style="color:var(--ink-2);">100%</span></div>
+            <div style="display:flex; justify-content:space-between; padding:6px 0;"><span style="color:var(--ink-3);">Аналитика лидов</span><span style="color:var(--ink-2);">—</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mod spotlight span6">
+        <div class="mod-id"><span>СТАЛО</span></div>
+        <div class="mod-title">С Михалычем</div>
+        <div class="mod-desc">
+          <div style="display:flex; flex-direction:column; gap:10px; margin-top:8px; font-family:var(--font-m); font-size:12px;">
+            <div style="display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px dashed var(--rule);"><span style="color:var(--ink-3);">Время ответа</span><span style="color:var(--acc); font-weight:700;">≤ 30 секунд</span></div>
+            <div style="display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px dashed var(--rule);"><span style="color:var(--ink-3);">Конверсия</span><span style="color:var(--acc); font-weight:700;">30–50%</span></div>
+            <div style="display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px dashed var(--rule);"><span style="color:var(--ink-3);">Обработка лида</span><span style="color:var(--acc); font-weight:700;">&lt;&nbsp;1 мин авто</span></div>
+            <div style="display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px dashed var(--rule);"><span style="color:var(--ink-3);">Нагрузка на команду</span><span style="color:var(--acc); font-weight:700;">−70%</span></div>
+            <div style="display:flex; justify-content:space-between; padding:6px 0;"><span style="color:var(--ink-3);">Аналитика лидов</span><span style="color:var(--acc); font-weight:700;">Real-time дашборд</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mod span4">
+        <div class="mod-id"><span>РЕЗУЛЬТАТ · <b>01</b></span></div>
+        <div class="mod-title">×5 лидов в день</div>
+        <div class="mod-desc">Бот не устаёт и не уходит на обед. Обрабатывает входящие круглосуточно — в выходные, ночью, в праздники.</div>
+      </div>
+      <div class="mod span4">
+        <div class="mod-id"><span>РЕЗУЛЬТАТ · <b>02</b></span></div>
+        <div class="mod-title">98 часов в месяц</div>
+        <div class="mod-desc">Столько времени экономит команда при 100 лидах в месяц. Это 12 полных рабочих дней — которые можно направить на проекты.</div>
+      </div>
+      <div class="mod span4">
+        <div class="mod-id"><span>РЕЗУЛЬТАТ · <b>03</b></span></div>
+        <div class="mod-title">Фокус на горячих</div>
+        <div class="mod-desc">Lead Scoring расставляет приоритеты автоматически: менеджер работает только с HOT-лидами, а не тратит время на холодные запросы.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="idx"><b>07 //</b> ЦЕНЫ</div>
       <h2 class="title">Тарифы —<br>без&nbsp;<em>сюрпризов</em>.</h2>
       <div class="meta">фикс. ставка + обучение</div>
     </div>
@@ -241,7 +584,7 @@
   <div class="container">
     <div class="signal-wrap reveal">
       <div>
-        <div class="label" style="margin-bottom:24px;"><span class="dot">▌</span> 05 // ДЕМО</div>
+        <div class="label" style="margin-bottom:24px;"><span class="dot">▌</span> 08 // ДЕМО</div>
         <h2 class="signal-title">Хотите попробовать?<br><em>Михалыч уже&nbsp;ждёт.</em></h2>
         <p class="signal-sub">Напишите ему в&nbsp;Telegram — он&nbsp;покажет, как поведёт ваших клиентов, и&nbsp;соберёт бриф на&nbsp;внедрение. Без давления, без презентаций.</p>
       </div>
@@ -253,6 +596,6 @@
   </div>
 </section>
 
-<script src="theme.js?v=2"></script>
+<script src="theme.js?v=2" defer></script>
 </body>
 </html>
