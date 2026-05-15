@@ -1,0 +1,16 @@
+{
+  "name": "lab301",
+  "version": "1.0.0",
+  "description": "LAB301 — Технологии роста для бизнеса",
+  "private": true,
+  "scripts": {
+    "dev": "python -m http.server 8000",
+    "build": "echo 'Static site - no build required'"
+  },
+  "keywords": [],
+  "author": "LAB301",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "@vercel/speed-insights": "^1.1.0"
+  }
+}
