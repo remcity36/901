@@ -188,8 +188,8 @@
     </footer>`;
 
 
-  // inject ambience layers if not already present
-  if (!document.querySelector('.grid-bg')) {
+  // inject ambience layers only on desktop (mobile hides them via CSS, skip DOM cost)
+  if (!document.querySelector('.grid-bg') && window.innerWidth > 768) {
     const layers = document.createElement('div');
     layers.innerHTML = '<div class="grid-bg"></div><div class="bloom"></div><div class="grain"></div>';
     document.body.prepend(...layers.children);

@@ -53,6 +53,9 @@ body {
   background: linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
   transition:background .4s ease;
 }
+@media (max-width: 768px) {
+  body { transition: none; }
+}
 ::selection { background:var(--acc); color:#000; }
 a { color:inherit; }
 
@@ -824,6 +827,12 @@ footer { padding: 64px 0 28px; border-top: 1px solid var(--rule); position:relat
 
   /* Убираем glow на логотипе */
   .logo-img { filter: none; }
+
+  /* Убираем дорогой box-shadow на swatch в hero */
+  .hero-title .swatch { box-shadow: none; }
+
+  /* Убираем card hover transitions */
+  .mod, .step, .arc-item, .list-row { transition: none; }
 
   /* Упрощаем step::after анимацию */
   .step:hover::after { width: 32px; }
