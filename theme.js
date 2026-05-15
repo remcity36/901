@@ -103,7 +103,7 @@
   const nav = `
     <nav class="topnav">
       <a class="logo" href="index.html" aria-label="${t.backHome}">
-        <img src="lab301-logo-mobile.png" alt="LAB301" class="logo-img" />
+        <img src="lab301-logo-mobile.png" alt="LAB301" class="logo-img" width="1200" height="630" />
         <span class="dim">AI automation &amp; digital studio</span>
       </a>
       <ul class="nav-links">${navLinks}</ul>
@@ -134,11 +134,11 @@
       <div class="container">
         <div class="f-grid">
           <div class="f-brand">
-            <img src="guga.webp" alt="LAB301" class="f-logo-img" style="height:160px;" />
+            <img src="guga.webp" alt="LAB301" class="f-logo-img" style="height:160px;" width="1200" height="630" />
             <p>${t.fAbout}</p>
             <div class="f-powered">
               <span>${t.fPowered}</span>
-              <img src="image-151.webp" alt="Mikhalych AI" class="f-powered-img" />
+              <img src="image-151.webp" alt="Mikhalych AI" class="f-powered-img" width="1768" height="363" />
             </div>
             <div class="f-stack">OpenAI &middot; Anthropic &middot; Next.js &middot; Vercel &middot; Figma &middot; n8n</div>
           </div>
@@ -188,8 +188,15 @@
     </footer>`;
 
 
-  // inject ambience layers only on desktop (mobile hides them via CSS, skip DOM cost)
-  if (!document.querySelector('.grid-bg') && window.innerWidth > 768) {
+  // Batch all DOM reads first to prevent forced reflow (read-write-read-write pattern)
+  const hasLayers = !!document.querySelector('.grid-bg');
+  const hasNav    = !!document.querySelector('nav.topnav');
+  const hasRibbon = !!document.querySelector('.ribbon');
+  const hasFooter = !!document.querySelector('footer');
+  const hasBgBtn  = !!document.querySelector('.bg-toggle:not(.nav-bg-toggle)');
+
+  // Then batch all DOM writes
+  if (!hasLayers && window.innerWidth > 768) {
     const layers = document.createElement('div');
     layers.innerHTML = '<div class="grid-bg"></div><div class="bloom"></div><div class="grain"></div>';
     document.body.prepend(...layers.children);
@@ -201,16 +208,16 @@
     tmp.innerHTML = html.trim();
     where(tmp.firstElementChild);
   };
-  if (!document.querySelector('nav.topnav')) {
+  if (!hasNav) {
     const tmp = document.createElement('div');
     tmp.innerHTML = nav.trim();
     document.body.prepend(...tmp.children);
   }
-  if (!document.querySelector('.ribbon'))    mount(n => document.body.prepend(n), ribbon);
-  if (!document.querySelector('footer'))     mount(n => document.body.appendChild(n), footer);
+  if (!hasRibbon) mount(n => document.body.prepend(n), ribbon);
+  if (!hasFooter)  mount(n => document.body.appendChild(n), footer);
 
   // ── Background toggle button (desktop floating)
-  if (!document.querySelector('.bg-toggle:not(.nav-bg-toggle)')) {
+  if (!hasBgBtn) {
     const btn = document.createElement('button');
     btn.className = 'bg-toggle';
     btn.setAttribute('aria-label', 'Сменить фон');

@@ -61,7 +61,16 @@
 <link rel="preload" as="image" href="ai_assistant_main.webp" fetchpriority="high">
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap"></noscript>
-<link rel="stylesheet" href="theme.css?v=2">
+<!-- Critical CSS inline: prevents white flash while theme.css loads async -->
+<style>
+:root{--bg:#000000;--bg-2:#000000;--panel:#070707;--panel-2:#0a0a0a;--surface:#0d0d0d;--surface-2:#111111;--ink:#F2F3F5;--ink-2:#B6BAC3;--ink-3:#888E99;--rule:rgba(255,255,255,0.09);--rule-2:rgba(255,255,255,0.16);--acc:#FF3B47;--acc-2:#FFE5E2;--acc-soft:rgba(255,59,71,.14);--acc-glow:rgba(255,59,71,.55);--font-d:"Space Grotesk",sans-serif;--font-b:"IBM Plex Sans",sans-serif;--font-m:"JetBrains Mono",ui-monospace,monospace;--maxw:1320px;--gutter:32px;--row:96px;}
+[data-palette="signal"]{--acc:#FF3B47;--acc-glow:rgba(255,59,71,.55);}
+[data-density="comfortable"]{--gutter:32px;--row:96px;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html,body{background:#000000;color:#F2F3F5;font-family:"IBM Plex Sans",sans-serif;font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+</style>
+<link rel="preload" href="theme.css?v=2" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="theme.css?v=2"></noscript>
 <style>
   /* page-only overrides */
   #hero { padding-top:168px; padding-bottom: var(--row); min-height:100vh; display:flex; align-items:flex-start; }

@@ -12,7 +12,7 @@
   --surface-2: #111111;
   --ink:       #F2F3F5;
   --ink-2:     #B6BAC3;
-  --ink-3:     #6E737F;
+  --ink-3:     #888E99;
   --rule:      rgba(255,255,255,0.09);
   --rule-2:    rgba(255,255,255,0.16);
   --grid:      rgba(255,255,255,0.045);
@@ -808,6 +808,21 @@ footer { padding: 64px 0 28px; border-top: 1px solid var(--rule); position:relat
 
   /* Все элементы не выходят за контейнер */
   img, video, iframe, table { max-width: 100%; box-sizing: border-box; }
+}
+
+/* ── Accessibility: contrast fixes (WCAG AA) ── */
+/* White text on --acc (#FF3B47) = 3.49:1, fails 4.5:1. Use #DA3245 = 4.77:1 ✓ */
+.btn-primary, .nav-cta, .fab-order {
+  background: #DA3245;
+}
+.btn-primary {
+  box-shadow: 0 0 0 1px #DA3245 inset, 0 0 40px rgba(218,50,69,0.55);
+}
+.nav-cta {
+  box-shadow: 0 0 24px rgba(218,50,69,0.55);
+}
+.fab-order {
+  box-shadow: 0 4px 24px rgba(218,50,69,0.55);
 }
 
 /* ── Mobile performance: отключаем тяжёлые эффекты ── */
