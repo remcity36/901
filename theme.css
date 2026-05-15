@@ -759,7 +759,7 @@ footer { padding: 64px 0 28px; border-top: 1px solid var(--rule); position:relat
 .list-row .lr-id { font-family:var(--font-m); font-size:11px; letter-spacing:.16em; color:var(--ink-3); }
 .list-row .lr-id b { color:var(--acc); font-weight:500; }
 .list-row .lr-title { font-family:var(--font-d); font-size:18px; font-weight:600; letter-spacing:-.02em; }
-.list-row .lr-meta { font-family:var(--font-m); font-size:11px; letter-spacing:.14em; color:var(--ink-2); white-space:nowrap; }
+.list-row .lr-meta { font-family:var(--font-m); font-size:11px; letter-spacing:.14em; color:#16a34a; white-space:nowrap; }
 @media(max-width:640px){
   .list-row { grid-template-columns: 1fr; gap:6px; }
   .list-row .lr-meta { justify-self:start; }
@@ -805,4 +805,29 @@ footer { padding: 64px 0 28px; border-top: 1px solid var(--rule); position:relat
 
   /* Все элементы не выходят за контейнер */
   img, video, iframe, table { max-width: 100%; box-sizing: border-box; }
+}
+
+/* ── Mobile performance: отключаем тяжёлые эффекты ── */
+@media (max-width: 768px) {
+  /* Grain — фиксированный радиал-градиент 3×3px на весь экран: очень дорого на GPU */
+  .grain { display: none; }
+
+  /* Bloom — два больших radial-gradient на фиксированном слое */
+  .bloom { display: none; }
+
+  /* Grid-bg — fixed bg с mask-image: упрощаем */
+  .grid-bg { display: none; }
+
+  /* Убираем тяжёлые box-shadow на кнопках */
+  .btn-primary { box-shadow: none; }
+  .nav-cta { box-shadow: none; }
+
+  /* Убираем glow на логотипе */
+  .logo-img { filter: none; }
+
+  /* Упрощаем step::after анимацию */
+  .step:hover::after { width: 32px; }
+
+  /* Reveal — показываем сразу, без анимации */
+  .reveal { opacity: 1; transform: none; transition: none; }
 }
