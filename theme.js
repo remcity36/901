@@ -119,7 +119,7 @@
   const nav = `
     <nav class="topnav">
       <a class="logo" href="index.html" aria-label="${t.backHome}">
-        <img src="lab301-logo-mobile.png" alt="LAB301" class="logo-img" width="1200" height="630" />
+        <img src="lab301-logo-mobile.avif" alt="LAB301" class="logo-img" width="1200" height="630" />
         <span class="dim">AI automation &amp; digital studio</span>
       </a>
       <ul class="nav-links">${navLinks}</ul>
@@ -150,11 +150,11 @@
       <div class="container">
         <div class="f-grid">
           <div class="f-brand">
-            <img src="guga.webp" alt="LAB301" class="f-logo-img" style="height:160px;" width="1200" height="630" />
+            <img src="guga.avif" alt="LAB301" class="f-logo-img" style="height:160px;" width="1200" height="630" />
             <p>${t.fAbout}</p>
             <div class="f-powered">
               <span>${t.fPowered}</span>
-              <img src="image-151.webp" alt="Mikhalych AI" class="f-powered-img" width="1768" height="363" />
+              <img src="image-151.avif" alt="Mikhalych AI" class="f-powered-img" width="1768" height="363" />
             </div>
             <div class="f-stack">OpenAI &middot; Anthropic &middot; Next.js &middot; Vercel &middot; Figma &middot; n8n</div>
           </div>
