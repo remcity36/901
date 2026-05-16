@@ -1,6 +1,12 @@
 ﻿<!DOCTYPE html>
 <html lang="ru" data-palette="signal" data-density="comfortable">
 <head>
+<script>
+  if (location.pathname === '/index' ||
+      location.pathname === '/index.html') {
+    history.replaceState(null, '', '/');
+  }
+</script>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>LAB301 — Технологии роста для бизнеса</title>
