@@ -250,6 +250,11 @@
   }, { threshold: 0.12 });
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
+  // ── Price coloring: digits green, ₽ / /мес white
+  document.querySelectorAll('.mod-price b').forEach(function(el) {
+    el.innerHTML = el.innerHTML.replace(/(\d[\d\s]*)(₽)/g, '<em>$1</em>$2');
+  });
+
   // ── FAQ accordion
   document.querySelectorAll('.faq-item').forEach(item => {
     const q = item.querySelector('.faq-q');

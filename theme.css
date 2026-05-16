@@ -341,6 +341,7 @@ nav.topnav {
   font-family:var(--font-m); font-size: 11px; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-3);
 }
 .mod-price b { color:var(--ink); font-weight:500; font-size: 18px; letter-spacing:-.01em; }
+.mod-price b em { color:#16a34a; font-style:normal; }
 .mod.spotlight {
   background: radial-gradient(circle 400px at 100% 0%, var(--acc-soft), transparent 60%), var(--panel);
 }
@@ -448,7 +449,7 @@ nav.topnav {
 .stat-cell:last-child { border-right:none; }
 .stat-cell .v { font-family:var(--font-d); font-size: 36px; font-weight:700; letter-spacing:-.03em; color:var(--ink); line-height:1; }
 .stat-cell .v sup { color:var(--acc); font-size:14px; vertical-align:top; margin-left:4px; }
-.stat-cell .k { font-family:var(--font-m); font-size:10px; letter-spacing:.18em; text-transform:uppercase; color:var(--ink-3); margin-top:10px; }
+.stat-cell .k { font-family:var(--font-m); font-size:10px; letter-spacing:.18em; text-transform:uppercase; color:#16a34a; margin-top:10px; }
 .stat-cell::before { content:""; position:absolute; left:24px; top:0; width:18px; height:1px; background:var(--acc); }
 @media(max-width:720px){
   .stat-row { grid-template-columns: repeat(2,1fr); }

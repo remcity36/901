@@ -1,32 +1,220 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" data-palette="signal" data-density="comfortable">
 <head>
-  <meta charset="utf-8">
-  <title>LAB301</title>
-  <script>
-    // GitHub Pages clean URL redirect
-    // When user visits lab301.ru/services (no .html),
-    // GitHub serves this 404.html instead of 404 error.
-    // We detect the path and redirect to the real .html file.
-    (function() {
-      var path = window.location.pathname;
-      var search = window.location.search;
-      var hash = window.location.hash;
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>404 — Страница не найдена · LAB301</title>
+<meta name="description" content="Страница не найдена — LAB301" />
+<link rel="canonical" href="https://lab301.ru/404" />
+<meta name="theme-color" content="#0A0B0D" />
+<meta name="robots" content="noindex, follow" />
 
-      // Only redirect if path has no file extension
-      if (!path.match(/\.[a-zA-Z0-9]+$/)) {
-        // Remove trailing slash if present
-        var cleanPath = path.replace(/\/$/, '');
-        if (cleanPath === '' || cleanPath === '/') {
-          window.location.replace('/' + search + hash);
-        } else {
-          window.location.replace(cleanPath + '.html' + search + hash);
-        }
-      }
-    })();
-  </script>
+<!-- Open Graph -->
+<meta property="og:title" content="404 — Страница не найдена · LAB301" />
+<meta property="og:description" content="Страница не найдена — LAB301" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://lab301.ru/404" />
+<meta property="og:image" content="og-share.png" />
+<meta property="og:locale" content="ru_RU" />
+<meta property="og:site_name" content="LAB301" />
+
+<!-- Favicons -->
+<link rel="icon" type="image/x-icon" href="favicon.ico" />
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+<meta name="apple-mobile-web-app-title" content="LAB301" />
+<meta name="application-name" content="LAB301" />
+
+<!-- GitHub Pages clean URL redirect:
+     When GitHub serves this file for /services, /cases, etc.
+     (extensionless paths), we redirect to the real .html file.
+     If the URL already has an extension — fall through to 404 design. -->
+<script>
+(function(){
+  var path   = window.location.pathname;
+  var search = window.location.search;
+  var hash   = window.location.hash;
+  if (!path.match(/\.[a-zA-Z0-9]+$/)) {
+    var clean = path.replace(/\/$/, '');
+    if (clean === '' || clean === '/') {
+      window.location.replace('/' + search + hash);
+    } else {
+      window.location.replace(clean + '.html' + search + hash);
+    }
+  }
+})();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="image" href="lab301-logo-mobile.avif" fetchpriority="high">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap"></noscript>
+<link rel="stylesheet" href="theme.css?v=3">
+
+<style>
+  /* ── 404 layout ── */
+  .err-wrap {
+    min-height: 100svh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 160px var(--gutter) 80px;
+    position: relative;
+    z-index: 2;
+  }
+  .err-inner {
+    max-width: 780px;
+    width: 100%;
+    text-align: center;
+  }
+
+  /* coord strip */
+  .err-coord {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    font-family: var(--font-m);
+    font-size: 10px;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .err-coord b { color: var(--ink); font-weight: 500; }
+  .err-coord .sig { color: var(--acc); }
+
+  /* hero: 4 · Михалыч · 4 */
+  .err-hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    margin-bottom: 28px;
+    position: relative;
+  }
+  .err-glow {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 680px; height: 360px;
+    background: radial-gradient(ellipse at center,
+      rgba(255,59,71,.13) 0%, transparent 65%);
+    pointer-events: none;
+    z-index: -1;
+    filter: blur(32px);
+  }
+  .err-four {
+    font-family: var(--font-d);
+    font-size: clamp(120px, 22vw, 260px);
+    font-weight: 700;
+    letter-spacing: -.05em;
+    line-height: 1;
+    color: var(--acc);
+    text-shadow:
+      0 0 50px rgba(255,59,71,.7),
+      0 0 120px rgba(255,59,71,.35);
+    flex-shrink: 0;
+    user-select: none;
+  }
+  .err-mik {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin: 0 -8px;
+  }
+  .err-mik img {
+    height: clamp(120px, 21vw, 250px);
+    width: auto;
+    filter:
+      drop-shadow(0 0 28px rgba(255,59,71,.22))
+      drop-shadow(0 12px 48px rgba(0,0,0,.7));
+    display: block;
+  }
+
+  /* pulsing status dot */
+  .err-pulse {
+    display: inline-block;
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: var(--acc);
+    box-shadow: 0 0 14px var(--acc-glow);
+    animation: pulse-online 2.4s ease-in-out infinite;
+    margin-bottom: 24px;
+  }
+
+  /* subtitle */
+  .err-title {
+    font-family: var(--font-m);
+    font-size: 12px;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: #16a34a;
+    margin-bottom: 20px;
+  }
+
+  /* hairline divider */
+  .err-divider {
+    width: 40px; height: 1px;
+    background: var(--rule-2);
+    margin: 0 auto 20px;
+  }
+
+  /* description */
+  .err-desc {
+    font-family: var(--font-b);
+    font-size: 16px;
+    line-height: 1.65;
+    color: var(--ink-2);
+    max-width: 34ch;
+    margin: 0 auto 40px;
+  }
+
+  /* mobile */
+  @media (max-width: 768px) {
+    .err-wrap { padding-top: 140px; }
+    .err-coord { display: none; }
+    .err-glow { display: none; }
+    .err-four { font-size: clamp(80px, 20vw, 140px); }
+    .err-mik img { height: clamp(80px, 19vw, 130px); }
+  }
+</style>
 </head>
-<body>
-  <!-- Redirecting... -->
+<body data-page="error">
+
+<main class="err-wrap">
+  <div class="err-inner reveal">
+
+    <div class="err-coord">
+      <div><b>FILE / ERR</b> &nbsp; ROUTE.MISS &nbsp; / &nbsp; NULL</div>
+      <div class="sig"><span>●</span> NOT FOUND</div>
+    </div>
+
+    <div class="err-hero">
+      <div class="err-glow"></div>
+      <span class="err-four">4</span>
+      <div class="err-mik">
+        <img src="ai_assistant_main.avif" alt="Михалыч" width="420" height="560" loading="eager" decoding="async" />
+      </div>
+      <span class="err-four">4</span>
+    </div>
+
+    <div class="err-pulse"></div>
+
+    <div class="err-title">СТРАНИЦА НЕ НАЙДЕНА</div>
+    <div class="err-divider"></div>
+    <p class="err-desc">Похоже, этот маршрут не существует<br>или был удалён</p>
+
+    <a class="btn-primary" href="index.html">← ВЕРНУТЬСЯ НА ГЛАВНУЮ</a>
+
+  </div>
+</main>
+
+<script src="theme.js?v=3" defer></script>
 </body>
 </html>

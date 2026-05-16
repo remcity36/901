@@ -174,7 +174,7 @@
       <div class="meta">пример из&nbsp;продакшна</div>
     </div>
 
-    <div class="reveal" style="display:grid; grid-template-columns: 1fr 1fr; gap:32px; align-items:start;">
+    <div class="reveal" style="display:grid; grid-template-columns: 1fr 1fr; gap:32px; align-items:stretch;">
 
       <!-- ЛЕВАЯ КОЛОНКА: Telegram-чат -->
       <div class="tg-wrap">
@@ -242,7 +242,6 @@
 
       <!-- ПРАВАЯ КОЛОНКА: Инфографика -->
       <div class="lead-flow">
-        <div class="lf-title">Как Михалыч<br>ведёт лид</div>
 
         <div class="lf-step">
           <div class="lf-num">01</div>
@@ -283,6 +282,7 @@
           </div>
         </div>
 
+        <div class="lf-result-arrow">↓</div>
         <div class="lf-result">
           <div class="lf-result-icon">✓</div>
           <div>
@@ -305,7 +305,7 @@
       .tg-status { font-size:11px; color:#4fc3f7; display:flex; align-items:center; gap:5px; margin-top:2px; }
       .tg-dot { width:6px; height:6px; border-radius:50%; background:#4fc3f7; display:inline-block; }
       .tg-header-icons { display:flex; gap:14px; }
-      .tg-body { padding:16px; display:flex; flex-direction:column; gap:6px; min-height:360px; background:#0e1621; }
+      .tg-body { padding:16px; display:flex; flex-direction:column; gap:6px; flex:1; background:#0e1621; }
       .tg-date-divider { text-align:center; margin:4px 0 8px; }
       .tg-date-divider span { font-size:11px; color:rgba(255,255,255,0.3); background:rgba(255,255,255,0.06); padding:3px 10px; border-radius:999px; font-family:var(--font-m); letter-spacing:.04em; }
       .tg-msg { display:flex; flex-direction:column; max-width:78%; gap:2px; }
@@ -323,8 +323,7 @@
       .tg-send-btn { width:36px; height:36px; background:#2b5278; border-radius:50%; display:flex; align-items:center; justify-content:center; }
 
       /* ── Lead Flow Infographic ── */
-      .lead-flow { display:flex; flex-direction:column; gap:0; padding:8px 0; }
-      .lf-title { font-family:var(--font-d); font-size:22px; font-weight:700; color:var(--ink); letter-spacing:-.02em; margin-bottom:28px; line-height:1.2; }
+      .lead-flow { display:flex; flex-direction:column; gap:0; padding:0; justify-content:space-between; }
       .lf-step { display:flex; gap:16px; align-items:flex-start; background:var(--panel); border:1px solid var(--rule); border-radius:8px; padding:16px; }
       .lf-step--hot { border-color:rgba(239,68,68,0.3); background:rgba(239,68,68,0.05); }
       .lf-num { font-family:var(--font-m); font-size:11px; font-weight:700; letter-spacing:.14em; color:var(--acc); background:var(--acc-soft); border:1px solid var(--acc); border-radius:4px; padding:4px 8px; flex-shrink:0; height:fit-content; margin-top:2px; }
@@ -335,6 +334,7 @@
       .lf-tags span { font-family:var(--font-m); font-size:10px; letter-spacing:.05em; padding:3px 8px; border:1px solid var(--rule); border-radius:999px; color:var(--ink-3); }
       .lf-badge { font-size:10px; color:#ef4444; background:rgba(239,68,68,0.12); border:1px solid rgba(239,68,68,0.3); border-radius:999px; padding:2px 8px; letter-spacing:.06em; font-weight:600; }
       .lf-arrow { text-align:center; font-size:18px; color:#16a34a; line-height:1; padding:4px 0; }
+      .lf-result-arrow { text-align:center; font-size:18px; color:#16a34a; line-height:1; padding:4px 0; }
       .lf-result { display:flex; align-items:center; gap:14px; background:rgba(22,163,74,0.08); border:1px solid rgba(22,163,74,0.25); border-radius:8px; padding:14px 16px; margin-top:4px; }
       .lf-result-icon { width:32px; height:32px; background:#16a34a; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:16px; color:#000; font-weight:700; flex-shrink:0; }
 
@@ -523,11 +523,11 @@
         <div class="mod-title">С Михалычем</div>
         <div class="mod-desc">
           <div style="display:flex; flex-direction:column; gap:10px; margin-top:8px; font-family:var(--font-m); font-size:12px;">
-            <div style="display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px dashed var(--rule);"><span style="color:var(--ink-3);">Время ответа</span><span style="color:var(--acc); font-weight:700;">≤ 30 секунд</span></div>
-            <div style="display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px dashed var(--rule);"><span style="color:var(--ink-3);">Конверсия</span><span style="color:var(--acc); font-weight:700;">30–50%</span></div>
-            <div style="display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px dashed var(--rule);"><span style="color:var(--ink-3);">Обработка лида</span><span style="color:var(--acc); font-weight:700;">&lt;&nbsp;1 мин авто</span></div>
-            <div style="display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px dashed var(--rule);"><span style="color:var(--ink-3);">Нагрузка на команду</span><span style="color:var(--acc); font-weight:700;">−70%</span></div>
-            <div style="display:flex; justify-content:space-between; padding:6px 0;"><span style="color:var(--ink-3);">Аналитика лидов</span><span style="color:var(--acc); font-weight:700;">Real-time дашборд</span></div>
+            <div style="display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px dashed var(--rule);"><span style="color:var(--ink-3);">Время ответа</span><span style="color:#16a34a; font-weight:700;">≤ 30 секунд</span></div>
+            <div style="display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px dashed var(--rule);"><span style="color:var(--ink-3);">Конверсия</span><span style="color:#16a34a; font-weight:700;">30–50%</span></div>
+            <div style="display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px dashed var(--rule);"><span style="color:var(--ink-3);">Обработка лида</span><span style="color:#16a34a; font-weight:700;">&lt;&nbsp;1 мин авто</span></div>
+            <div style="display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px dashed var(--rule);"><span style="color:var(--ink-3);">Нагрузка на команду</span><span style="color:#16a34a; font-weight:700;">−70%</span></div>
+            <div style="display:flex; justify-content:space-between; padding:6px 0;"><span style="color:var(--ink-3);">Аналитика лидов</span><span style="color:#16a34a; font-weight:700;">Real-time дашборд</span></div>
           </div>
         </div>
       </div>
