@@ -1,9 +1,0 @@
-/*
-  Cache-Control: public, max-age=0, must-revalidate
-  X-Content-Type-Options: nosniff
-
-/*.css
-  Content-Type: text/css; charset=UTF-8
-
-/*.js
-  Content-Type: application/javascript; charset=UTF-8
