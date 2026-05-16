@@ -119,8 +119,8 @@
   const nav = `
     <nav class="topnav">
       <a class="logo" href="index.html" aria-label="${t.backHome}">
-        <img src="lab301-logo-mobile.avif" alt="LAB301" class="logo-img" width="1200" height="630" />
-        <span class="dim">AI automation &amp; digital studio</span>
+        <img src="lab301-logo-mobile.avif" alt="LAB301" class="logo-img" width="1200" height="630" fetchpriority="high" decoding="async" />
+        <span class="dim"><span class="dim-l1">AI automation&amp;</span><span class="dim-l2">Digital studio</span></span>
       </a>
       <ul class="nav-links">${navLinks}</ul>
       <a class="nav-cta" href="https://t.me/Judgeopenclawbot" target="_blank">${t.cta} <span class="arrow">→</span></a>
@@ -150,13 +150,13 @@
       <div class="container">
         <div class="f-grid">
           <div class="f-brand">
-            <img src="guga.avif" alt="LAB301" class="f-logo-img" style="height:160px;" width="1200" height="630" />
+            <img src="guga.avif" alt="LAB301" class="f-logo-img" style="height:160px;" width="1200" height="630" loading="lazy" decoding="async" />
             <p>${t.fAbout}</p>
             <div class="f-powered">
               <span>${t.fPowered}</span>
-              <img src="image-151.avif" alt="Mikhalych AI" class="f-powered-img" width="1768" height="363" />
+              <img src="image-151.avif" alt="Mikhalych AI" class="f-powered-img" width="1768" height="363" loading="lazy" decoding="async" />
             </div>
-            <div class="f-stack">OpenAI &middot; Anthropic &middot; Next.js &middot; Vercel &middot; Figma &middot; n8n</div>
+            <div class="f-stack">OpenAI &middot; Anthropic &middot; Next.js &middot; Vercel &middot; Figma &middot; n8n &middot; Netlify &middot; Cloudflare &middot; GitHub &middot; GitLab &middot; Render &middot; Supabase &middot; Yandex &middot; Telegram &middot; Bitrix24 &middot; Tilda &middot; REG.RU &middot; AmoCRM &middot; YooKassa &middot; Tinkoff &middot; VK</div>
           </div>
           <div class="f-col">
             <h5>${t.fNav}</h5>
@@ -204,43 +204,37 @@
     </footer>`;
 
 
-  // Batch all DOM reads first to prevent forced reflow (read-write-read-write pattern)
+  // Batch ALL reads first to avoid forced reflow (layout thrash prevention)
   const hasLayers = !!document.querySelector('.grid-bg');
   const hasNav    = !!document.querySelector('nav.topnav');
   const hasRibbon = !!document.querySelector('.ribbon');
   const hasFooter = !!document.querySelector('footer');
   const hasBgBtn  = !!document.querySelector('.bg-toggle:not(.nav-bg-toggle)');
+  const isDesktop = window.innerWidth > 768;
 
-  // Then batch all DOM writes
-  if (!hasLayers && window.innerWidth > 768) {
-    const layers = document.createElement('div');
-    layers.innerHTML = '<div class="grid-bg"></div><div class="bloom"></div><div class="grain"></div>';
-    document.body.prepend(...layers.children);
-  }
-
-  // mount chrome
-  const mount = (where, html) => {
-    const tmp = document.createElement('div');
+  // Build everything in detached fragments → single reflow per insertion point
+  const parseHTML = (html) => {
+    const tmp = document.createElement('template');
     tmp.innerHTML = html.trim();
-    where(tmp.firstElementChild);
+    return tmp.content;
   };
-  if (!hasNav) {
-    const tmp = document.createElement('div');
-    tmp.innerHTML = nav.trim();
-    document.body.prepend(...tmp.children);
-  }
-  if (!hasRibbon) mount(n => document.body.prepend(n), ribbon);
-  if (!hasFooter)  mount(n => document.body.appendChild(n), footer);
 
-  // ── Background toggle button (desktop floating)
-  if (!hasBgBtn) {
-    const btn = document.createElement('button');
-    btn.className = 'bg-toggle';
-    btn.setAttribute('aria-label', 'Сменить фон');
-    btn.title = 'Тёмный / Чёрный фон';
-    btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6.5" stroke="currentColor" stroke-width="1.5"/><path d="M8 1.5a6.5 6.5 0 0 1 0 13V1.5z" fill="currentColor"/></svg>';
-    document.body.appendChild(btn);
+  // Prepend chunk: ribbon + nav + (optional bg layers)
+  const prependFrag = document.createDocumentFragment();
+  if (!hasRibbon) prependFrag.appendChild(parseHTML(ribbon));
+  if (!hasNav)    prependFrag.appendChild(parseHTML(nav));
+  if (!hasLayers && isDesktop) {
+    prependFrag.appendChild(parseHTML('<div class="grid-bg"></div><div class="bloom"></div><div class="grain"></div>'));
   }
+  if (prependFrag.childNodes.length) document.body.prepend(prependFrag);
+
+  // Append chunk: footer + floating bg toggle
+  const appendFrag = document.createDocumentFragment();
+  if (!hasFooter) appendFrag.appendChild(parseHTML(footer));
+  if (!hasBgBtn) {
+    appendFrag.appendChild(parseHTML('<button class="bg-toggle" aria-label="Сменить фон" title="Тёмный / Чёрный фон"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6.5" stroke="currentColor" stroke-width="1.5"/><path d="M8 1.5a6.5 6.5 0 0 1 0 13V1.5z" fill="currentColor"/></svg></button>'));
+  }
+  if (appendFrag.childNodes.length) document.body.appendChild(appendFrag);
   // shared toggle logic for all .bg-toggle buttons
   const bgToggleHandler = () => {
     const isGrey = root.getAttribute('data-bg') === 'grey';
@@ -263,16 +257,24 @@
     q.addEventListener('click', () => item.classList.toggle('open'));
   });
 
-  // ── Hero swatch parallax (skip if reduced motion preferred)
+  // ── Hero swatch parallax (skip if reduced motion preferred, skip on touch devices)
   const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (!prefersReduced) {
-    document.querySelectorAll('.hero-title .swatch, .page-head .swatch').forEach(swatch => {
+  const isTouchDevice = window.matchMedia('(hover: none)').matches;
+  if (!prefersReduced && !isTouchDevice) {
+    const swatches = document.querySelectorAll('.hero-title .swatch, .page-head .swatch');
+    if (swatches.length) {
+      let pendingX = 0, pendingY = 0, rafId = 0;
+      const apply = () => {
+        rafId = 0;
+        const transform = `translate(${pendingX}px, ${pendingY}px)`;
+        swatches.forEach(s => { s.style.transform = transform; });
+      };
       document.addEventListener('mousemove', (e) => {
-        const x = (e.clientX / window.innerWidth - .5) * 8;
-        const y = (e.clientY / window.innerHeight - .5) * 8;
-        swatch.style.transform = `translate(${x}px, ${y}px)`;
-      });
-    });
+        pendingX = (e.clientX / window.innerWidth - .5) * 8;
+        pendingY = (e.clientY / window.innerHeight - .5) * 8;
+        if (!rafId) rafId = requestAnimationFrame(apply);
+      }, { passive: true });
+    }
   }
 
   // ── Hamburger / mobile drawer
@@ -292,7 +294,7 @@
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape') toggleDrawer(false); });
   }
 
-  // ── Language toggle (RU ↔ EN)
+  // ── Language toggle (RU ↔ EN). Skip heavy DOM walk on default RU load — only run when EN requested.
   const applyTranslations = (targetLang) => {
     document.querySelectorAll('[data-en]').forEach(el => {
       if (!el.hasAttribute('data-ru')) el.setAttribute('data-ru', el.innerHTML);
@@ -309,13 +311,18 @@
     document.documentElement.setAttribute('lang', targetLang);
     document.title = targetLang === 'en' && document.title.match(/[А-Яа-я]/) ? (document.querySelector('meta[name="title-en"]')?.content || document.title) : document.title;
   };
-  applyTranslations(lang);
+  // Only run translations if EN explicitly requested. Default RU = HTML already matches, skip DOM walk.
+  if (lang === 'en') applyTranslations('en');
 
 
-  // ── Pulsing green dot for ONLINE status indicators
-  document.querySelectorAll('.sig, .v, .hero-coord > div').forEach(el => {
-    if (el.textContent.includes('ONLINE')) {
-      el.innerHTML = el.innerHTML.replace(/(?:<span[^>]*>)?●(?:<\/span>)?\s*/g, '<span class="online-dot"></span>');
-    }
-  });
+  // ── Pulsing green dot for ONLINE status indicators (deferred to idle to avoid blocking LCP)
+  const enhanceOnlineDots = () => {
+    document.querySelectorAll('.sig, .v, .hero-coord > div').forEach(el => {
+      if (el.textContent.includes('ONLINE')) {
+        el.innerHTML = el.innerHTML.replace(/(?:<span[^>]*>)?●(?:<\/span>)?\s*/g, '<span class="online-dot"></span>');
+      }
+    });
+  };
+  if ('requestIdleCallback' in window) requestIdleCallback(enhanceOnlineDots, { timeout: 1500 });
+  else setTimeout(enhanceOnlineDots, 200);
 })();

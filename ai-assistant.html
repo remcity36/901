@@ -36,9 +36,11 @@
 <meta name="application-name" content="LAB301" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=optional" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=optional"></noscript>
-<link rel="stylesheet" href="theme.css?v=2">
+<link rel="preload" as="image" href="ai_assistant_waving.avif" fetchpriority="high">
+<link rel="preload" as="image" href="lab301-logo-mobile.avif" fetchpriority="high">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap"></noscript>
+<link rel="stylesheet" href="theme.css?v=3">
 <style>
   .chat-vis {
     background: var(--surface-2);
@@ -144,7 +146,7 @@
     </div>
 
     <div class="mik-hero reveal">
-      <img src="ai_assistant_waving.avif" alt="Михалыч — AI ассистент LAB301" width="200" height="260" loading="eager" fetchpriority="high" />
+      <img src="ai_assistant_waving.avif" alt="Михалыч — AI ассистент LAB301" width="200" height="260" loading="eager" fetchpriority="high" decoding="async" />
       <div class="mik-hero-info">
         <div class="row"><span class="k">Имя</span><span><b>Михалыч</b> · AI Sales Manager v5.0</span></div>
         <div class="row"><span class="k">Каналы</span><span>Telegram · Web · WhatsApp</span></div>
@@ -179,7 +181,7 @@
         <!-- Шапка чата -->
         <div class="tg-header">
           <div class="tg-avatar">
-            <img src="ai_assistant_waving.avif" alt="Михалыч" />
+            <img src="ai_assistant_waving.avif" alt="Михалыч" width="40" height="40" loading="lazy" decoding="async" />
           </div>
           <div class="tg-header-info">
             <div class="tg-name">Михалыч · LAB301</div>
@@ -596,6 +598,6 @@
   </div>
 </section>
 
-<script src="theme.js?v=2" defer></script>
+<script src="theme.js?v=3" defer></script>
 </body>
 </html>
